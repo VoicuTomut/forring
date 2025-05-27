@@ -44,5 +44,51 @@
       "chamber_registration": null
     },
     "additional_docs": {}
+  },
+  "4f1d2a39-d67c-419f-9229-3cf7feae6c50": {
+    "notary_id": "4f1d2a39-d67c-419f-9229-3cf7feae6c50",
+    "checked_prop_list": [
+      "becb1f88-0577-4aa2-a64e-cd737051e1fc"
+    ],
+    "properties_to_check": [],
+    "buyers_to_check": [],
+    "documents": {
+      "professional_license": null,
+      "certification": null,
+      "id_document": null,
+      "chamber_registration": null
+    },
+    "additional_docs": {}
+  },
+  "79db3f7e-68ec-4823-a875-5b5305fb95b4": {
+    "notary_id": "79db3f7e-68ec-4823-a875-5b5305fb95b4",
+    "checked_prop_list": [
+      "b91a1e36-13e0-493f-bf69-98888d3b8803",
+      "3dfc5c3e-4282-4e94-a614-984a948730ba"
+    ],
+    "properties_to_check": [],
+    "buyers_to_check": [],
+    "documents": {
+      "professional_license": null,
+      "certification": null,
+      "id_document": null,
+      "chamber_registration": null
+    },
+    "additional_docs": {}
+  },
+  "0cc26d3b-47b6-436e-873b-d54331003ccd": {
+    "notary_id": "0cc26d3b-47b6-436e-873b-d54331003ccd",
+    "checked_prop_list": [
+      "57e50c31-4dd5-4c09-b2ff-646660ec3c0a"
+    ],
+    "properties_to_check": [],
+    "buyers_to_check": [],
+    "documents": {
+      "professional_license": null,
+      "certification": null,
+      "id_document": null,
+      "chamber_registration": null
+    },
+    "additional_docs": {}
   }
 }

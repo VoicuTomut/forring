@@ -214,3 +214,31 @@ The platform is built around 6 core classes, each handling specific aspects of t
 ---
 
 *GPP - Transforming property transactions through digital innovation and legal compliance.*
+
+cpmplet project structured:
+
+
+forring/
+├── app.py                          # ✅ Clean main entry point
+├── gpp/
+│   └── classes/                    # ✅ Your Pydantic models
+├── interface/
+│   ├── components/
+│   │   ├── agent/                  # ✅ Agent-specific components
+│   │   │   ├── document_manager.py
+│   │   │   ├── property_form.py
+│   │   │   └── property_list.py
+│   │   └── notary/                 # ✅ Notary-specific components
+│   │       ├── validation_queue.py
+│   │       └── validated_properties.py
+│   ├── config/
+│   │   └── constants.py            # ✅ All configurations
+│   ├── dashboards/
+│   │   ├── agent_dashboard.py      # ✅ Role-based dashboards
+│   │   ├── buyer_dashboard.py
+│   │   └── notary_dashboard.py
+│   └── utils/                      # ✅ Utility functions
+│       ├── database.py
+│       ├── property_helpers.py
+│       └── user_management.py
+└── data/                           # ✅ JSON storage

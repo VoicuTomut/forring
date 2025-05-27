@@ -688,7 +688,7 @@
     "neighborhood_description": "vr",
     "post_date": "2025-05-27 05:01:32.408944",
     "validation_date": "2025-05-27 05:02:11.967833",
-    "reserved": false,
+    "reserved": true,
     "looking_for_notary": false,
     "notary_attached": "a12e15a2-8141-4dcc-9fa9-ff08233b7777",
     "status": "active",
@@ -715,7 +715,9 @@
       "power_of_attorney": "e7518498-3dc5-40ec-a160-0e71d28cd0f5",
       "litigation_certificate": "9794c621-a122-46e9-9733-30c23929e2a3"
     },
-    "additional_docs": {}
+    "additional_docs": {},
+    "document_history": [],
+    "agent_notes": []
   },
   "2ffe141f-e175-4d69-b25a-862b87c4673b": {
     "property_id": "2ffe141f-e175-4d69-b25a-862b87c4673b",
@@ -880,5 +882,570 @@
         "context": "document_replacement"
       }
     ]
+  },
+  "becb1f88-0577-4aa2-a64e-cd737051e1fc": {
+    "property_id": "becb1f88-0577-4aa2-a64e-cd737051e1fc",
+    "agent_id": "5c182a38-a654-4aea-9ba4-7885df25a1d8",
+    "attached_notarys_id": [
+      "4f1d2a39-d67c-419f-9229-3cf7feae6c50"
+    ],
+    "title": "p00",
+    "description": "good",
+    "dimension": "150",
+    "price": "1000.0",
+    "address": "123t",
+    "city": "rome",
+    "postal_code": "",
+    "country": "",
+    "number_of_rooms": null,
+    "finishes": null,
+    "renovations": null,
+    "neighborhood_description": null,
+    "post_date": "2025-05-27 05:44:24.419963",
+    "validation_date": "2025-05-27 05:45:54.108678",
+    "reserved": true,
+    "looking_for_notary": false,
+    "notary_attached": "4f1d2a39-d67c-419f-9229-3cf7feae6c50",
+    "status": "active",
+    "document_ids": [
+      "16f535ff-f6f3-4e0c-87df-a35e4f2ec4d3",
+      "cde6b6bc-e06d-461b-84dc-c1fd56b63912",
+      "09316468-9d48-4ddd-8cdc-97afb77c0e3c",
+      "e82c16a2-2336-44f1-86d4-c84b89c707ad",
+      "64a2ec33-57f3-4b46-8c11-cf0ca9001e31",
+      "707661e0-5488-4438-a5b0-984ba4acd9b6",
+      "2598a1f9-62e5-4acb-ab5d-e263237a783a",
+      "8ed3c1d8-fe59-47f7-bc69-941b3f36c861",
+      "166e1181-a873-4f35-b552-e09418c30e9d"
+    ],
+    "mandatory_legal_docs": {
+      "title_deed": "16f535ff-f6f3-4e0c-87df-a35e4f2ec4d3",
+      "land_registry_extract": "cde6b6bc-e06d-461b-84dc-c1fd56b63912",
+      "building_permit": "09316468-9d48-4ddd-8cdc-97afb77c0e3c",
+      "habitation_certificate": "e82c16a2-2336-44f1-86d4-c84b89c707ad",
+      "mortgage_lien_certificate": "64a2ec33-57f3-4b46-8c11-cf0ca9001e31",
+      "seller_id_document": "707661e0-5488-4438-a5b0-984ba4acd9b6",
+      "marital_status_documents": "2598a1f9-62e5-4acb-ab5d-e263237a783a",
+      "power_of_attorney": "8ed3c1d8-fe59-47f7-bc69-941b3f36c861",
+      "litigation_certificate": "166e1181-a873-4f35-b552-e09418c30e9d"
+    },
+    "additional_docs": {
+      "supplementary_documents": [],
+      "corrections": [],
+      "clarifications": [],
+      "agent_notes": [],
+      "updated_photos": [],
+      "floor_plans": [],
+      "certificates": [],
+      "correspondence": [],
+      "other": []
+    },
+    "document_history": [
+      {
+        "action": "mandatory_document_added",
+        "document_type": "title_deed",
+        "document_id": "16f535ff-f6f3-4e0c-87df-a35e4f2ec4d3",
+        "timestamp": "2025-05-27 05:44:24.419970",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "land_registry_extract",
+        "document_id": "cde6b6bc-e06d-461b-84dc-c1fd56b63912",
+        "timestamp": "2025-05-27 05:44:24.419971",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "building_permit",
+        "document_id": "09316468-9d48-4ddd-8cdc-97afb77c0e3c",
+        "timestamp": "2025-05-27 05:44:24.419972",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "habitation_certificate",
+        "document_id": "e82c16a2-2336-44f1-86d4-c84b89c707ad",
+        "timestamp": "2025-05-27 05:44:24.419972",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "mortgage_lien_certificate",
+        "document_id": "64a2ec33-57f3-4b46-8c11-cf0ca9001e31",
+        "timestamp": "2025-05-27 05:44:24.419973",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "seller_id_document",
+        "document_id": "707661e0-5488-4438-a5b0-984ba4acd9b6",
+        "timestamp": "2025-05-27 05:44:24.419973",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "marital_status_documents",
+        "document_id": "2598a1f9-62e5-4acb-ab5d-e263237a783a",
+        "timestamp": "2025-05-27 05:44:24.419974",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "power_of_attorney",
+        "document_id": "8ed3c1d8-fe59-47f7-bc69-941b3f36c861",
+        "timestamp": "2025-05-27 05:44:24.419975",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "litigation_certificate",
+        "document_id": "166e1181-a873-4f35-b552-e09418c30e9d",
+        "timestamp": "2025-05-27 05:44:24.419975",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      }
+    ],
+    "agent_notes": []
+  },
+  "93ce80ff-71ff-43c1-bcb0-f08f6eb61444": {
+    "property_id": "93ce80ff-71ff-43c1-bcb0-f08f6eb61444",
+    "agent_id": "5c182a38-a654-4aea-9ba4-7885df25a1d8",
+    "attached_notarys_id": [],
+    "title": "ft",
+    "description": "rr",
+    "dimension": "34",
+    "price": "2000.0",
+    "address": "ve",
+    "city": "f4",
+    "postal_code": "",
+    "country": "",
+    "number_of_rooms": null,
+    "finishes": null,
+    "renovations": null,
+    "neighborhood_description": null,
+    "post_date": "2025-05-27 05:47:37.020057",
+    "validation_date": null,
+    "reserved": false,
+    "looking_for_notary": true,
+    "notary_attached": null,
+    "status": "active",
+    "document_ids": [
+      "b7c0b6e3-b852-4caf-bee3-aa083680d3e3",
+      "57b94c77-8067-4c3e-8170-44edc9554294",
+      "b2f5e95c-2663-420d-8908-a967110ff07f",
+      "f804968a-f9b9-4c83-aced-eec98fb1cb14",
+      "63a5752b-f34f-4a4c-a6f0-44f23ab5760a",
+      "79b2a01b-e5f9-47c2-8961-473ba140f0fa",
+      "2e7cb067-cd9f-40b8-8cc0-ea1e3bfaeeb0",
+      "c783b6f4-f7b6-4eae-b4a3-d51d6ad15a60",
+      "c55b0fb8-40fd-48f8-be72-c55d311e08d2"
+    ],
+    "mandatory_legal_docs": {
+      "title_deed": "b7c0b6e3-b852-4caf-bee3-aa083680d3e3",
+      "land_registry_extract": "57b94c77-8067-4c3e-8170-44edc9554294",
+      "building_permit": "b2f5e95c-2663-420d-8908-a967110ff07f",
+      "habitation_certificate": "f804968a-f9b9-4c83-aced-eec98fb1cb14",
+      "mortgage_lien_certificate": "63a5752b-f34f-4a4c-a6f0-44f23ab5760a",
+      "seller_id_document": "79b2a01b-e5f9-47c2-8961-473ba140f0fa",
+      "marital_status_documents": "2e7cb067-cd9f-40b8-8cc0-ea1e3bfaeeb0",
+      "power_of_attorney": "c783b6f4-f7b6-4eae-b4a3-d51d6ad15a60",
+      "litigation_certificate": "c55b0fb8-40fd-48f8-be72-c55d311e08d2"
+    },
+    "additional_docs": {
+      "supplementary_documents": [],
+      "corrections": [],
+      "clarifications": [],
+      "agent_notes": [],
+      "updated_photos": [],
+      "floor_plans": [],
+      "certificates": [],
+      "correspondence": [],
+      "other": []
+    },
+    "document_history": [
+      {
+        "action": "mandatory_document_added",
+        "document_type": "title_deed",
+        "document_id": "b7c0b6e3-b852-4caf-bee3-aa083680d3e3",
+        "timestamp": "2025-05-27 05:47:37.020065",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "land_registry_extract",
+        "document_id": "57b94c77-8067-4c3e-8170-44edc9554294",
+        "timestamp": "2025-05-27 05:47:37.020066",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "building_permit",
+        "document_id": "b2f5e95c-2663-420d-8908-a967110ff07f",
+        "timestamp": "2025-05-27 05:47:37.020066",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "habitation_certificate",
+        "document_id": "f804968a-f9b9-4c83-aced-eec98fb1cb14",
+        "timestamp": "2025-05-27 05:47:37.020067",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "mortgage_lien_certificate",
+        "document_id": "63a5752b-f34f-4a4c-a6f0-44f23ab5760a",
+        "timestamp": "2025-05-27 05:47:37.020067",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "seller_id_document",
+        "document_id": "79b2a01b-e5f9-47c2-8961-473ba140f0fa",
+        "timestamp": "2025-05-27 05:47:37.020068",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "marital_status_documents",
+        "document_id": "2e7cb067-cd9f-40b8-8cc0-ea1e3bfaeeb0",
+        "timestamp": "2025-05-27 05:47:37.020068",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "power_of_attorney",
+        "document_id": "c783b6f4-f7b6-4eae-b4a3-d51d6ad15a60",
+        "timestamp": "2025-05-27 05:47:37.020069",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "litigation_certificate",
+        "document_id": "c55b0fb8-40fd-48f8-be72-c55d311e08d2",
+        "timestamp": "2025-05-27 05:47:37.020070",
+        "added_by": "5c182a38-a654-4aea-9ba4-7885df25a1d8"
+      }
+    ],
+    "agent_notes": []
+  },
+  "b91a1e36-13e0-493f-bf69-98888d3b8803": {
+    "property_id": "b91a1e36-13e0-493f-bf69-98888d3b8803",
+    "agent_id": "7cf4b67c-230f-4010-9496-3ac9ff18bdbe",
+    "attached_notarys_id": [
+      "79db3f7e-68ec-4823-a875-5b5305fb95b4"
+    ],
+    "title": "frv",
+    "description": "cdv",
+    "dimension": "12",
+    "price": "3000.0",
+    "address": "dv",
+    "city": "ve",
+    "postal_code": "",
+    "country": "",
+    "number_of_rooms": null,
+    "finishes": null,
+    "renovations": null,
+    "neighborhood_description": null,
+    "post_date": "2025-05-27 06:17:09.669003",
+    "validation_date": "2025-05-27 06:20:41.235356",
+    "reserved": false,
+    "looking_for_notary": false,
+    "notary_attached": "79db3f7e-68ec-4823-a875-5b5305fb95b4",
+    "status": "active",
+    "document_ids": [
+      "6605efdb-d984-4320-b29d-d5a08a99d219",
+      "dbebf5d8-c680-43d3-9a0e-d65b86e45c68",
+      "dc4be930-f8df-4b7d-9966-21e641ddca63"
+    ],
+    "mandatory_legal_docs": {
+      "title_deed": "6605efdb-d984-4320-b29d-d5a08a99d219",
+      "land_registry_extract": "dc4be930-f8df-4b7d-9966-21e641ddca63",
+      "building_permit": "dbebf5d8-c680-43d3-9a0e-d65b86e45c68",
+      "habitation_certificate": null,
+      "mortgage_lien_certificate": null,
+      "seller_id_document": null,
+      "marital_status_documents": null,
+      "power_of_attorney": null,
+      "litigation_certificate": null
+    },
+    "additional_docs": {
+      "supplementary_documents": [],
+      "corrections": [],
+      "clarifications": [],
+      "agent_notes": [],
+      "updated_photos": [],
+      "floor_plans": [],
+      "certificates": [],
+      "correspondence": [],
+      "other": []
+    },
+    "document_history": [
+      {
+        "action": "mandatory_document_added",
+        "document_type": "title_deed",
+        "document_id": "6605efdb-d984-4320-b29d-d5a08a99d219",
+        "timestamp": "2025-05-27 06:17:09.669011",
+        "added_by": "7cf4b67c-230f-4010-9496-3ac9ff18bdbe"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "land_registry_extract",
+        "document_id": "dc7183f3-6f21-4810-8f39-f136d094d237",
+        "timestamp": "2025-05-27 06:17:09.669012",
+        "added_by": "7cf4b67c-230f-4010-9496-3ac9ff18bdbe"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "building_permit",
+        "document_id": "dbebf5d8-c680-43d3-9a0e-d65b86e45c68",
+        "timestamp": "2025-05-27 06:17:09.669013",
+        "added_by": "7cf4b67c-230f-4010-9496-3ac9ff18bdbe"
+      },
+      {
+        "action": "mandatory_document_replaced",
+        "document_type": "land_registry_extract",
+        "old_document_id": "dc7183f3-6f21-4810-8f39-f136d094d237",
+        "new_document_id": "dc4be930-f8df-4b7d-9966-21e641ddca63",
+        "timestamp": "2025-05-27 06:19:15.898229",
+        "added_by": "7cf4b67c-230f-4010-9496-3ac9ff18bdbe",
+        "reason": "ok"
+      }
+    ],
+    "agent_notes": [
+      {
+        "note": "Replaced land_registry_extract: ok",
+        "timestamp": "2025-05-27 06:19:15.898233",
+        "agent_id": "7cf4b67c-230f-4010-9496-3ac9ff18bdbe",
+        "context": "document_replacement"
+      }
+    ]
+  },
+  "3dfc5c3e-4282-4e94-a614-984a948730ba": {
+    "property_id": "3dfc5c3e-4282-4e94-a614-984a948730ba",
+    "agent_id": "7cf4b67c-230f-4010-9496-3ac9ff18bdbe",
+    "attached_notarys_id": [
+      "79db3f7e-68ec-4823-a875-5b5305fb95b4"
+    ],
+    "title": "ere",
+    "description": "vf",
+    "dimension": "ok",
+    "price": "1000.0",
+    "address": "vrg",
+    "city": "vgr",
+    "postal_code": "",
+    "country": "",
+    "number_of_rooms": null,
+    "finishes": null,
+    "renovations": null,
+    "neighborhood_description": null,
+    "post_date": "2025-05-27 10:43:45.844515",
+    "validation_date": "2025-05-27 10:47:55.594884",
+    "reserved": false,
+    "looking_for_notary": false,
+    "notary_attached": "79db3f7e-68ec-4823-a875-5b5305fb95b4",
+    "status": "active",
+    "document_ids": [
+      "ab63b11d-e4b6-48e6-86cb-5d75dff2d0d3",
+      "ce97c857-cbd4-4e65-9b84-43c480435ca3",
+      "6f95e6bd-c9ab-4772-811b-5648b367a0fb"
+    ],
+    "mandatory_legal_docs": {
+      "title_deed": "ab63b11d-e4b6-48e6-86cb-5d75dff2d0d3",
+      "land_registry_extract": "ce97c857-cbd4-4e65-9b84-43c480435ca3",
+      "building_permit": "6f95e6bd-c9ab-4772-811b-5648b367a0fb",
+      "habitation_certificate": null,
+      "mortgage_lien_certificate": null,
+      "seller_id_document": null,
+      "marital_status_documents": null,
+      "power_of_attorney": null,
+      "litigation_certificate": null
+    },
+    "additional_docs": {
+      "supplementary_documents": [],
+      "corrections": [],
+      "clarifications": [],
+      "agent_notes": [],
+      "updated_photos": [],
+      "floor_plans": [],
+      "certificates": [],
+      "correspondence": [],
+      "other": []
+    },
+    "document_history": [
+      {
+        "action": "mandatory_document_added",
+        "document_type": "title_deed",
+        "document_id": "ab63b11d-e4b6-48e6-86cb-5d75dff2d0d3",
+        "timestamp": "2025-05-27 10:43:45.844524",
+        "added_by": "7cf4b67c-230f-4010-9496-3ac9ff18bdbe"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "land_registry_extract",
+        "document_id": "ce97c857-cbd4-4e65-9b84-43c480435ca3",
+        "timestamp": "2025-05-27 10:43:45.844525",
+        "added_by": "7cf4b67c-230f-4010-9496-3ac9ff18bdbe"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "building_permit",
+        "document_id": "6f95e6bd-c9ab-4772-811b-5648b367a0fb",
+        "timestamp": "2025-05-27 10:43:45.844525",
+        "added_by": "7cf4b67c-230f-4010-9496-3ac9ff18bdbe"
+      }
+    ],
+    "agent_notes": []
+  },
+  "a6285d4a-8c16-4db5-aca5-87ea32d5a721": {
+    "property_id": "a6285d4a-8c16-4db5-aca5-87ea32d5a721",
+    "agent_id": "28a10c92-ee77-45dc-b5f4-bc4f09e4dbfb",
+    "attached_notarys_id": [],
+    "title": "qtr",
+    "description": "ccvv",
+    "dimension": "100",
+    "price": "2000.0",
+    "address": "cwrv",
+    "city": "rv",
+    "postal_code": "",
+    "country": "",
+    "number_of_rooms": null,
+    "finishes": null,
+    "renovations": null,
+    "neighborhood_description": null,
+    "post_date": "2025-05-27 11:10:49.059805",
+    "validation_date": null,
+    "reserved": false,
+    "looking_for_notary": true,
+    "notary_attached": null,
+    "status": "active",
+    "document_ids": [
+      "5ec06b35-71e7-48c6-a228-61b67a349a4e",
+      "35858d75-4c43-453f-973d-a1fa47863833",
+      "4e050ee4-edb9-4f0d-b314-35367bc1d2bc"
+    ],
+    "mandatory_legal_docs": {
+      "title_deed": "5ec06b35-71e7-48c6-a228-61b67a349a4e",
+      "land_registry_extract": "35858d75-4c43-453f-973d-a1fa47863833",
+      "building_permit": "4e050ee4-edb9-4f0d-b314-35367bc1d2bc",
+      "habitation_certificate": null,
+      "mortgage_lien_certificate": null,
+      "seller_id_document": null,
+      "marital_status_documents": null,
+      "power_of_attorney": null,
+      "litigation_certificate": null
+    },
+    "additional_docs": {
+      "supplementary_documents": [],
+      "corrections": [],
+      "clarifications": [],
+      "agent_notes": [],
+      "updated_photos": [],
+      "floor_plans": [],
+      "certificates": [],
+      "correspondence": [],
+      "other": []
+    },
+    "document_history": [
+      {
+        "action": "mandatory_document_added",
+        "document_type": "title_deed",
+        "document_id": "5ec06b35-71e7-48c6-a228-61b67a349a4e",
+        "timestamp": "2025-05-27 11:10:49.059812",
+        "added_by": "28a10c92-ee77-45dc-b5f4-bc4f09e4dbfb"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "land_registry_extract",
+        "document_id": "35858d75-4c43-453f-973d-a1fa47863833",
+        "timestamp": "2025-05-27 11:10:49.059813",
+        "added_by": "28a10c92-ee77-45dc-b5f4-bc4f09e4dbfb"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "building_permit",
+        "document_id": "4e050ee4-edb9-4f0d-b314-35367bc1d2bc",
+        "timestamp": "2025-05-27 11:10:49.059814",
+        "added_by": "28a10c92-ee77-45dc-b5f4-bc4f09e4dbfb"
+      }
+    ],
+    "agent_notes": []
+  },
+  "57e50c31-4dd5-4c09-b2ff-646660ec3c0a": {
+    "property_id": "57e50c31-4dd5-4c09-b2ff-646660ec3c0a",
+    "agent_id": "28a10c92-ee77-45dc-b5f4-bc4f09e4dbfb",
+    "attached_notarys_id": [
+      "0cc26d3b-47b6-436e-873b-d54331003ccd"
+    ],
+    "title": "Azor",
+    "description": "cv",
+    "dimension": "200",
+    "price": "3000.0",
+    "address": "wrv",
+    "city": "cvfe",
+    "postal_code": "",
+    "country": "",
+    "number_of_rooms": null,
+    "finishes": null,
+    "renovations": null,
+    "neighborhood_description": null,
+    "post_date": "2025-05-27 11:28:19.712263",
+    "validation_date": "2025-05-27 11:35:38.534128",
+    "reserved": false,
+    "looking_for_notary": false,
+    "notary_attached": "0cc26d3b-47b6-436e-873b-d54331003ccd",
+    "status": "active",
+    "document_ids": [
+      "604925e5-207e-4529-9768-41d861a680b1",
+      "4a4bffe9-1ba6-4970-9126-71f5909355f1",
+      "b703f362-c8cd-48c1-89eb-ebb6e820ac02",
+      "6ddacf94-3857-40a1-847d-e895acc3cc63"
+    ],
+    "mandatory_legal_docs": {
+      "title_deed": "604925e5-207e-4529-9768-41d861a680b1",
+      "land_registry_extract": "4a4bffe9-1ba6-4970-9126-71f5909355f1",
+      "building_permit": "b703f362-c8cd-48c1-89eb-ebb6e820ac02",
+      "habitation_certificate": null,
+      "mortgage_lien_certificate": null,
+      "seller_id_document": null,
+      "marital_status_documents": null,
+      "power_of_attorney": null,
+      "litigation_certificate": null
+    },
+    "additional_docs": {
+      "supplementary_documents": [],
+      "corrections": [],
+      "clarifications": [],
+      "agent_notes": [],
+      "updated_photos": [],
+      "floor_plans": [],
+      "certificates": [],
+      "correspondence": [],
+      "other": []
+    },
+    "document_history": [
+      {
+        "action": "mandatory_document_added",
+        "document_type": "title_deed",
+        "document_id": "604925e5-207e-4529-9768-41d861a680b1",
+        "timestamp": "2025-05-27 11:28:19.712350",
+        "added_by": "28a10c92-ee77-45dc-b5f4-bc4f09e4dbfb"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "land_registry_extract",
+        "document_id": "4a4bffe9-1ba6-4970-9126-71f5909355f1",
+        "timestamp": "2025-05-27 11:28:19.712356",
+        "added_by": "28a10c92-ee77-45dc-b5f4-bc4f09e4dbfb"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "building_permit",
+        "document_id": "b703f362-c8cd-48c1-89eb-ebb6e820ac02",
+        "timestamp": "2025-05-27 11:28:19.712357",
+        "added_by": "28a10c92-ee77-45dc-b5f4-bc4f09e4dbfb"
+      }
+    ],
+    "agent_notes": []
   }
 }

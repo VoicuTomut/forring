@@ -61,5 +61,62 @@
       "business_registration": null
     },
     "additional_docs": {}
+  },
+  "5c182a38-a654-4aea-9ba4-7885df25a1d8": {
+    "agent_id": "5c182a38-a654-4aea-9ba4-7885df25a1d8",
+    "agent_active_prop_list": [
+      "becb1f88-0577-4aa2-a64e-cd737051e1fc",
+      "93ce80ff-71ff-43c1-bcb0-f08f6eb61444"
+    ],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
+  },
+  "af778407-5392-4a20-8ed6-1bc3071ef3de": {
+    "agent_id": "af778407-5392-4a20-8ed6-1bc3071ef3de",
+    "agent_active_prop_list": [],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
+  },
+  "7cf4b67c-230f-4010-9496-3ac9ff18bdbe": {
+    "agent_id": "7cf4b67c-230f-4010-9496-3ac9ff18bdbe",
+    "agent_active_prop_list": [
+      "b91a1e36-13e0-493f-bf69-98888d3b8803",
+      "3dfc5c3e-4282-4e94-a614-984a948730ba"
+    ],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
+  },
+  "28a10c92-ee77-45dc-b5f4-bc4f09e4dbfb": {
+    "agent_id": "28a10c92-ee77-45dc-b5f4-bc4f09e4dbfb",
+    "agent_active_prop_list": [
+      "a6285d4a-8c16-4db5-aca5-87ea32d5a721",
+      "57e50c31-4dd5-4c09-b2ff-646660ec3c0a"
+    ],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
   }
 }
