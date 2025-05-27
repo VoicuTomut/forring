@@ -1,1 +1,148 @@
-{}
+{
+  "6d960928-eb0c-4261-a310-5b629c160947": {
+    "buying_id": "6d960928-eb0c-4261-a310-5b629c160947",
+    "agent_id": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
+    "buyer_id": "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3",
+    "property_id": "73ec5bf0-f8ed-4e6a-af8c-4269256616ab",
+    "buying_documents": {
+      "purchase_contract": null,
+      "payment_proof": null,
+      "loan_approval": "27d6a9b1-5143-4e29-a842-9ba1db02a8b4",
+      "inspection_report": null,
+      "insurance_policy": null,
+      "transfer_deed": null
+    },
+    "transaction_date": null,
+    "final_price": 3000.0,
+    "status": "under_review",
+    "scheduled_meetings": [
+      {
+        "meeting_id": "551143af-8744-4dc1-ab72-d7a998eec6c5",
+        "meeting_type": "property_viewing",
+        "scheduled_date": "2025-05-28T14:00:00",
+        "participants": [
+          "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
+          "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3"
+        ],
+        "location": "",
+        "agenda": "",
+        "status": "completed",
+        "created_by": "c9000d54-6c1f-46f0-ae53-78ba984e6ac8",
+        "created_date": "2025-05-27T18:08:59.682193",
+        "meeting_notes": ""
+      }
+    ],
+    "additional_docs": {},
+    "document_validation_status": {
+      "loan_approval": {
+        "document_id": "27d6a9b1-5143-4e29-a842-9ba1db02a8b4",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-27T18:01:47.049535",
+        "validated_by": "19941c50-5037-4005-a7df-9e494b6ec72f",
+        "validation_date": "2025-05-27T18:04:10.972600",
+        "validation_notes": ""
+      }
+    },
+    "created_date": "2025-05-27T18:00:29.336614",
+    "last_updated": "2025-05-27T18:08:59.682261",
+    "transaction_notes": [
+      {
+        "note_id": "6bfc3c85-8751-4475-b81f-9cf28ae7b6c5",
+        "note": "Reservation payment processed successfully. Amount: \u20ac150.00, Transaction ID: c794f599-a542-4d71-bc95-f65ae1d10b8c",
+        "author_id": "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3",
+        "note_type": "payment",
+        "timestamp": "2025-05-27T18:00:29.336690",
+        "visibility": "all"
+      },
+      {
+        "note_id": "c27a62ee-05ae-4998-8394-beed54253c6b",
+        "note": "Document uploaded: Bank Loan Approval.",
+        "author_id": "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-27T18:01:47.049557",
+        "visibility": "all"
+      },
+      {
+        "note_id": "55f1c6cc-8fc0-4fb6-9e87-dac0589a2d6a",
+        "note": "Status changed from pending to documents_pending.",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-27T18:01:47.049580",
+        "visibility": "all"
+      },
+      {
+        "note_id": "15066e96-a1a5-4485-86bb-240492a9ca98",
+        "note": "[CHAT] nu ce zici?",
+        "author_id": "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3",
+        "note_type": "chat",
+        "timestamp": "2025-05-27T18:02:07.076871",
+        "visibility": "all"
+      },
+      {
+        "note_id": "afbab580-bcdd-45b9-938d-cea75aa7e54a",
+        "note": "[CHAT] nu ce zici?\noh no",
+        "author_id": "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3",
+        "note_type": "chat",
+        "timestamp": "2025-05-27T18:02:12.983387",
+        "visibility": "all"
+      },
+      {
+        "note_id": "e4a582d4-d9c8-422c-a865-0a61a3fdae33",
+        "note": "Document Bank Loan Approval approved.",
+        "author_id": "19941c50-5037-4005-a7df-9e494b6ec72f",
+        "note_type": "validation",
+        "timestamp": "2025-05-27T18:04:10.972955",
+        "visibility": "all"
+      },
+      {
+        "note_id": "3441838f-9de9-4730-b06b-53234970dfc7",
+        "note": "Status changed from documents_pending to under_review. All documents validated",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-27T18:04:10.972973",
+        "visibility": "all"
+      },
+      {
+        "note_id": "1e6ca399-702e-44ff-b2ec-0fdf0938f903",
+        "note": "we need ot mee soon\n",
+        "author_id": "19941c50-5037-4005-a7df-9e494b6ec72f",
+        "note_type": "meeting",
+        "timestamp": "2025-05-27T18:04:50.123512",
+        "visibility": "all"
+      },
+      {
+        "note_id": "d90df9bd-a6c9-424d-9bfc-74819b2594d0",
+        "note": "[CHAT] hei we ned to",
+        "author_id": "c9000d54-6c1f-46f0-ae53-78ba984e6ac8",
+        "note_type": "chat",
+        "timestamp": "2025-05-27T18:07:57.225900",
+        "visibility": "all"
+      },
+      {
+        "note_id": "898592c3-bd14-4a9d-bcc0-39c77fe69908",
+        "note": "hei ce mai zici \n",
+        "author_id": "c9000d54-6c1f-46f0-ae53-78ba984e6ac8",
+        "note_type": "general",
+        "timestamp": "2025-05-27T18:08:30.959378",
+        "visibility": "all"
+      },
+      {
+        "note_id": "faeabfa1-7965-40e6-92bc-2ada2dc46e61",
+        "note": "tu nu zici nimic",
+        "author_id": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
+        "note_type": "general",
+        "timestamp": "2025-05-27T18:08:44.050732",
+        "visibility": "all"
+      },
+      {
+        "note_id": "58be61d2-2697-4123-9157-a759a1e590e8",
+        "note": "Meeting scheduled: Property Viewing on 2025-05-28 14:00",
+        "author_id": "c9000d54-6c1f-46f0-ae53-78ba984e6ac8",
+        "note_type": "meeting",
+        "timestamp": "2025-05-27T18:08:59.682259",
+        "visibility": "all"
+      }
+    ]
+  }
+}

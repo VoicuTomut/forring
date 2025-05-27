@@ -165,8 +165,33 @@
   "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c": {
     "agent_id": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
     "agent_active_prop_list": [
-      "39dc990d-67e3-4195-8436-282e28bd95df"
+      "39dc990d-67e3-4195-8436-282e28bd95df",
+      "73ec5bf0-f8ed-4e6a-af8c-4269256616ab"
     ],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
+  },
+  "f264652e-b644-4a70-a29b-a42d5bd284c6": {
+    "agent_id": "f264652e-b644-4a70-a29b-a42d5bd284c6",
+    "agent_active_prop_list": [],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
+  },
+  "393df11c-355f-4c42-b923-f9a380e8e33c": {
+    "agent_id": "393df11c-355f-4c42-b923-f9a380e8e33c",
+    "agent_active_prop_list": [],
     "agent_sold_prop": [],
     "agent_notary_pending_prop": [],
     "documents": {

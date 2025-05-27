@@ -1,1 +1,57 @@
-{}
+{
+  "0578648b-bf30-4bc9-b9a9-38824ac2bbd8": {
+    "document_id": "0578648b-bf30-4bc9-b9a9-38824ac2bbd8",
+    "document_name": "Property Photo 1",
+    "document_path": "data/files/photos/photo_20250527_175901.jpeg",
+    "upload_id": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
+    "validation_status": true,
+    "upload_date": "2025-05-27 17:59:01.557309",
+    "validation_date": null,
+    "who_validate": null,
+    "visibility": true
+  },
+  "1eea0eec-cb52-4626-ac03-6f28d593f35d": {
+    "document_id": "1eea0eec-cb52-4626-ac03-6f28d593f35d",
+    "document_name": "Title Deed / Property Ownership Document",
+    "document_path": "data/files/documents/Ownership_20250527_175901.pdf",
+    "upload_id": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
+    "validation_status": true,
+    "upload_date": "2025-05-27 17:59:01.559282",
+    "validation_date": "2025-05-27 17:59:16.711284",
+    "who_validate": "19941c50-5037-4005-a7df-9e494b6ec72f",
+    "visibility": true
+  },
+  "1cf1bfce-0f5e-48b5-81b9-ceb8862fcc4e": {
+    "document_id": "1cf1bfce-0f5e-48b5-81b9-ceb8862fcc4e",
+    "document_name": "Land Registry Extract",
+    "document_path": "data/files/documents/LanndRegistry_20250527_175901.pdf",
+    "upload_id": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
+    "validation_status": true,
+    "upload_date": "2025-05-27 17:59:01.559858",
+    "validation_date": "2025-05-27 17:59:18.024547",
+    "who_validate": "19941c50-5037-4005-a7df-9e494b6ec72f",
+    "visibility": true
+  },
+  "de7d3ece-6132-4dda-9e25-0ae803b5c37d": {
+    "document_id": "de7d3ece-6132-4dda-9e25-0ae803b5c37d",
+    "document_name": "Building Permit",
+    "document_path": "data/files/documents/Ownership_20250527_175901.pdf",
+    "upload_id": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
+    "validation_status": true,
+    "upload_date": "2025-05-27 17:59:01.560482",
+    "validation_date": "2025-05-27 17:59:19.246637",
+    "who_validate": "19941c50-5037-4005-a7df-9e494b6ec72f",
+    "visibility": true
+  },
+  "27d6a9b1-5143-4e29-a842-9ba1db02a8b4": {
+    "document_id": "27d6a9b1-5143-4e29-a842-9ba1db02a8b4",
+    "document_name": "Bank Loan Approval - Ownership.pdf",
+    "document_path": "data/files/documents/Ownership_20250527_180147.pdf",
+    "upload_id": "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3",
+    "validation_status": false,
+    "upload_date": "2025-05-27 18:01:47.048849",
+    "validation_date": null,
+    "who_validate": null,
+    "visibility": true
+  }
+}

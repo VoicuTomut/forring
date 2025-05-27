@@ -11,6 +11,7 @@ from gpp.interface.dashboards.agent_dashboard import agent_dashboard
 from gpp.interface.dashboards.notary_dashboard import notary_dashboard
 from gpp.interface.dashboards.buyer_dashboard import buyer_dashboard
 from gpp.interface.utils.user_management import get_or_create_user
+import os
 
 # Import enhanced buying system components
 from gpp.interface.components.shared.buying_components import (
@@ -60,12 +61,36 @@ def main():
     init_data_files()
     init_buying_database()
 
-    # Header
-    st.title("🏠 GPP - Global Property Platform")
+    # Display logos in header
+    col1, col2, col3 = st.columns([1, 2, 1])
+
+    with col1:
+        # Display icon if it exists
+        if os.path.exists("LOGO/IconsProAdvisor_Pro.png"):
+            st.image("LOGO/IconsProAdvisor_Pro.png", width=80)
+
+    with col2:
+        # Display main logo if it exists
+        if os.path.exists("LOGO/logo.png"):
+            st.image("LOGO/logo.png", use_column_width=True)
+        else:
+            # Fallback to text header if logo not found
+            st.title("🏠 GPP - Global Property Platform")
+
+    with col3:
+        # Empty column for spacing
+        pass
+
     st.markdown("*Professional Property Management System with Integrated Buying Process*")
 
     # User Role Selection
     st.sidebar.header("👤 User Authentication")
+
+    # Add logo to sidebar as well
+    if os.path.exists("LOGO/logo.png"):
+        st.sidebar.image("LOGO/logo.png", use_column_width=True)
+        st.sidebar.markdown("---")
+
     user_role = st.sidebar.selectbox(
         "Select Your Role:",
         ["Agent", "Notary", "Buyer"],

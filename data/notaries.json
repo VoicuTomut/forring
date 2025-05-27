@@ -118,6 +118,22 @@
   },
   "19941c50-5037-4005-a7df-9e494b6ec72f": {
     "notary_id": "19941c50-5037-4005-a7df-9e494b6ec72f",
+    "checked_prop_list": [
+      "39dc990d-67e3-4195-8436-282e28bd95df",
+      "73ec5bf0-f8ed-4e6a-af8c-4269256616ab"
+    ],
+    "properties_to_check": [],
+    "buyers_to_check": [],
+    "documents": {
+      "professional_license": null,
+      "certification": null,
+      "id_document": null,
+      "chamber_registration": null
+    },
+    "additional_docs": {}
+  },
+  "c9000d54-6c1f-46f0-ae53-78ba984e6ac8": {
+    "notary_id": "c9000d54-6c1f-46f0-ae53-78ba984e6ac8",
     "checked_prop_list": [],
     "properties_to_check": [],
     "buyers_to_check": [],

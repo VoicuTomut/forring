@@ -1,1 +1,37 @@
-{}
+{
+  "73ec5bf0-f8ed-4e6a-af8c-4269256616ab": {
+    "chat_id": "33b3b36a-2957-44ae-a13e-390fc6d051de",
+    "property_id": "73ec5bf0-f8ed-4e6a-af8c-4269256616ab",
+    "agent_id": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
+    "agent_notary_messages": [
+      {
+        "message_id": "7490c353-33ce-4755-bb36-7f415014cc59",
+        "sender_id": "system",
+        "sender_type": "system",
+        "sender_name": "System",
+        "message": "Notary 19941c50 joined the chat",
+        "timestamp": "2025-05-27 17:59:11.601973",
+        "message_type": "system",
+        "document_reference": null,
+        "is_read": true
+      },
+      {
+        "message_id": "d3de6aba-201f-4202-9b50-6d8ff9d6dce3",
+        "sender_id": "19941c50-5037-4005-a7df-9e494b6ec72f",
+        "sender_type": "notary",
+        "sender_name": "Notary 19941c50",
+        "message": "oh",
+        "timestamp": "2025-05-27 17:59:27.275138",
+        "message_type": "text",
+        "document_reference": null,
+        "is_read": false
+      }
+    ],
+    "buyer_agent_chats": {},
+    "notary_id": "19941c50-5037-4005-a7df-9e494b6ec72f",
+    "buyer_ids": [],
+    "created_date": "2025-05-27 17:59:01.569138",
+    "last_activity": "2025-05-27 17:59:27.275145",
+    "is_active": true
+  }
+}

@@ -1,1 +1,79 @@
-{}
+{
+  "73ec5bf0-f8ed-4e6a-af8c-4269256616ab": {
+    "property_id": "73ec5bf0-f8ed-4e6a-af8c-4269256616ab",
+    "agent_id": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
+    "attached_notarys_id": [
+      "19941c50-5037-4005-a7df-9e494b6ec72f"
+    ],
+    "title": "p00",
+    "description": "Some nice ",
+    "dimension": "300",
+    "price": "3000.0",
+    "address": "123 maria ",
+    "city": "Cluj",
+    "postal_code": "",
+    "country": "",
+    "number_of_rooms": null,
+    "finishes": null,
+    "renovations": null,
+    "neighborhood_description": null,
+    "post_date": "2025-05-27 17:59:01.560903",
+    "validation_date": "2025-05-27 17:59:20.473348",
+    "reserved": true,
+    "looking_for_notary": false,
+    "notary_attached": "19941c50-5037-4005-a7df-9e494b6ec72f",
+    "status": "reserved",
+    "document_ids": [
+      "1eea0eec-cb52-4626-ac03-6f28d593f35d",
+      "1cf1bfce-0f5e-48b5-81b9-ceb8862fcc4e",
+      "de7d3ece-6132-4dda-9e25-0ae803b5c37d",
+      "0578648b-bf30-4bc9-b9a9-38824ac2bbd8"
+    ],
+    "mandatory_legal_docs": {
+      "title_deed": "1eea0eec-cb52-4626-ac03-6f28d593f35d",
+      "land_registry_extract": "1cf1bfce-0f5e-48b5-81b9-ceb8862fcc4e",
+      "building_permit": "de7d3ece-6132-4dda-9e25-0ae803b5c37d",
+      "habitation_certificate": null,
+      "mortgage_lien_certificate": null,
+      "seller_id_document": null,
+      "marital_status_documents": null,
+      "power_of_attorney": null,
+      "litigation_certificate": null
+    },
+    "additional_docs": {
+      "supplementary_documents": [],
+      "corrections": [],
+      "clarifications": [],
+      "agent_notes": [],
+      "updated_photos": [],
+      "floor_plans": [],
+      "certificates": [],
+      "correspondence": [],
+      "other": []
+    },
+    "document_history": [
+      {
+        "action": "mandatory_document_added",
+        "document_type": "title_deed",
+        "document_id": "1eea0eec-cb52-4626-ac03-6f28d593f35d",
+        "timestamp": "2025-05-27 17:59:01.560998",
+        "added_by": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "land_registry_extract",
+        "document_id": "1cf1bfce-0f5e-48b5-81b9-ceb8862fcc4e",
+        "timestamp": "2025-05-27 17:59:01.561000",
+        "added_by": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "building_permit",
+        "document_id": "de7d3ece-6132-4dda-9e25-0ae803b5c37d",
+        "timestamp": "2025-05-27 17:59:01.561004",
+        "added_by": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c"
+      }
+    ],
+    "agent_notes": []
+  }
+}

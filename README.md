@@ -93,6 +93,9 @@ forring/
 │           ├── property_helpers.py    # Property utility functions
 │           ├── user_management.py     # User creation & management
 │           └── file_storage.py        # File upload & storage
+├── LOGO/
+│   ├── logo.png              # Main GPP logo
+│   └── IconsProAdvisor_Pro.png  # Icon logo
 ├── requirements.txt               # Python dependencies
 └── README.md                     # This file
 ```
@@ -499,7 +502,6 @@ streamlit run app.py
 ---
 
 ## 🆘 Quick Help for Developers
-
 
 1. **Main App:** `app.py` - Application routing and navigation
 2. **Buyer Interface:** `gpp/interface/dashboards/buyer_dashboard.py` - Most buyer issues
