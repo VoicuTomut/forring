@@ -12,5 +12,41 @@
       "credit_report": null
     },
     "additional_docs": {}
+  },
+  "6e351d1a-3a6e-4791-aaac-0eb413cb86ed": {
+    "buyer_id": "6e351d1a-3a6e-4791-aaac-0eb413cb86ed",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [
+      "c6c434ab-0a1b-4205-bd63-7e74479ea07e"
+    ],
+    "reserved_properties": [
+      "c6c434ab-0a1b-4205-bd63-7e74479ea07e"
+    ],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
+  },
+  "1fd55aca-b489-412e-8f45-25894c13cd1a": {
+    "buyer_id": "1fd55aca-b489-412e-8f45-25894c13cd1a",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [
+      "2ffe141f-e175-4d69-b25a-862b87c4673b"
+    ],
+    "reserved_properties": [
+      "2ffe141f-e175-4d69-b25a-862b87c4673b"
+    ],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
   }
 }

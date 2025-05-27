@@ -573,7 +573,9 @@
   "c6c434ab-0a1b-4205-bd63-7e74479ea07e": {
     "property_id": "c6c434ab-0a1b-4205-bd63-7e74479ea07e",
     "agent_id": "6f7cdc5f-290e-42c0-8496-12f0e6fa1199",
-    "attached_notarys_id": [],
+    "attached_notarys_id": [
+      "a12e15a2-8141-4dcc-9fa9-ff08233b7777"
+    ],
     "title": "Love ",
     "description": "ce mai vrei ",
     "dimension": " 12",
@@ -587,10 +589,10 @@
     "renovations": "no renovation ",
     "neighborhood_description": "cool ",
     "post_date": "2025-05-27 04:45:17.428769",
-    "validation_date": null,
-    "reserved": false,
-    "looking_for_notary": true,
-    "notary_attached": null,
+    "validation_date": "2025-05-27 04:59:37.846283",
+    "reserved": true,
+    "looking_for_notary": false,
+    "notary_attached": "a12e15a2-8141-4dcc-9fa9-ff08233b7777",
     "status": "active",
     "document_ids": [
       "6decd08b-e077-495c-8c25-45f49f775b34",
@@ -665,5 +667,218 @@
       "litigation_certificate": "084fdcf8-72ce-4e85-91da-5daefa76368e"
     },
     "additional_docs": {}
+  },
+  "86cfd998-eb24-466b-b8d0-34a4e355edf5": {
+    "property_id": "86cfd998-eb24-466b-b8d0-34a4e355edf5",
+    "agent_id": "1e05dcb1-0b68-42ce-9d32-c1fd18f02f6a",
+    "attached_notarys_id": [
+      "a12e15a2-8141-4dcc-9fa9-ff08233b7777"
+    ],
+    "title": "ok",
+    "description": "for",
+    "dimension": "10",
+    "price": "1000.0",
+    "address": "wfv",
+    "city": "ms",
+    "postal_code": "",
+    "country": "",
+    "number_of_rooms": 1,
+    "finishes": "dar",
+    "renovations": "cv",
+    "neighborhood_description": "vr",
+    "post_date": "2025-05-27 05:01:32.408944",
+    "validation_date": "2025-05-27 05:02:11.967833",
+    "reserved": false,
+    "looking_for_notary": false,
+    "notary_attached": "a12e15a2-8141-4dcc-9fa9-ff08233b7777",
+    "status": "active",
+    "document_ids": [
+      "94ff5070-68c5-4b5f-a4d1-5ba54e061b94",
+      "e3b5a741-24a2-4732-b904-75841afc084d",
+      "3691d902-3541-44f1-8b0f-b950b312c9e5",
+      "e8d6bfe6-95d1-45c6-84f7-eb9c18baf19a",
+      "f310c5fc-169f-428f-8b0d-bad29ecc9138",
+      "47d9bec2-78e0-41f3-88f5-3dd1f212d6d4",
+      "8fd9b4e9-abc4-41a8-950d-6032dd362972",
+      "e7518498-3dc5-40ec-a160-0e71d28cd0f5",
+      "9794c621-a122-46e9-9733-30c23929e2a3",
+      "c889a258-e8a4-4bde-951d-2f7e74539965"
+    ],
+    "mandatory_legal_docs": {
+      "title_deed": "94ff5070-68c5-4b5f-a4d1-5ba54e061b94",
+      "land_registry_extract": "e3b5a741-24a2-4732-b904-75841afc084d",
+      "building_permit": "3691d902-3541-44f1-8b0f-b950b312c9e5",
+      "habitation_certificate": "e8d6bfe6-95d1-45c6-84f7-eb9c18baf19a",
+      "mortgage_lien_certificate": "f310c5fc-169f-428f-8b0d-bad29ecc9138",
+      "seller_id_document": "47d9bec2-78e0-41f3-88f5-3dd1f212d6d4",
+      "marital_status_documents": "8fd9b4e9-abc4-41a8-950d-6032dd362972",
+      "power_of_attorney": "e7518498-3dc5-40ec-a160-0e71d28cd0f5",
+      "litigation_certificate": "9794c621-a122-46e9-9733-30c23929e2a3"
+    },
+    "additional_docs": {}
+  },
+  "2ffe141f-e175-4d69-b25a-862b87c4673b": {
+    "property_id": "2ffe141f-e175-4d69-b25a-862b87c4673b",
+    "agent_id": "675c7e8c-1975-4115-b6b9-662f68f969ee",
+    "attached_notarys_id": [
+      "b2e7e645-35bf-4d3d-abbc-22a889d4bb58"
+    ],
+    "title": "xvfdb",
+    "description": "cdsvf",
+    "dimension": "12",
+    "price": "2000.0",
+    "address": "cdsvfd",
+    "city": "csdv",
+    "postal_code": "",
+    "country": "",
+    "number_of_rooms": null,
+    "finishes": null,
+    "renovations": null,
+    "neighborhood_description": null,
+    "post_date": "2025-05-27 05:14:30.603465",
+    "validation_date": "2025-05-27 05:16:03.155623",
+    "reserved": true,
+    "looking_for_notary": false,
+    "notary_attached": "b2e7e645-35bf-4d3d-abbc-22a889d4bb58",
+    "status": "active",
+    "document_ids": [
+      "23ceb522-e23d-4b39-8bb1-a56e35d6a1eb",
+      "4394904a-a37d-4ed7-a96a-1c5ce15a960f",
+      "7dc02c55-6b56-4fa2-9915-421cc1d96dd3",
+      "d30c2a55-95d8-4a90-8506-0c9046125c2d",
+      "58751bb4-dde9-4e05-932e-acbdc96e60a1",
+      "e690f3bc-6d40-4b5d-8e71-5792d8025d50",
+      "7c96a8b0-2b62-4c92-933b-dff7a50ac2bb",
+      "993334b6-5a77-438e-b628-35e16ae817d9",
+      "05a1568f-4bbf-4aec-aaf2-45ab616d68fa",
+      "0845acee-a06d-48ed-b2c4-4213d3fd5b1c",
+      "5ed25ba9-ce46-472e-b8aa-8a8ec5b14b74"
+    ],
+    "mandatory_legal_docs": {
+      "title_deed": "5ed25ba9-ce46-472e-b8aa-8a8ec5b14b74",
+      "land_registry_extract": "23ceb522-e23d-4b39-8bb1-a56e35d6a1eb",
+      "building_permit": "4394904a-a37d-4ed7-a96a-1c5ce15a960f",
+      "habitation_certificate": "7dc02c55-6b56-4fa2-9915-421cc1d96dd3",
+      "mortgage_lien_certificate": "d30c2a55-95d8-4a90-8506-0c9046125c2d",
+      "seller_id_document": "58751bb4-dde9-4e05-932e-acbdc96e60a1",
+      "marital_status_documents": "e690f3bc-6d40-4b5d-8e71-5792d8025d50",
+      "power_of_attorney": "7c96a8b0-2b62-4c92-933b-dff7a50ac2bb",
+      "litigation_certificate": "993334b6-5a77-438e-b628-35e16ae817d9"
+    },
+    "additional_docs": {
+      "supplementary_documents": [
+        "0845acee-a06d-48ed-b2c4-4213d3fd5b1c"
+      ],
+      "corrections": [],
+      "clarifications": [],
+      "agent_notes": [],
+      "updated_photos": [],
+      "floor_plans": [],
+      "certificates": [],
+      "correspondence": [],
+      "other": []
+    },
+    "document_history": [
+      {
+        "action": "mandatory_document_added",
+        "document_type": "title_deed",
+        "document_id": "733a7ba2-4d90-44c1-8dc0-7f3bc2d581df",
+        "timestamp": "2025-05-27 05:14:30.603476",
+        "added_by": "675c7e8c-1975-4115-b6b9-662f68f969ee"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "land_registry_extract",
+        "document_id": "23ceb522-e23d-4b39-8bb1-a56e35d6a1eb",
+        "timestamp": "2025-05-27 05:14:30.603477",
+        "added_by": "675c7e8c-1975-4115-b6b9-662f68f969ee"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "building_permit",
+        "document_id": "4394904a-a37d-4ed7-a96a-1c5ce15a960f",
+        "timestamp": "2025-05-27 05:14:30.603478",
+        "added_by": "675c7e8c-1975-4115-b6b9-662f68f969ee"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "habitation_certificate",
+        "document_id": "7dc02c55-6b56-4fa2-9915-421cc1d96dd3",
+        "timestamp": "2025-05-27 05:14:30.603478",
+        "added_by": "675c7e8c-1975-4115-b6b9-662f68f969ee"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "mortgage_lien_certificate",
+        "document_id": "d30c2a55-95d8-4a90-8506-0c9046125c2d",
+        "timestamp": "2025-05-27 05:14:30.603479",
+        "added_by": "675c7e8c-1975-4115-b6b9-662f68f969ee"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "seller_id_document",
+        "document_id": "58751bb4-dde9-4e05-932e-acbdc96e60a1",
+        "timestamp": "2025-05-27 05:14:30.603479",
+        "added_by": "675c7e8c-1975-4115-b6b9-662f68f969ee"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "marital_status_documents",
+        "document_id": "e690f3bc-6d40-4b5d-8e71-5792d8025d50",
+        "timestamp": "2025-05-27 05:14:30.603480",
+        "added_by": "675c7e8c-1975-4115-b6b9-662f68f969ee"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "power_of_attorney",
+        "document_id": "7c96a8b0-2b62-4c92-933b-dff7a50ac2bb",
+        "timestamp": "2025-05-27 05:14:30.603481",
+        "added_by": "675c7e8c-1975-4115-b6b9-662f68f969ee"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "litigation_certificate",
+        "document_id": "993334b6-5a77-438e-b628-35e16ae817d9",
+        "timestamp": "2025-05-27 05:14:30.603482",
+        "added_by": "675c7e8c-1975-4115-b6b9-662f68f969ee"
+      },
+      {
+        "action": "additional_document_added",
+        "category": "supplementary_documents",
+        "document_id": "0845acee-a06d-48ed-b2c4-4213d3fd5b1c",
+        "timestamp": "2025-05-27 05:15:07.392948",
+        "added_by": "675c7e8c-1975-4115-b6b9-662f68f969ee",
+        "note": "cx d"
+      },
+      {
+        "action": "mandatory_document_replaced",
+        "document_type": "title_deed",
+        "old_document_id": "733a7ba2-4d90-44c1-8dc0-7f3bc2d581df",
+        "new_document_id": "5ed25ba9-ce46-472e-b8aa-8a8ec5b14b74",
+        "timestamp": "2025-05-27 05:16:55.258076",
+        "added_by": "675c7e8c-1975-4115-b6b9-662f68f969ee",
+        "reason": "expired"
+      }
+    ],
+    "agent_notes": [
+      {
+        "note": "cx d",
+        "timestamp": "2025-05-27 05:15:07.392952",
+        "agent_id": "675c7e8c-1975-4115-b6b9-662f68f969ee",
+        "context": "Added document to supplementary_documents"
+      },
+      {
+        "note": "x sf",
+        "timestamp": "2025-05-27 05:16:19.105577",
+        "agent_id": "675c7e8c-1975-4115-b6b9-662f68f969ee",
+        "context": "general"
+      },
+      {
+        "note": "Replaced title_deed: expired",
+        "timestamp": "2025-05-27 05:16:55.258080",
+        "agent_id": "675c7e8c-1975-4115-b6b9-662f68f969ee",
+        "context": "document_replacement"
+      }
+    ]
   }
 }

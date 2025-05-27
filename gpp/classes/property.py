@@ -59,10 +59,32 @@ class Property(BaseModel):
         description="Dictionary of mandatory legal documents with document IDs"
     )
 
-    # Optional: Additional documents can be added
-    additional_docs: Dict[str, Any] = Field(
-        default_factory=dict,
-        description="Dictionary for additional documents that can be added"
+    # NEW: Additional documents that can be added after submission
+    additional_docs: Dict[str, List[str]] = Field(
+        default_factory=lambda: {
+            "supplementary_documents": [],  # Additional legal documents
+            "corrections": [],  # Document corrections/updates
+            "clarifications": [],  # Clarification documents
+            "agent_notes": [],  # Agent notes and explanations
+            "updated_photos": [],  # Additional/updated photos
+            "floor_plans": [],  # Floor plans and blueprints
+            "certificates": [],  # Additional certificates
+            "correspondence": [],  # Email exchanges, letters
+            "other": []  # Other miscellaneous documents
+        },
+        description="Dictionary of additional document categories with document ID lists"
+    )
+
+    # NEW: Track document addition history
+    document_history: List[Dict[str, Any]] = Field(
+        default_factory=list,
+        description="History of document additions with timestamps"
+    )
+
+    # NEW: Allow agents to add notes when uploading additional documents
+    agent_notes: List[Dict[str, Any]] = Field(
+        default_factory=list,
+        description="Agent notes with timestamps when adding documents"
     )
 
 
@@ -71,13 +93,138 @@ def add_document_to_property_mandatory(property_obj: Property, doc_type: str, do
     """Add document ID to property's mandatory legal documents"""
     if doc_type in property_obj.mandatory_legal_docs:
         property_obj.mandatory_legal_docs[doc_type] = document_id
+
+        # Add to document history
+        property_obj.document_history.append({
+            "action": "mandatory_document_added",
+            "document_type": doc_type,
+            "document_id": document_id,
+            "timestamp": datetime.now(),
+            "added_by": property_obj.agent_id
+        })
     return property_obj
+
+
+def add_additional_document_to_property(property_obj: Property, category: str, document_id: str,
+                                        agent_note: str = "") -> Property:
+    """Add additional document to property after submission"""
+    if category in property_obj.additional_docs:
+        property_obj.additional_docs[category].append(document_id)
+
+        # Add to main document list
+        if document_id not in property_obj.document_ids:
+            property_obj.document_ids.append(document_id)
+
+        # Add to document history
+        property_obj.document_history.append({
+            "action": "additional_document_added",
+            "category": category,
+            "document_id": document_id,
+            "timestamp": datetime.now(),
+            "added_by": property_obj.agent_id,
+            "note": agent_note
+        })
+
+        # Add agent note if provided
+        if agent_note:
+            property_obj.agent_notes.append({
+                "note": agent_note,
+                "timestamp": datetime.now(),
+                "agent_id": property_obj.agent_id,
+                "context": f"Added document to {category}"
+            })
+
+    return property_obj
+
+
+def replace_mandatory_document(property_obj: Property, doc_type: str, new_document_id: str,
+                               reason: str = "") -> Property:
+    """Replace a mandatory document (useful for corrections)"""
+    if doc_type in property_obj.mandatory_legal_docs:
+        old_document_id = property_obj.mandatory_legal_docs[doc_type]
+        property_obj.mandatory_legal_docs[doc_type] = new_document_id
+
+        # Update document list
+        if old_document_id in property_obj.document_ids:
+            property_obj.document_ids.remove(old_document_id)
+        if new_document_id not in property_obj.document_ids:
+            property_obj.document_ids.append(new_document_id)
+
+        # Add to document history
+        property_obj.document_history.append({
+            "action": "mandatory_document_replaced",
+            "document_type": doc_type,
+            "old_document_id": old_document_id,
+            "new_document_id": new_document_id,
+            "timestamp": datetime.now(),
+            "added_by": property_obj.agent_id,
+            "reason": reason
+        })
+
+        # Add agent note
+        if reason:
+            property_obj.agent_notes.append({
+                "note": f"Replaced {doc_type}: {reason}",
+                "timestamp": datetime.now(),
+                "agent_id": property_obj.agent_id,
+                "context": "document_replacement"
+            })
+
+    return property_obj
+
+
+def add_agent_note_to_property(property_obj: Property, note: str, context: str = "general") -> Property:
+    """Add a note from agent to property"""
+    property_obj.agent_notes.append({
+        "note": note,
+        "timestamp": datetime.now(),
+        "agent_id": property_obj.agent_id,
+        "context": context
+    })
+    return property_obj
+
+
+def get_property_additional_docs_count(property_obj: Property) -> Dict[str, int]:
+    """Get count of additional documents by category"""
+    return {category: len(doc_list) for category, doc_list in property_obj.additional_docs.items()}
+
+
+def get_property_recent_activity(property_obj: Property, limit: int = 10) -> List[Dict[str, Any]]:
+    """Get recent activity on property (document additions, notes)"""
+    all_activity = []
+
+    # Add document history
+    for entry in property_obj.document_history:
+        all_activity.append({
+            "type": "document_activity",
+            "timestamp": entry["timestamp"],
+            "description": f"{entry['action'].replace('_', ' ').title()}",
+            "details": entry
+        })
+
+    # Add agent notes
+    for note in property_obj.agent_notes:
+        all_activity.append({
+            "type": "agent_note",
+            "timestamp": note["timestamp"],
+            "description": f"Agent Note: {note['note'][:50]}...",
+            "details": note
+        })
+
+    # Sort by timestamp (most recent first) and limit
+    all_activity.sort(key=lambda x: x["timestamp"], reverse=True)
+    return all_activity[:limit]
 
 
 def assign_notary_to_property(property_obj: Property, notary_id: str) -> Property:
     """Assign notary to property"""
+    # Add to the list if not already there
     if notary_id not in property_obj.attached_notarys_id:
         property_obj.attached_notarys_id.append(notary_id)
+
+    # Set the main notary attachment field
+    property_obj.notary_attached = notary_id
+
     return property_obj
 
 

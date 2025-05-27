@@ -6,10 +6,13 @@ from decimal import Decimal
 import uuid
 from typing import Dict, List, Optional
 
-# Import our Pydantic classes
+# Import our enhanced Pydantic classes
 from gpp.classes.document import Document, validate_document as validate_doc_helper
-from gpp.classes.property import Property, add_document_to_property_mandatory, assign_notary_to_property, \
-    reserve_property
+from gpp.classes.property import (
+    Property, add_document_to_property_mandatory, assign_notary_to_property,
+    reserve_property, add_additional_document_to_property, replace_mandatory_document,
+    add_agent_note_to_property, get_property_additional_docs_count, get_property_recent_activity
+)
 from gpp.classes.agent import Agent, add_document_to_agent, add_property_to_agent
 from gpp.classes.buyer import Buyer, add_document_to_buyer, add_interest_to_buyer
 from gpp.classes.notary import Notary, add_document_to_notary, add_work_to_notary
@@ -118,6 +121,19 @@ MANDATORY_DOCS = {
     "litigation_certificate": "Litigation Certificate"
 }
 
+# NEW: Additional document categories
+ADDITIONAL_DOC_CATEGORIES = {
+    "supplementary_documents": "📋 Supplementary Legal Documents",
+    "corrections": "🔧 Document Corrections/Updates",
+    "clarifications": "💡 Clarification Documents",
+    "agent_notes": "📝 Agent Notes & Explanations",
+    "updated_photos": "📸 Additional/Updated Photos",
+    "floor_plans": "📐 Floor Plans & Blueprints",
+    "certificates": "🏆 Additional Certificates",
+    "correspondence": "✉️ Email Exchanges & Letters",
+    "other": "📁 Other Documents"
+}
+
 
 def main():
     st.set_page_config(
@@ -177,14 +193,17 @@ def get_or_create_user(role):
 def agent_dashboard(current_agent: Agent):
     st.header(f"🏢 Agent Dashboard - {current_agent.agent_id[:8]}...")
 
-    # Tabs for different agent functions
-    tab1, tab2 = st.tabs(["📝 Add New Property", "📋 My Properties"])
+    # Tabs for different agent functions - ENHANCED with additional docs tab
+    tab1, tab2, tab3 = st.tabs(["📝 Add New Property", "📋 My Properties", "📎 Manage Documents"])
 
     with tab1:
         add_property_form(current_agent)
 
     with tab2:
         show_agent_properties(current_agent)
+
+    with tab3:
+        manage_additional_documents(current_agent)
 
 
 def add_property_form(current_agent: Agent):
@@ -291,7 +310,7 @@ def add_property_form(current_agent: Agent):
                 save_document(doc)
                 doc_ids[doc_key] = doc.document_id
 
-            # Create property using Pydantic class
+            # Create property using enhanced Pydantic class
             new_property = Property(
                 agent_id=current_agent.agent_id,
                 title=title,
@@ -365,12 +384,298 @@ def show_agent_properties(current_agent: Agent):
                 if photo_count > 0:
                     st.write(f"📸 {photo_count} photos uploaded")
 
+                # NEW: Show additional documents count
+                additional_count = sum(get_property_additional_docs_count(prop_data).values())
+                if additional_count > 0:
+                    st.write(f"📎 {additional_count} additional documents")
+
             with col3:
                 validation_progress = get_property_validation_progress(prop_id)
                 st.write(f"**{validation_progress['validated']}/{validation_progress['total']}**")
                 st.progress(validation_progress['progress'])
 
+                # NEW: Button to manage this property's documents
+                if st.button("📎 Add Docs", key=f"add_docs_{prop_id}"):
+                    st.session_state['manage_property_id'] = prop_id
+
         st.divider()
+
+
+def manage_additional_documents(current_agent: Agent):
+    """NEW: Interface for managing additional documents"""
+    st.subheader("📎 Manage Additional Documents")
+
+    properties = get_properties()
+    agent_properties = {k: v for k, v in properties.items()
+                        if k in current_agent.agent_active_prop_list}
+
+    if not agent_properties:
+        st.info("No properties to manage. Add a property first.")
+        return
+
+    # Property selection
+    if 'manage_property_id' in st.session_state and st.session_state['manage_property_id'] in agent_properties:
+        selected_property_id = st.session_state['manage_property_id']
+    else:
+        property_options = {f"{prop.title} - {prop.city}": prop_id
+                            for prop_id, prop in agent_properties.items()}
+
+        if not property_options:
+            st.info("No properties available for document management.")
+            return
+
+        selected_title = st.selectbox("Select Property:", options=list(property_options.keys()))
+        selected_property_id = property_options[selected_title]
+
+    selected_property = agent_properties[selected_property_id]
+
+    st.write(f"**Managing Documents for:** {selected_property.title}")
+
+    # Show property status
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        validation_progress = get_property_validation_progress(selected_property_id)
+        st.metric("Validation Progress", f"{validation_progress['validated']}/{validation_progress['total']}")
+
+    with col2:
+        additional_count = sum(get_property_additional_docs_count(selected_property).values())
+        st.metric("Additional Documents", additional_count)
+
+    with col3:
+        if selected_property.looking_for_notary:
+            st.warning("🔄 In Review")
+        elif selected_property.notary_attached:
+            st.success("✅ Validated")
+        else:
+            st.info("📋 Draft")
+
+    # Tabs for different document management actions
+    doc_tab1, doc_tab2, doc_tab3, doc_tab4 = st.tabs([
+        "➕ Add Documents",
+        "🔄 Replace Mandatory",
+        "📝 Add Note",
+        "📋 Document History"
+    ])
+
+    with doc_tab1:
+        add_additional_documents_interface(selected_property, current_agent)
+
+    with doc_tab2:
+        replace_mandatory_documents_interface(selected_property, current_agent)
+
+    with doc_tab3:
+        add_agent_note_interface(selected_property, current_agent)
+
+    with doc_tab4:
+        show_document_history_interface(selected_property)
+
+
+def add_additional_documents_interface(property_obj: Property, current_agent: Agent):
+    """Interface for adding additional documents"""
+    st.subheader("➕ Add Additional Documents")
+
+    with st.form("add_additional_docs"):
+        # Category selection
+        category = st.selectbox(
+            "Document Category:",
+            options=list(ADDITIONAL_DOC_CATEGORIES.keys()),
+            format_func=lambda x: ADDITIONAL_DOC_CATEGORIES[x]
+        )
+
+        # File upload
+        uploaded_files = st.file_uploader(
+            "Upload Documents",
+            type=['pdf', 'jpg', 'jpeg', 'png', 'doc', 'docx'],
+            accept_multiple_files=True,
+            help="Upload documents related to your property"
+        )
+
+        # Agent note
+        agent_note = st.text_area(
+            "Note (Optional):",
+            placeholder="Explain why you're adding these documents..."
+        )
+
+        submitted = st.form_submit_button("📎 Add Documents", type="primary")
+
+        if submitted:
+            if not uploaded_files:
+                st.error("Please upload at least one document.")
+                return
+
+            # Save uploaded documents
+            document_ids = []
+            for uploaded_file in uploaded_files:
+                doc = Document(
+                    document_name=f"{ADDITIONAL_DOC_CATEGORIES[category]} - {uploaded_file.name}",
+                    document_path=f"/additional_docs/{uploaded_file.name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
+                    upload_id=current_agent.agent_id,
+                    validation_status=False,
+                    visibility=True
+                )
+                save_document(doc)
+                document_ids.append(doc.document_id)
+
+            # Add documents to property
+            updated_property = property_obj
+            for doc_id in document_ids:
+                updated_property = add_additional_document_to_property(
+                    updated_property, category, doc_id, agent_note
+                )
+
+            save_property(updated_property)
+
+            st.success(f"✅ Added {len(document_ids)} documents to {ADDITIONAL_DOC_CATEGORIES[category]}")
+            st.rerun()
+
+
+def replace_mandatory_documents_interface(property_obj: Property, current_agent: Agent):
+    """Interface for replacing mandatory documents"""
+    st.subheader("🔄 Replace Mandatory Documents")
+
+    # Show current mandatory documents
+    documents = get_documents()
+
+    with st.form("replace_mandatory_doc"):
+        # Document type selection
+        doc_type = st.selectbox(
+            "Select Document to Replace:",
+            options=list(MANDATORY_DOCS.keys()),
+            format_func=lambda x: MANDATORY_DOCS[x]
+        )
+
+        # Show current document info
+        current_doc_id = property_obj.mandatory_legal_docs.get(doc_type)
+        if current_doc_id and current_doc_id in documents:
+            current_doc = documents[current_doc_id]
+            st.info(f"Current document: {current_doc.document_name}")
+            if current_doc.validation_status:
+                st.warning("⚠️ This document is already validated. Replacing it will require re-validation.")
+        else:
+            st.warning("No document currently uploaded for this type.")
+
+        # New file upload
+        new_file = st.file_uploader(
+            "Upload Replacement Document",
+            type=['pdf', 'jpg', 'jpeg', 'png'],
+            help="Upload the corrected/updated version"
+        )
+
+        # Reason for replacement
+        reason = st.text_area(
+            "Reason for Replacement*:",
+            placeholder="Explain why you're replacing this document (e.g., 'Updated version with correct dates', 'Higher quality scan')"
+        )
+
+        submitted = st.form_submit_button("🔄 Replace Document", type="primary")
+
+        if submitted:
+            if not new_file:
+                st.error("Please upload a replacement document.")
+                return
+
+            if not reason.strip():
+                st.error("Please provide a reason for the replacement.")
+                return
+
+            # Save new document
+            new_doc = Document(
+                document_name=f"{MANDATORY_DOCS[doc_type]} (Replacement)",
+                document_path=f"/documents/{new_file.name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
+                upload_id=current_agent.agent_id,
+                validation_status=False,  # Needs re-validation
+                visibility=True
+            )
+            save_document(new_doc)
+
+            # Replace document in property
+            updated_property = replace_mandatory_document(
+                property_obj, doc_type, new_doc.document_id, reason
+            )
+            save_property(updated_property)
+
+            st.success(f"✅ Replaced {MANDATORY_DOCS[doc_type]} successfully!")
+            st.info("The new document will need to be validated by a notary.")
+            st.rerun()
+
+
+def add_agent_note_interface(property_obj: Property, current_agent: Agent):
+    """Interface for adding agent notes"""
+    st.subheader("📝 Add Agent Note")
+
+    with st.form("add_agent_note"):
+        note_context = st.selectbox(
+            "Note Context:",
+            options=["general", "document_clarification", "property_update", "notary_communication", "buyer_inquiry"],
+            format_func=lambda x: x.replace("_", " ").title()
+        )
+
+        note_text = st.text_area(
+            "Note*:",
+            placeholder="Add any important information, clarifications, or updates about this property...",
+            height=100
+        )
+
+        submitted = st.form_submit_button("📝 Add Note", type="primary")
+
+        if submitted:
+            if not note_text.strip():
+                st.error("Please enter a note.")
+                return
+
+            updated_property = add_agent_note_to_property(property_obj, note_text.strip(), note_context)
+            save_property(updated_property)
+
+            st.success("✅ Note added successfully!")
+            st.rerun()
+
+
+def show_document_history_interface(property_obj: Property):
+    """Show document history and recent activity"""
+    st.subheader("📋 Document History & Activity")
+
+    # Recent activity
+    recent_activity = get_property_recent_activity(property_obj, limit=20)
+
+    if not recent_activity:
+        st.info("No activity recorded yet.")
+        return
+
+    # Show activity timeline
+    for activity in recent_activity:
+        with st.container():
+            col1, col2 = st.columns([3, 1])
+
+            with col1:
+                if activity["type"] == "document_activity":
+                    st.write(f"📄 **{activity['description']}**")
+                    details = activity["details"]
+                    if "note" in details and details["note"]:
+                        st.write(f"   💬 {details['note']}")
+                else:  # agent_note
+                    st.write(f"📝 **Agent Note:** {activity['details']['note']}")
+                    st.write(f"   🏷️ Context: {activity['details']['context'].replace('_', ' ').title()}")
+
+            with col2:
+                # Handle both string and datetime timestamps
+                timestamp = activity["timestamp"]
+                if isinstance(timestamp, str):
+                    st.write(f"🕒 {timestamp[:16]}")
+                else:
+                    st.write(f"🕒 {timestamp.strftime('%Y-%m-%d %H:%M')}")
+
+        st.divider()
+
+    # Show additional documents summary
+    st.subheader("📊 Additional Documents Summary")
+    additional_counts = get_property_additional_docs_count(property_obj)
+
+    if any(count > 0 for count in additional_counts.values()):
+        for category, count in additional_counts.items():
+            if count > 0:
+                st.write(f"• **{ADDITIONAL_DOC_CATEGORIES[category]}**: {count} documents")
+    else:
+        st.info("No additional documents uploaded yet.")
 
 
 def notary_dashboard(current_notary: Notary):
@@ -419,6 +724,11 @@ def show_validation_queue(current_notary: Notary):
                 st.write(f"**Progress: {progress['validated']}/{progress['total']}**")
                 st.progress(progress['progress'])
 
+                # NEW: Show additional documents count
+                additional_count = sum(get_property_additional_docs_count(prop_data).values())
+                if additional_count > 0:
+                    st.write(f"📎 {additional_count} additional docs")
+
                 if st.button("🔍 Review Documents", key=f"review_{prop_id}"):
                     st.session_state['selected_property'] = prop_id
 
@@ -462,9 +772,40 @@ def show_document_review(property_id, current_notary: Notary):
     st.write(f"**Documents Validated: {progress['validated']}/{progress['total']}**")
     st.progress(progress['progress'])
 
+    # NEW: Show agent notes if any
+    if prop_data.agent_notes:
+        with st.expander(f"📝 Agent Notes ({len(prop_data.agent_notes)})"):
+            for note in reversed(prop_data.agent_notes[-5:]):  # Show last 5 notes
+                timestamp = note["timestamp"]
+                if isinstance(timestamp, str):
+                    time_str = timestamp[:16]
+                else:
+                    time_str = timestamp.strftime('%Y-%m-%d %H:%M')
+                st.write(f"**{time_str}** - {note['context'].replace('_', ' ').title()}")
+                st.write(f"💬 {note['note']}")
+                st.write("---")
+
+    # NEW: Show additional documents
+    additional_counts = get_property_additional_docs_count(prop_data)
+    if any(count > 0 for count in additional_counts.values()):
+        with st.expander("📎 Additional Documents"):
+            for category, doc_ids in prop_data.additional_docs.items():
+                if doc_ids:
+                    st.write(f"**{ADDITIONAL_DOC_CATEGORIES[category]}** ({len(doc_ids)} documents)")
+                    for doc_id in doc_ids:
+                        if doc_id in documents:
+                            doc = documents[doc_id]
+                            col1, col2 = st.columns([3, 1])
+                            with col1:
+                                st.write(f"• {doc.document_name}")
+                            with col2:
+                                if st.button("👁️", key=f"view_add_{doc_id}"):
+                                    st.info(f"Viewing: {doc.document_path}")
+
     st.divider()
 
-    # Document review interface
+    # Document review interface for mandatory documents
+    st.subheader("📋 Mandatory Document Review")
     for doc_key, doc_id in prop_data.mandatory_legal_docs.items():
         if doc_id and doc_id in documents:
             doc_data = documents[doc_id]
@@ -484,6 +825,9 @@ def show_document_review(property_id, current_notary: Notary):
                                 st.write(f"   📅 {doc_data.validation_date.strftime('%Y-%m-%d')}")
                     else:
                         st.write(f"📄 **{doc_name}** - Pending")
+                        # Show if this is a replacement
+                        if "Replacement" in doc_data.document_name:
+                            st.warning("🔄 Replacement Document - Needs Re-validation")
 
                 with col2:
                     if st.button("👁️ View", key=f"view_{doc_id}"):
@@ -517,6 +861,8 @@ def show_document_review(property_id, current_notary: Notary):
             updated_property = assign_notary_to_property(prop_data, current_notary.notary_id)
             updated_property.looking_for_notary = False
             updated_property.validation_date = datetime.now()
+            updated_property.notary_attached = current_notary.notary_id
+
             save_property(updated_property)
 
             # Update notary's work lists
@@ -548,6 +894,11 @@ def show_validated_properties(current_notary: Notary):
                 st.write(f"**{prop_data.title}**")
                 st.write(f"€{prop_data.price:,.2f} | 📍 {prop_data.city}")
 
+                # Show additional docs count if any
+                additional_count = sum(get_property_additional_docs_count(prop_data).values())
+                if additional_count > 0:
+                    st.write(f"📎 {additional_count} additional documents added by agent")
+
             with col2:
                 st.write("✅ **Validated**")
                 if prop_data.validation_date:
@@ -562,14 +913,34 @@ def show_validated_properties(current_notary: Notary):
 
 def buyer_dashboard(current_buyer: Buyer):
     st.header(f"💰 Buyer Dashboard - {current_buyer.buyer_id[:8]}...")
+
     st.subheader("Available Properties")
+
+    # Show debug info
+    with st.expander("🔍 Debug Information"):
+        properties = get_properties()
+        st.write(f"**Total properties in system:** {len(properties)}")
+
+        for prop_id, prop_data in properties.items():
+            progress = get_property_validation_progress(prop_id)
+            st.write(f"**{prop_data.title}:**")
+            st.write(f"  - Progress: {progress['validated']}/{progress['total']}")
+            st.write(f"  - Notary attached: {prop_data.notary_attached}")
+            st.write(f"  - Looking for notary: {prop_data.looking_for_notary}")
+            st.write("---")
 
     properties = get_properties()
     documents = get_documents()
 
-    # Only show properties that are fully validated (have notary attached and not looking for notary)
-    validated_properties = {k: v for k, v in properties.items()
-                            if v.notary_attached and not v.looking_for_notary}
+    # Show properties that are fully validated by notary
+    validated_properties = {}
+    for prop_id, prop_data in properties.items():
+        # Check if all mandatory documents are validated
+        progress = get_property_validation_progress(prop_id)
+        if progress['validated'] == progress['total'] and progress['total'] > 0:
+            # Also check if notary is attached (property was approved)
+            if prop_data.notary_attached:
+                validated_properties[prop_id] = prop_data
 
     if not validated_properties:
         st.info(
@@ -604,6 +975,11 @@ def buyer_dashboard(current_buyer: Buyer):
 
                 # Show validation status
                 st.success("✅ Fully Validated by Notary")
+
+                # NEW: Show if property has additional documentation
+                additional_count = sum(get_property_additional_docs_count(prop_data).values())
+                if additional_count > 0:
+                    st.info(f"📎 {additional_count} additional documents available")
 
                 col1, col2 = st.columns(2)
                 with col1:

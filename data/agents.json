@@ -33,5 +33,33 @@
       "business_registration": null
     },
     "additional_docs": {}
+  },
+  "1e05dcb1-0b68-42ce-9d32-c1fd18f02f6a": {
+    "agent_id": "1e05dcb1-0b68-42ce-9d32-c1fd18f02f6a",
+    "agent_active_prop_list": [
+      "86cfd998-eb24-466b-b8d0-34a4e355edf5"
+    ],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
+  },
+  "675c7e8c-1975-4115-b6b9-662f68f969ee": {
+    "agent_id": "675c7e8c-1975-4115-b6b9-662f68f969ee",
+    "agent_active_prop_list": [
+      "2ffe141f-e175-4d69-b25a-862b87c4673b"
+    ],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
   }
 }
