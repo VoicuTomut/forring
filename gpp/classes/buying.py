@@ -204,7 +204,7 @@ def schedule_meeting(buying_obj: Buying, meeting_data: Dict[str, Any]) -> Buying
 
 
 def validate_buying_document(buying_obj: Buying, doc_type: str, validator_id: str,
-                             validation_status: bool, notes: str = "") -> Buying:
+                           validation_status: bool, notes: str = "") -> Buying:
     """Validate a document in the buying transaction"""
     if doc_type in buying_obj.document_validation_status:
         buying_obj.document_validation_status[doc_type].update({
@@ -289,8 +289,7 @@ def can_user_edit_transaction(buying_obj: Buying, user_id: str, user_type: str) 
     return False
 
 
-def get_user_buying_transactions(user_id: str, user_type: str, all_transactions: Dict[str, Buying]) -> Dict[
-    str, Buying]:
+def get_user_buying_transactions(user_id: str, user_type: str, all_transactions: Dict[str, Buying]) -> Dict[str, Buying]:
     """Get buying transactions relevant to a specific user"""
     relevant_transactions = {}
 

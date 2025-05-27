@@ -108,7 +108,64 @@
     "agent_id": "28a10c92-ee77-45dc-b5f4-bc4f09e4dbfb",
     "agent_active_prop_list": [
       "a6285d4a-8c16-4db5-aca5-87ea32d5a721",
-      "57e50c31-4dd5-4c09-b2ff-646660ec3c0a"
+      "57e50c31-4dd5-4c09-b2ff-646660ec3c0a",
+      "e5843a57-d382-476f-b606-12a9754152f4",
+      "3f8192fb-01fa-41c3-b3f9-4d819bb2dd8b"
+    ],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
+  },
+  "3b9ae83d-4aa9-4269-bfa6-4c4a425b40dd": {
+    "agent_id": "3b9ae83d-4aa9-4269-bfa6-4c4a425b40dd",
+    "agent_active_prop_list": [],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
+  },
+  "191f903c-6bab-4672-8d70-d1dce7b21e50": {
+    "agent_id": "191f903c-6bab-4672-8d70-d1dce7b21e50",
+    "agent_active_prop_list": [
+      "cdcb33a7-6e17-449e-89c4-ae18a240a9e9",
+      "a1218b61-7a3f-4e9a-b893-5d692d89aed2"
+    ],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
+  },
+  "e0eb31d0-5e8b-48f6-b845-a0050b047907": {
+    "agent_id": "e0eb31d0-5e8b-48f6-b845-a0050b047907",
+    "agent_active_prop_list": [
+      "57ab224f-2987-4917-947f-b666b60876b6"
+    ],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
+  },
+  "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c": {
+    "agent_id": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
+    "agent_active_prop_list": [
+      "39dc990d-67e3-4195-8436-282e28bd95df"
     ],
     "agent_sold_prop": [],
     "agent_notary_pending_prop": [],

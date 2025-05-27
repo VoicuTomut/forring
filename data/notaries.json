@@ -1,9 +1,7 @@
 {
   "74844789-7d27-45ce-8978-2fc84481d0fa": {
     "notary_id": "74844789-7d27-45ce-8978-2fc84481d0fa",
-    "checked_prop_list": [
-      "5d27acba-6525-403a-b2f0-42f82db67a6d"
-    ],
+    "checked_prop_list": [],
     "properties_to_check": [],
     "buyers_to_check": [],
     "documents": {
@@ -16,10 +14,7 @@
   },
   "a12e15a2-8141-4dcc-9fa9-ff08233b7777": {
     "notary_id": "a12e15a2-8141-4dcc-9fa9-ff08233b7777",
-    "checked_prop_list": [
-      "c6c434ab-0a1b-4205-bd63-7e74479ea07e",
-      "86cfd998-eb24-466b-b8d0-34a4e355edf5"
-    ],
+    "checked_prop_list": [],
     "properties_to_check": [],
     "buyers_to_check": [],
     "documents": {
@@ -32,9 +27,7 @@
   },
   "b2e7e645-35bf-4d3d-abbc-22a889d4bb58": {
     "notary_id": "b2e7e645-35bf-4d3d-abbc-22a889d4bb58",
-    "checked_prop_list": [
-      "2ffe141f-e175-4d69-b25a-862b87c4673b"
-    ],
+    "checked_prop_list": [],
     "properties_to_check": [],
     "buyers_to_check": [],
     "documents": {
@@ -47,9 +40,7 @@
   },
   "4f1d2a39-d67c-419f-9229-3cf7feae6c50": {
     "notary_id": "4f1d2a39-d67c-419f-9229-3cf7feae6c50",
-    "checked_prop_list": [
-      "becb1f88-0577-4aa2-a64e-cd737051e1fc"
-    ],
+    "checked_prop_list": [],
     "properties_to_check": [],
     "buyers_to_check": [],
     "documents": {
@@ -62,10 +53,7 @@
   },
   "79db3f7e-68ec-4823-a875-5b5305fb95b4": {
     "notary_id": "79db3f7e-68ec-4823-a875-5b5305fb95b4",
-    "checked_prop_list": [
-      "b91a1e36-13e0-493f-bf69-98888d3b8803",
-      "3dfc5c3e-4282-4e94-a614-984a948730ba"
-    ],
+    "checked_prop_list": [],
     "properties_to_check": [],
     "buyers_to_check": [],
     "documents": {
@@ -78,9 +66,59 @@
   },
   "0cc26d3b-47b6-436e-873b-d54331003ccd": {
     "notary_id": "0cc26d3b-47b6-436e-873b-d54331003ccd",
-    "checked_prop_list": [
-      "57e50c31-4dd5-4c09-b2ff-646660ec3c0a"
-    ],
+    "checked_prop_list": [],
+    "properties_to_check": [],
+    "buyers_to_check": [],
+    "documents": {
+      "professional_license": null,
+      "certification": null,
+      "id_document": null,
+      "chamber_registration": null
+    },
+    "additional_docs": {}
+  },
+  "8e2a48ee-974f-4505-8da0-4664e00a3201": {
+    "notary_id": "8e2a48ee-974f-4505-8da0-4664e00a3201",
+    "checked_prop_list": [],
+    "properties_to_check": [],
+    "buyers_to_check": [],
+    "documents": {
+      "professional_license": null,
+      "certification": null,
+      "id_document": null,
+      "chamber_registration": null
+    },
+    "additional_docs": {}
+  },
+  "2e043f7e-3279-4888-a903-d0bb15aedcd2": {
+    "notary_id": "2e043f7e-3279-4888-a903-d0bb15aedcd2",
+    "checked_prop_list": [],
+    "properties_to_check": [],
+    "buyers_to_check": [],
+    "documents": {
+      "professional_license": null,
+      "certification": null,
+      "id_document": null,
+      "chamber_registration": null
+    },
+    "additional_docs": {}
+  },
+  "c3c618f2-e95a-4fa8-a4af-4e0e486dc5cf": {
+    "notary_id": "c3c618f2-e95a-4fa8-a4af-4e0e486dc5cf",
+    "checked_prop_list": [],
+    "properties_to_check": [],
+    "buyers_to_check": [],
+    "documents": {
+      "professional_license": null,
+      "certification": null,
+      "id_document": null,
+      "chamber_registration": null
+    },
+    "additional_docs": {}
+  },
+  "19941c50-5037-4005-a7df-9e494b6ec72f": {
+    "notary_id": "19941c50-5037-4005-a7df-9e494b6ec72f",
+    "checked_prop_list": [],
     "properties_to_check": [],
     "buyers_to_check": [],
     "documents": {
