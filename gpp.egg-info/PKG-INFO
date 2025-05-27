@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: gpp
+Version: 0.1.0
+Summary: A real estate application with Streamlit interface
+Home-page: https://github.com/yourusername/forring
+Author: Andrei
+Author-email: tomutvoicuandrei@gmail.com
+Classifier: Development Status :: 0.1 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: streamlit>=1.28.0
+Requires-Dist: pandas>=1.5.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: plotly>=5.15.0
+Requires-Dist: folium>=0.14.0
+Requires-Dist: streamlit-folium>=0.13.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: Pillow>=9.5.0
+Requires-Dist: pytest>=7.0.0
+Requires-Dist: black>=23.0.0
+Requires-Dist: flake8>=6.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.8; extra == "dev"
+Requires-Dist: mypy>=0.800; extra == "dev"
+
+# GPP
+(Global Propriety Platform)
+
+
+
+

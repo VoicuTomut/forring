@@ -1,0 +1,37 @@
+{
+  "6f7cdc5f-290e-42c0-8496-12f0e6fa1199": {
+    "agent_id": "6f7cdc5f-290e-42c0-8496-12f0e6fa1199",
+    "agent_active_prop_list": [
+      "befcbff6-8d3c-4289-bc9d-119de9affcfe",
+      "fa397fb0-dd09-49ef-be71-f39c8eb338e5",
+      "ebe004db-b7d5-4726-87d4-fca0d8d63acc",
+      "b806527f-5dd4-4927-bf7a-0a3911fcba34",
+      "a1309d8b-a700-451d-8243-4bbe261ba97b",
+      "1f905f9c-751f-4e2f-af37-4c338bba1627",
+      "208824ee-3dac-455e-bbb6-c3119a4b1438",
+      "5b37ef5c-9c25-4afb-ba0f-7c7c83241361",
+      "e1983f06-ae9f-405a-ab0c-813b7bd8533c",
+      "4cffae67-e6f8-4e0d-bed7-f6d172f04bb8",
+      "483a2dc6-4dcb-4e24-a8da-b7d8ba5c8522",
+      "1a8f30d1-f345-4744-9db9-3758e981e4ee",
+      "36b27ce2-a449-43bd-baae-f247f268c125",
+      "89c7a202-dd7e-491b-b4ea-3f5d971f39de",
+      "b60d9547-b559-4de8-9302-f06931732416",
+      "62c47862-56bd-4466-9918-407fe7145222",
+      "3366a0a0-b845-425f-bd42-0db711fad1c4",
+      "82c3f74d-dfd8-4032-8a75-9628eb664ad9",
+      "536a16fa-f5cf-4adc-b215-b894ffa6377d",
+      "55148647-2fb0-4d36-a79b-c1623e2ad9de",
+      "c6c434ab-0a1b-4205-bd63-7e74479ea07e",
+      "5d27acba-6525-403a-b2f0-42f82db67a6d"
+    ],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
+  }
+}

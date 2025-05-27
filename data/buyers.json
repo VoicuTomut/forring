@@ -1,0 +1,16 @@
+{
+  "c54c454c-89c5-4659-99ad-6697dc5042f7": {
+    "buyer_id": "c54c454c-89c5-4659-99ad-6697dc5042f7",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [],
+    "reserved_properties": [],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
+  }
+}

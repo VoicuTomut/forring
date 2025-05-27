@@ -1,0 +1,17 @@
+{
+  "74844789-7d27-45ce-8978-2fc84481d0fa": {
+    "notary_id": "74844789-7d27-45ce-8978-2fc84481d0fa",
+    "checked_prop_list": [
+      "5d27acba-6525-403a-b2f0-42f82db67a6d"
+    ],
+    "properties_to_check": [],
+    "buyers_to_check": [],
+    "documents": {
+      "professional_license": null,
+      "certification": null,
+      "id_document": null,
+      "chamber_registration": null
+    },
+    "additional_docs": {}
+  }
+}
