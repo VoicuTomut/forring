@@ -156,5 +156,124 @@
       "credit_report": null
     },
     "additional_docs": {}
+  },
+  "90e91036-a489-4704-96e4-b0ba8de39039": {
+    "buyer_id": "90e91036-a489-4704-96e4-b0ba8de39039",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [
+      "c177c903-83e6-4683-95f0-d06418487c94"
+    ],
+    "reserved_properties": [],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
+  },
+  "b940bb0a-531a-4f6a-8549-12acd92588aa": {
+    "buyer_id": "b940bb0a-531a-4f6a-8549-12acd92588aa",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [],
+    "reserved_properties": [],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
+  },
+  "81f29b03-3da4-4322-964b-434b29df71cc": {
+    "buyer_id": "81f29b03-3da4-4322-964b-434b29df71cc",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [
+      "c177c903-83e6-4683-95f0-d06418487c94"
+    ],
+    "reserved_properties": [],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
+  },
+  "38950d75-ee57-4f75-9fe8-d6d76d98165d": {
+    "buyer_id": "38950d75-ee57-4f75-9fe8-d6d76d98165d",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [],
+    "reserved_properties": [],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
+  },
+  "23607b7e-c22e-47ea-920d-20ef7b5dfec9": {
+    "buyer_id": "23607b7e-c22e-47ea-920d-20ef7b5dfec9",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [],
+    "reserved_properties": [],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
+  },
+  "21b5c9a3-e520-44ff-bf99-63f3ef1d5803": {
+    "buyer_id": "21b5c9a3-e520-44ff-bf99-63f3ef1d5803",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [
+      "c177c903-83e6-4683-95f0-d06418487c94",
+      "73ec5bf0-f8ed-4e6a-af8c-4269256616ab"
+    ],
+    "reserved_properties": [],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
+  },
+  "9b0302bb-1af2-4d0b-8734-e5ec6341da7b": {
+    "buyer_id": "9b0302bb-1af2-4d0b-8734-e5ec6341da7b",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [],
+    "reserved_properties": [],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
+  },
+  "9849391a-1481-41bf-9bac-fd232ba73cd2": {
+    "buyer_id": "9849391a-1481-41bf-9bac-fd232ba73cd2",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [],
+    "reserved_properties": [],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
   }
 }

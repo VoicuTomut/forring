@@ -33,5 +33,143 @@
     "created_date": "2025-05-27 17:59:01.569138",
     "last_activity": "2025-05-27 17:59:27.275145",
     "is_active": true
+  },
+  "c177c903-83e6-4683-95f0-d06418487c94": {
+    "chat_id": "30d1cab2-94a0-4e69-bb52-447351ed1f33",
+    "property_id": "c177c903-83e6-4683-95f0-d06418487c94",
+    "agent_id": "393df11c-355f-4c42-b923-f9a380e8e33c",
+    "agent_notary_messages": [
+      {
+        "message_id": "4b44a5e9-4e5a-465c-b62d-37110d24f218",
+        "sender_id": "system",
+        "sender_type": "system",
+        "sender_name": "System",
+        "message": "Notary 1c6a6bf8 joined the chat",
+        "timestamp": "2025-05-27 18:37:47.266836",
+        "message_type": "system",
+        "document_reference": null,
+        "is_read": false
+      }
+    ],
+    "buyer_agent_chats": {
+      "b940bb0a-531a-4f6a-8549-12acd92588aa": [
+        {
+          "message_id": "81634133-0519-4c1e-b43e-cae5171e5456",
+          "sender_id": "b940bb0a-531a-4f6a-8549-12acd92588aa",
+          "sender_type": "buyer",
+          "sender_name": "Buyer b940bb0a",
+          "message": "anonim message",
+          "timestamp": "2025-05-27 20:47:57.989773",
+          "message_type": "text",
+          "document_reference": null,
+          "is_read": false
+        }
+      ]
+    },
+    "notary_id": "1c6a6bf8-d736-4562-a3af-4b0fb979d3d0",
+    "buyer_ids": [
+      "b940bb0a-531a-4f6a-8549-12acd92588aa"
+    ],
+    "created_date": "2025-05-27 18:37:24.426409",
+    "last_activity": "2025-05-27 20:47:57.989784",
+    "is_active": true
+  },
+  "9a4426b5-bda0-45d6-a9b7-fc3d84399e5d": {
+    "chat_id": "19cbf4f4-c617-4bb8-8e80-01d4663922ec",
+    "property_id": "9a4426b5-bda0-45d6-a9b7-fc3d84399e5d",
+    "agent_id": "79e361df-7d74-46e6-96e9-1d663caee3a9",
+    "agent_notary_messages": [
+      {
+        "message_id": "577f9854-227e-4560-a19a-fcabba5b8761",
+        "sender_id": "system",
+        "sender_type": "system",
+        "sender_name": "System",
+        "message": "Notary 42f94e73 joined the chat",
+        "timestamp": "2025-05-27 21:15:15.489504",
+        "message_type": "system",
+        "document_reference": null,
+        "is_read": false
+      }
+    ],
+    "buyer_agent_chats": {
+      "81f29b03-3da4-4322-964b-434b29df71cc": [
+        {
+          "message_id": "05855404-6813-477f-b36b-ef0068794af7",
+          "sender_id": "81f29b03-3da4-4322-964b-434b29df71cc",
+          "sender_type": "buyer",
+          "sender_name": "Buyer 81f29b03",
+          "message": "hei",
+          "timestamp": "2025-05-27 21:15:58.539022",
+          "message_type": "text",
+          "document_reference": null,
+          "is_read": true
+        },
+        {
+          "message_id": "bbd8d32a-d1eb-45b1-a287-c7ab8c3033ec",
+          "sender_id": "81f29b03-3da4-4322-964b-434b29df71cc",
+          "sender_type": "buyer",
+          "sender_name": "Buyer 81f29b03",
+          "message": "can you talk with me",
+          "timestamp": "2025-05-27 21:16:19.951873",
+          "message_type": "text",
+          "document_reference": null,
+          "is_read": true
+        },
+        {
+          "message_id": "6672b498-8d35-43e1-9260-61c805dabacf",
+          "sender_id": "79e361df-7d74-46e6-96e9-1d663caee3a9",
+          "sender_type": "agent",
+          "sender_name": "Agent 79e361df",
+          "message": "ok",
+          "timestamp": "2025-05-27 21:17:11.635991",
+          "message_type": "text",
+          "document_reference": null,
+          "is_read": false
+        }
+      ]
+    },
+    "notary_id": "42f94e73-978d-4df4-af09-e5eee9a17f03",
+    "buyer_ids": [
+      "81f29b03-3da4-4322-964b-434b29df71cc"
+    ],
+    "created_date": "2025-05-27 21:15:04.635242",
+    "last_activity": "2025-05-27 21:17:11.635995",
+    "is_active": true
+  },
+  "78a29237-4b53-4f49-870d-d38426fe1b72": {
+    "chat_id": "8308ce08-5382-4d09-ac9e-76c73407ab5a",
+    "property_id": "78a29237-4b53-4f49-870d-d38426fe1b72",
+    "agent_id": "81cc2018-0b09-4ad6-81a9-4049b479b0ea",
+    "agent_notary_messages": [],
+    "buyer_agent_chats": {},
+    "notary_id": null,
+    "buyer_ids": [],
+    "created_date": "2025-05-28 07:50:02.385744",
+    "last_activity": "2025-05-28 07:50:02.385745",
+    "is_active": true
+  },
+  "98fc0d6f-64dd-4e11-88c5-c34c23751544": {
+    "chat_id": "ca24b347-8231-48d7-973b-b2f40fffbb2b",
+    "property_id": "98fc0d6f-64dd-4e11-88c5-c34c23751544",
+    "agent_id": "9e0a059a-5fe9-4e50-a380-59d37141cf19",
+    "agent_notary_messages": [],
+    "buyer_agent_chats": {},
+    "notary_id": null,
+    "buyer_ids": [],
+    "created_date": "2025-05-28 07:57:32.268388",
+    "last_activity": "2025-05-28 07:57:32.268391",
+    "is_active": true
+  },
+  "b3f4fa78-621e-4963-8539-887babae574b": {
+    "chat_id": "15f1ac0a-33d7-4aff-b0a0-961f18ab0c83",
+    "property_id": "b3f4fa78-621e-4963-8539-887babae574b",
+    "agent_id": "3678cae0-8dda-4e74-8364-12fc1d2e552c",
+    "agent_notary_messages": [],
+    "buyer_agent_chats": {},
+    "notary_id": null,
+    "buyer_ids": [],
+    "created_date": "2025-05-28 08:53:12.071157",
+    "last_activity": "2025-05-28 08:53:12.071161",
+    "is_active": true
   }
 }

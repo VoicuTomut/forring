@@ -18,27 +18,6 @@ from gpp.interface.components.shared.buying_components import (
     show_buying_dashboard, start_buying_process, show_transaction_details
 )
 
-# Import individual functions to avoid circular imports
-try:
-    from gpp.interface.components.shared.buying_components import show_buyer_purchase_history
-except ImportError:
-    def show_buyer_purchase_history(current_user):
-        st.title("📋 Purchase History")
-        st.info("Purchase history feature will be available soon.")
-
-try:
-    from gpp.interface.components.shared.buying_components import show_agent_analytics
-except ImportError:
-    def show_agent_analytics(current_user):
-        st.title("📊 Agent Analytics")
-        st.info("Analytics feature will be available soon.")
-
-try:
-    from gpp.interface.components.shared.buying_components import show_notary_statistics
-except ImportError:
-    def show_notary_statistics(current_user):
-        st.title("📊 Notary Statistics")
-        st.info("Statistics feature will be available soon.")
 from gpp.interface.components.shared.enhanced_buying_process import (
     show_enhanced_buying_dashboard, show_document_upload_modal,
     show_notary_validation_interface, integrate_payment_system_with_buyer_dashboard,
@@ -72,7 +51,7 @@ def main():
     with col2:
         # Display main logo if it exists
         if os.path.exists("LOGO/logo.png"):
-            st.image("LOGO/logo.png", use_column_width=True)
+            st.image("LOGO/logo.png", use_container_width=True)
         else:
             # Fallback to text header if logo not found
             st.title("🏠 GPP - Global Property Platform")
@@ -88,7 +67,7 @@ def main():
 
     # Add logo to sidebar as well
     if os.path.exists("LOGO/logo.png"):
-        st.sidebar.image("LOGO/logo.png", use_column_width=True)
+        st.sidebar.image("LOGO/logo.png", use_container_width=True)
         st.sidebar.markdown("---")
 
     user_role = st.sidebar.selectbox(
@@ -335,7 +314,7 @@ def handle_enhanced_agent_navigation(current_user, selected_nav):
         _show_all_transaction_chats(current_user, "agent")
 
     elif selected_nav == "📊 Analytics":
-        show_enhanced_agent_analytics(current_user)
+        show_agent_analytics(current_user)
 
     elif selected_nav == "👤 Profile":
         show_agent_profile(current_user)
@@ -347,7 +326,6 @@ def handle_enhanced_buyer_navigation(current_user, selected_nav):
     if selected_nav == "🏠 Browse Properties":
         # Check if we should show payment page first
         if st.session_state.get("payment_page_property"):
-            from gpp.interface.components.shared.demo_payment_system import show_payment_page, show_payment_demo_info
             property_id = st.session_state["payment_page_property"]
 
             show_payment_demo_info()
@@ -419,7 +397,7 @@ def handle_enhanced_notary_navigation(current_user, selected_nav):
         _show_all_transaction_chats(current_user, "notary")
 
     elif selected_nav == "📊 Statistics":
-        show_enhanced_notary_statistics(current_user)
+        show_notary_statistics(current_user)
 
     elif selected_nav == "👤 Profile":
         show_notary_profile(current_user)
@@ -535,24 +513,95 @@ def _show_all_transaction_chats(current_user, user_type):
             st.markdown("---")
 
 
-# Enhanced analytics and statistics functions
-def show_enhanced_agent_analytics(current_user):
-    """Enhanced agent analytics with buying data"""
-    show_agent_analytics(current_user)
-
-
-def show_enhanced_notary_statistics(current_user):
-    """Enhanced notary statistics with buying data"""
-    show_notary_statistics(current_user)
-
-
+# Fixed analytics and purchase history functions (no circular imports)
 def show_buyer_purchase_history(current_user):
     """Show detailed buyer purchase history"""
-    from gpp.interface.components.shared.buying_components import show_buyer_purchase_history
-    show_buyer_purchase_history(current_user)
+    st.title("📋 Purchase History")
+
+    user_id = getattr(current_user, 'buyer_id', None)
+    if not user_id:
+        st.error("Could not retrieve buyer ID")
+        return
+
+    transactions = get_user_buying_transactions(user_id, "buyer")
+
+    if not transactions:
+        st.info("📋 No purchase history yet. Start buying properties to see your history here!")
+        return
+
+    # Show completed/cancelled transactions
+    completed_transactions = {
+        k: v for k, v in transactions.items()
+        if v.status in ["completed", "cancelled"]
+    }
+
+    if completed_transactions:
+        st.subheader(f"📊 Completed Transactions ({len(completed_transactions)})")
+        for txn_id, txn in completed_transactions.items():
+            with st.expander(f"Transaction {txn_id[:8]}... - {txn.status.replace('_', ' ').title()}"):
+                st.write(f"**Property:** {txn.property_id[:8]}...")
+                st.write(f"**Price:** €{txn.final_price:,.2f}" if txn.final_price else "Price: N/A")
+                st.write(f"**Status:** {txn.status.replace('_', ' ').title()}")
+                st.write(f"**Date:** {txn.last_updated.strftime('%Y-%m-%d')}")
+    else:
+        st.info("📋 No completed purchases yet.")
 
 
-# Profile functions (placeholders for now)
+def show_agent_analytics(current_user):
+    """Enhanced agent analytics with buying data"""
+    st.title("📊 Agent Analytics")
+
+    user_id = getattr(current_user, 'agent_id', None)
+    if not user_id:
+        st.error("Could not retrieve agent ID")
+        return
+
+    transactions = get_user_buying_transactions(user_id, "agent")
+
+    if not transactions:
+        st.info("📊 No transaction data available yet.")
+        return
+
+    # Basic analytics
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("Total Transactions", len(transactions))
+    with col2:
+        completed = len([t for t in transactions.values() if t.status == "completed"])
+        st.metric("Completed", completed)
+    with col3:
+        total_value = sum([float(t.final_price or 0) for t in transactions.values() if t.status == "completed"])
+        st.metric("Total Sales", f"€{total_value:,.0f}")
+
+
+def show_notary_statistics(current_user):
+    """Enhanced notary statistics with buying data"""
+    st.title("📊 Notary Statistics")
+
+    user_id = getattr(current_user, 'notary_id', None)
+    if not user_id:
+        st.error("Could not retrieve notary ID")
+        return
+
+    transactions = get_user_buying_transactions(user_id, "notary")
+
+    if not transactions:
+        st.info("📊 No validation data available yet.")
+        return
+
+    # Basic statistics
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("Total Validations", len(transactions))
+    with col2:
+        pending = len([t for t in transactions.values() if t.status in ["documents_pending", "under_review"]])
+        st.metric("Pending Review", pending)
+    with col3:
+        completed = len([t for t in transactions.values() if t.status == "completed"])
+        st.metric("Completed", completed)
+
+
+# Simple profile functions
 def show_agent_profile(current_user):
     """Show agent profile"""
     st.title("👤 Agent Profile")

@@ -14,6 +14,17 @@
         "message_type": "text",
         "document_reference": null,
         "is_read": false
+      },
+      {
+        "message_id": "40f3abeb-3355-47bb-a9cb-448c0c4b18a1",
+        "sender_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
+        "sender_type": "notary",
+        "sender_name": "Notary bb7bc709...",
+        "message": "chat",
+        "timestamp": "2025-05-27T20:51:02.898371",
+        "message_type": "text",
+        "document_reference": null,
+        "is_read": false
       }
     ],
     "buyer_agent_chats": {
@@ -47,7 +58,7 @@
       "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3"
     ],
     "created_date": "2025-05-27T18:02:07.073881",
-    "last_activity": "2025-05-27T18:07:57.225891",
+    "last_activity": "2025-05-27T20:51:02.898379",
     "is_active": true
   }
 }

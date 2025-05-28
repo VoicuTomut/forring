@@ -45,7 +45,7 @@
       }
     },
     "created_date": "2025-05-27T18:00:29.336614",
-    "last_updated": "2025-05-27T18:08:59.682261",
+    "last_updated": "2025-05-27T20:51:02.898393",
     "transaction_notes": [
       {
         "note_id": "6bfc3c85-8751-4475-b81f-9cf28ae7b6c5",
@@ -141,6 +141,490 @@
         "author_id": "c9000d54-6c1f-46f0-ae53-78ba984e6ac8",
         "note_type": "meeting",
         "timestamp": "2025-05-27T18:08:59.682259",
+        "visibility": "all"
+      },
+      {
+        "note_id": "28c6aa1b-ba73-4373-8661-03944c773c96",
+        "note": "[CHAT] chat",
+        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
+        "note_type": "chat",
+        "timestamp": "2025-05-27T20:51:02.898392",
+        "visibility": "all"
+      }
+    ]
+  },
+  "a8aa1ad8-6077-40f0-bff4-bc8499011a81": {
+    "buying_id": "a8aa1ad8-6077-40f0-bff4-bc8499011a81",
+    "agent_id": "393df11c-355f-4c42-b923-f9a380e8e33c",
+    "buyer_id": "90e91036-a489-4704-96e4-b0ba8de39039",
+    "property_id": "c177c903-83e6-4683-95f0-d06418487c94",
+    "buying_documents": {
+      "purchase_contract": "3adead43-2970-45fa-aed1-a47c771df243",
+      "payment_proof": null,
+      "loan_approval": null,
+      "inspection_report": null,
+      "insurance_policy": null,
+      "transfer_deed": null
+    },
+    "transaction_date": null,
+    "final_price": 2000.0,
+    "status": "under_review",
+    "scheduled_meetings": [
+      {
+        "meeting_id": "247afcc6-edad-41e5-a542-7ce2ae124dd1",
+        "meeting_type": "property_viewing",
+        "scheduled_date": "2025-05-28T14:00:00",
+        "participants": [
+          "393df11c-355f-4c42-b923-f9a380e8e33c",
+          "90e91036-a489-4704-96e4-b0ba8de39039"
+        ],
+        "location": "",
+        "agenda": "",
+        "status": "completed",
+        "created_by": "90e91036-a489-4704-96e4-b0ba8de39039",
+        "created_date": "2025-05-27T18:41:12.858414",
+        "meeting_notes": ""
+      }
+    ],
+    "additional_docs": {},
+    "document_validation_status": {
+      "purchase_contract": {
+        "document_id": "3adead43-2970-45fa-aed1-a47c771df243",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-27T18:40:15.640097",
+        "validated_by": "1c6a6bf8-d736-4562-a3af-4b0fb979d3d0",
+        "validation_date": "2025-05-27T18:41:30.225449",
+        "validation_notes": ""
+      }
+    },
+    "created_date": "2025-05-27T18:39:31.972409",
+    "last_updated": "2025-05-27T20:51:34.639133",
+    "transaction_notes": [
+      {
+        "note_id": "6b6e130d-0653-4f69-ab8c-8d4a39bb20d4",
+        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: 247794b1-e0bf-40cf-9b99-c56168543c90",
+        "author_id": "90e91036-a489-4704-96e4-b0ba8de39039",
+        "note_type": "payment",
+        "timestamp": "2025-05-27T18:39:31.972521",
+        "visibility": "all"
+      },
+      {
+        "note_id": "17466810-c3a1-49df-9d4b-d38cbfbb2e24",
+        "note": "Document uploaded: Purchase Contract. bo",
+        "author_id": "90e91036-a489-4704-96e4-b0ba8de39039",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-27T18:40:15.640115",
+        "visibility": "all"
+      },
+      {
+        "note_id": "9ddca802-c366-467a-a78e-a31e4128fc01",
+        "note": "Status changed from pending to documents_pending.",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-27T18:40:15.640128",
+        "visibility": "all"
+      },
+      {
+        "note_id": "97776e28-566c-4e6c-a5e9-3b366a8fa53d",
+        "note": "hei we need to meet fast",
+        "author_id": "1c6a6bf8-d736-4562-a3af-4b0fb979d3d0",
+        "note_type": "general",
+        "timestamp": "2025-05-27T18:40:45.080332",
+        "visibility": "all"
+      },
+      {
+        "note_id": "3230bb77-2367-483c-a2fc-fa9201321110",
+        "note": "Meeting scheduled: Property Viewing on 2025-05-28 14:00",
+        "author_id": "90e91036-a489-4704-96e4-b0ba8de39039",
+        "note_type": "meeting",
+        "timestamp": "2025-05-27T18:41:12.858430",
+        "visibility": "all"
+      },
+      {
+        "note_id": "8eb24c07-1281-4caf-80b8-d9f400ab4f66",
+        "note": "Document Purchase Contract approved.",
+        "author_id": "1c6a6bf8-d736-4562-a3af-4b0fb979d3d0",
+        "note_type": "validation",
+        "timestamp": "2025-05-27T18:41:30.225502",
+        "visibility": "all"
+      },
+      {
+        "note_id": "e1a6be9c-8dc6-46dc-b9ef-b57761b6951e",
+        "note": "Status changed from documents_pending to under_review. All documents validated",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-27T18:41:30.225512",
+        "visibility": "all"
+      },
+      {
+        "note_id": "6ecb5878-70d0-41f9-b6cd-5a1df2f4f1f3",
+        "note": "Please ad the more doecuemtns like your passport",
+        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
+        "note_type": "urgent",
+        "timestamp": "2025-05-27T20:51:34.639129",
+        "visibility": "all"
+      }
+    ]
+  },
+  "770224c5-aa93-450f-9128-66f3762f28ed": {
+    "buying_id": "770224c5-aa93-450f-9128-66f3762f28ed",
+    "agent_id": "393df11c-355f-4c42-b923-f9a380e8e33c",
+    "buyer_id": "b940bb0a-531a-4f6a-8549-12acd92588aa",
+    "property_id": "c177c903-83e6-4683-95f0-d06418487c94",
+    "buying_documents": {
+      "purchase_contract": null,
+      "payment_proof": "86d615b6-0049-4cbf-b709-80ae2fc48b10",
+      "loan_approval": "a24f4277-cd61-473a-b323-ad629c114ebb",
+      "inspection_report": null,
+      "insurance_policy": null,
+      "transfer_deed": null
+    },
+    "transaction_date": null,
+    "final_price": 2000.0,
+    "status": "approved",
+    "scheduled_meetings": [],
+    "additional_docs": {},
+    "document_validation_status": {
+      "payment_proof": {
+        "document_id": "86d615b6-0049-4cbf-b709-80ae2fc48b10",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-27T20:49:46.687270",
+        "validated_by": "bb7bc709-77a3-4583-b409-81f159d1094c",
+        "validation_date": "2025-05-27T20:50:41.677474",
+        "validation_notes": ""
+      },
+      "loan_approval": {
+        "document_id": "a24f4277-cd61-473a-b323-ad629c114ebb",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-27T20:53:59.994891",
+        "validated_by": "bb7bc709-77a3-4583-b409-81f159d1094c",
+        "validation_date": "2025-05-27T20:54:14.850503",
+        "validation_notes": ""
+      }
+    },
+    "created_date": "2025-05-27T20:48:55.609005",
+    "last_updated": "2025-05-27T20:54:14.850764",
+    "transaction_notes": [
+      {
+        "note_id": "ace61a2b-b781-493c-b8d6-e11fb77db8b1",
+        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: dfdfa7d4-cc94-4b14-aa3a-82f9f24a042e",
+        "author_id": "b940bb0a-531a-4f6a-8549-12acd92588aa",
+        "note_type": "payment",
+        "timestamp": "2025-05-27T20:48:55.609053",
+        "visibility": "all"
+      },
+      {
+        "note_id": "c1e5eb81-23aa-4f2d-b515-c265676deb58",
+        "note": "Document uploaded: Payment Verification. new payment",
+        "author_id": "b940bb0a-531a-4f6a-8549-12acd92588aa",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-27T20:49:46.687282",
+        "visibility": "all"
+      },
+      {
+        "note_id": "b3e9d6aa-e4c5-4196-b2c4-090aa9a35603",
+        "note": "Status changed from pending to documents_pending.",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-27T20:49:46.687289",
+        "visibility": "all"
+      },
+      {
+        "note_id": "f3e36b70-8e66-46be-b48b-d3cfbe7e4792",
+        "note": "Document Payment Verification approved.",
+        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
+        "note_type": "validation",
+        "timestamp": "2025-05-27T20:50:18.837492",
+        "visibility": "all"
+      },
+      {
+        "note_id": "7c7ace16-2139-43da-baf6-b16373c43607",
+        "note": "Status changed from documents_pending to under_review. All documents validated",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-27T20:50:18.837509",
+        "visibility": "all"
+      },
+      {
+        "note_id": "670fa3e8-f0db-41d3-99e0-2612e58a4535",
+        "note": "Document Payment Verification rejected.",
+        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
+        "note_type": "validation",
+        "timestamp": "2025-05-27T20:50:19.981280",
+        "visibility": "all"
+      },
+      {
+        "note_id": "965cac44-a1b2-4751-9bbc-a7e1cc2d85d1",
+        "note": "Document Payment Verification approved.",
+        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
+        "note_type": "validation",
+        "timestamp": "2025-05-27T20:50:21.359307",
+        "visibility": "all"
+      },
+      {
+        "note_id": "ba9c53e5-0536-4c40-aa6a-d009ccd8773b",
+        "note": "Document Payment Verification approved.",
+        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
+        "note_type": "validation",
+        "timestamp": "2025-05-27T20:50:35.692694",
+        "visibility": "all"
+      },
+      {
+        "note_id": "1cd884eb-40ec-455a-9a2e-060453b4069f",
+        "note": "Status changed from under_review to approved. All documents approved by notary",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-27T20:50:35.692716",
+        "visibility": "all"
+      },
+      {
+        "note_id": "0e83b877-04ff-4d39-ac30-9a3cca787b73",
+        "note": "Status changed from approved to documents_pending. Additional documents requested",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-27T20:50:39.678643",
+        "visibility": "all"
+      },
+      {
+        "note_id": "1c7650e6-84e6-4f54-9fa7-a9400d63d6a8",
+        "note": "Status changed from documents_pending to documents_pending. Additional documents requested",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-27T20:50:40.667796",
+        "visibility": "all"
+      },
+      {
+        "note_id": "e4be62e8-2f6f-4496-a543-6d120937a780",
+        "note": "Document Payment Verification approved.",
+        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
+        "note_type": "validation",
+        "timestamp": "2025-05-27T20:50:41.677557",
+        "visibility": "all"
+      },
+      {
+        "note_id": "52b05e08-a546-4195-a2d9-1e2620c6d01f",
+        "note": "Status changed from documents_pending to under_review. All documents validated",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-27T20:50:41.677730",
+        "visibility": "all"
+      },
+      {
+        "note_id": "f7af5e30-f8d2-4f42-971f-04f015649e38",
+        "note": "Status changed from under_review to approved. All documents approved by notary",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-27T20:50:41.677741",
+        "visibility": "all"
+      },
+      {
+        "note_id": "797d216d-1f1a-4e91-a145-e07a36ca372a",
+        "note": "Document uploaded: Bank Loan Approval. I just proved",
+        "author_id": "b940bb0a-531a-4f6a-8549-12acd92588aa",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-27T20:53:59.994914",
+        "visibility": "all"
+      },
+      {
+        "note_id": "d0780355-bc13-4c55-9a96-897060003cd1",
+        "note": "Document Bank Loan Approval approved.",
+        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
+        "note_type": "validation",
+        "timestamp": "2025-05-27T20:54:14.850763",
+        "visibility": "all"
+      }
+    ]
+  },
+  "5427956b-f5b1-4e15-9774-85b9bad8171a": {
+    "buying_id": "5427956b-f5b1-4e15-9774-85b9bad8171a",
+    "agent_id": "393df11c-355f-4c42-b923-f9a380e8e33c",
+    "buyer_id": "81f29b03-3da4-4322-964b-434b29df71cc",
+    "property_id": "c177c903-83e6-4683-95f0-d06418487c94",
+    "buying_documents": {
+      "purchase_contract": null,
+      "payment_proof": null,
+      "loan_approval": null,
+      "inspection_report": null,
+      "insurance_policy": null,
+      "transfer_deed": null
+    },
+    "transaction_date": null,
+    "final_price": 2000.0,
+    "status": "pending",
+    "scheduled_meetings": [],
+    "additional_docs": {},
+    "document_validation_status": {},
+    "created_date": "2025-05-27T21:13:14.383692",
+    "last_updated": "2025-05-27T21:13:14.384005",
+    "transaction_notes": [
+      {
+        "note_id": "cab88195-48b7-4395-85c6-b72b4af3600e",
+        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: d1d5fbb3-124b-4018-aa31-9d27e30fedc3",
+        "author_id": "81f29b03-3da4-4322-964b-434b29df71cc",
+        "note_type": "payment",
+        "timestamp": "2025-05-27T21:13:14.383949",
+        "visibility": "all"
+      }
+    ]
+  },
+  "3120119a-5e9f-489e-b761-92fdddc82caa": {
+    "buying_id": "3120119a-5e9f-489e-b761-92fdddc82caa",
+    "agent_id": "79e361df-7d74-46e6-96e9-1d663caee3a9",
+    "buyer_id": "81f29b03-3da4-4322-964b-434b29df71cc",
+    "property_id": "9a4426b5-bda0-45d6-a9b7-fc3d84399e5d",
+    "buying_documents": {
+      "purchase_contract": null,
+      "payment_proof": null,
+      "loan_approval": null,
+      "inspection_report": null,
+      "insurance_policy": null,
+      "transfer_deed": null
+    },
+    "transaction_date": null,
+    "final_price": 2000.0,
+    "status": "pending",
+    "scheduled_meetings": [],
+    "additional_docs": {},
+    "document_validation_status": {},
+    "created_date": "2025-05-27T21:18:22.558133",
+    "last_updated": "2025-05-27T21:18:22.558275",
+    "transaction_notes": [
+      {
+        "note_id": "a335978d-f6ca-4109-8c1b-34ecef8b20fc",
+        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: 58e62089-f3e2-4b44-9551-4a892e7f173e",
+        "author_id": "81f29b03-3da4-4322-964b-434b29df71cc",
+        "note_type": "payment",
+        "timestamp": "2025-05-27T21:18:22.558267",
+        "visibility": "all"
+      }
+    ]
+  },
+  "088b93b3-0880-4c45-bf14-b45ca075e89b": {
+    "buying_id": "088b93b3-0880-4c45-bf14-b45ca075e89b",
+    "agent_id": "9e0a059a-5fe9-4e50-a380-59d37141cf19",
+    "buyer_id": "21b5c9a3-e520-44ff-bf99-63f3ef1d5803",
+    "property_id": "98fc0d6f-64dd-4e11-88c5-c34c23751544",
+    "buying_documents": {
+      "purchase_contract": null,
+      "payment_proof": "da897e2b-8755-406f-ae4c-28f2c4ce4a02",
+      "loan_approval": null,
+      "inspection_report": null,
+      "insurance_policy": null,
+      "transfer_deed": null,
+      "reservation_agreement": "914aca7b-ce41-4e26-bdb2-f885961d6c41",
+      "proof_of_funds": null,
+      "mortgage_pre_approval": null,
+      "preliminary_contract": null,
+      "deposit_payment_proof": null,
+      "due_diligence_documents": null,
+      "final_purchase_contract": null,
+      "final_payment_proof": null,
+      "notary_validation_certificate": null
+    },
+    "document_signatures": {},
+    "current_phase": "reservation",
+    "phase_history": [],
+    "audit_trail": [
+      {
+        "audit_id": "93ddb405-c63a-4112-b6c6-7049e4b60aed",
+        "timestamp": "2025-05-28T08:17:42.541048",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "reservation_agreement",
+          "document_id": "914aca7b-ce41-4e26-bdb2-f885961d6c41"
+        },
+        "transaction_id": "088b93b3-0880-4c45-bf14-b45ca075e89b"
+      },
+      {
+        "audit_id": "67e83336-ab7d-4f44-9153-61cdaf7f5ac8",
+        "timestamp": "2025-05-28T08:29:19.111369",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "payment_proof",
+          "document_id": "da897e2b-8755-406f-ae4c-28f2c4ce4a02"
+        },
+        "transaction_id": "088b93b3-0880-4c45-bf14-b45ca075e89b"
+      },
+      {
+        "audit_id": "d9dc193c-455d-44d1-b8c3-f40920653867",
+        "timestamp": "2025-05-28T08:29:19.111401",
+        "action": "status_changed",
+        "user_id": "system",
+        "details": {
+          "old_status": "pending",
+          "new_status": "documents_pending",
+          "notes": ""
+        },
+        "transaction_id": "088b93b3-0880-4c45-bf14-b45ca075e89b"
+      }
+    ],
+    "transaction_date": null,
+    "final_price": 1000.0,
+    "status": "documents_pending",
+    "scheduled_meetings": [],
+    "additional_docs": {},
+    "document_validation_status": {
+      "reservation_agreement": {
+        "document_id": "914aca7b-ce41-4e26-bdb2-f885961d6c41",
+        "validation_status": false,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T08:17:42.541040",
+        "validated_by": null,
+        "validation_date": null,
+        "validation_notes": "",
+        "fully_signed": false,
+        "signing_completed_date": null
+      },
+      "payment_proof": {
+        "document_id": "da897e2b-8755-406f-ae4c-28f2c4ce4a02",
+        "validation_status": false,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T08:29:19.111360",
+        "validated_by": null,
+        "validation_date": null,
+        "validation_notes": "",
+        "fully_signed": false,
+        "signing_completed_date": null
+      }
+    },
+    "created_date": "2025-05-28T08:17:42.535406",
+    "last_updated": "2025-05-28T08:29:19.111397",
+    "transaction_notes": [
+      {
+        "note_id": "8ca7624e-5eb8-4bbd-a0d1-1343456e7ec5",
+        "note": "Reservation payment processed successfully. Amount: \u20ac50.00, Transaction ID: 191d8f50-2013-4970-99df-d9c7bf05bc18",
+        "author_id": "21b5c9a3-e520-44ff-bf99-63f3ef1d5803",
+        "note_type": "payment",
+        "timestamp": "2025-05-28T08:17:42.535719",
+        "visibility": "all"
+      },
+      {
+        "note_id": "9c341c70-b1c3-4652-ab29-04a565b886dc",
+        "note": "Reservation Agreement automatically generated after successful payment",
+        "author_id": "system",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T08:17:42.541057",
+        "visibility": "all"
+      },
+      {
+        "note_id": "210fca0b-4da7-4a2d-a26c-7c8af858b2e2",
+        "note": "Document uploaded: Payment Verification.",
+        "author_id": "21b5c9a3-e520-44ff-bf99-63f3ef1d5803",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T08:29:19.111386",
+        "visibility": "all"
+      },
+      {
+        "note_id": "79fa7d6d-7c3f-47cb-bc91-fca4cf950780",
+        "note": "Status changed from pending to documents_pending.",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-28T08:29:19.111397",
         "visibility": "all"
       }
     ]

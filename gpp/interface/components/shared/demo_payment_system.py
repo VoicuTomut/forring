@@ -1,6 +1,6 @@
 """
 Demo Payment System for Property Reservations
-Handles fake payment processing for demonstration purposes
+Handles fake payment processing for demonstration purposes with enhanced document generation
 """
 
 import streamlit as st
@@ -10,11 +10,19 @@ import uuid
 import time
 from typing import Dict, Any
 
-from gpp.classes.property import Property
+from gpp.classes.property import Property, reserve_property
 from gpp.classes.buyer import Buyer
 from gpp.classes.buying import create_buying_transaction, add_transaction_note
-from gpp.interface.utils.database import save_property, get_properties
+from gpp.interface.utils.database import save_property, get_properties, save_data
 from gpp.interface.utils.buying_database import save_buying_transaction
+
+# Try to import auto document generation - if not available, we'll handle it gracefully
+try:
+    from gpp.interface.utils.auto_document_generation import trigger_post_payment_document_generation
+
+    AUTO_DOCUMENT_GENERATION_AVAILABLE = True
+except ImportError:
+    AUTO_DOCUMENT_GENERATION_AVAILABLE = False
 
 
 class PaymentProcessor:
@@ -199,16 +207,18 @@ def show_payment_page(property_id: str, current_buyer: Buyer):
 
             if payment_result["success"]:
                 # Payment successful - reserve property and start buying process
-                _handle_successful_payment(property_id, property_data, current_buyer,
-                                         payment_result, reservation_fee)
+                handle_successful_payment(property_id, property_data, current_buyer,
+                                          payment_result, reservation_fee)
             else:
                 st.error(f"❌ Payment failed: {payment_result['error']}")
                 st.info("💡 Demo tip: Card numbers starting with '4000' will be declined")
 
+    if st.session_state.get("payment_successful"):
+        show_enhanced_payment_success()
 
-def _handle_successful_payment(property_id: str, property_data: Property, current_buyer: Buyer,
-                             payment_result: Dict[str, Any], reservation_fee: Decimal):
-    """Handle successful payment and start buying process"""
+def handle_successful_payment(property_id: str, property_data: Property, current_buyer: Buyer,
+                              payment_result: Dict[str, Any], reservation_fee: Decimal):
+    """Handle successful payment and trigger document generation"""
 
     st.success("🎉 Payment Successful!")
     st.success(f"💰 Reservation fee of €{reservation_fee:,.2f} has been processed")
@@ -216,9 +226,13 @@ def _handle_successful_payment(property_id: str, property_data: Property, curren
 
     try:
         # Reserve the property
-        property_data.reserved = True
+        property_data = reserve_property(property_data, current_buyer.buyer_id)
         property_data.status = "reserved"
-        save_property(property_data)
+
+        # Save updated property - FIX: Correct parameter order
+        properties = get_properties()
+        properties[property_id] = property_data
+        save_data("properties.json", properties)  # FIX: File path first, data second
 
         # Create buying transaction
         buying_transaction = create_buying_transaction(
@@ -246,60 +260,140 @@ def _handle_successful_payment(property_id: str, property_data: Property, curren
         # Save buying transaction
         save_buying_transaction(buying_transaction)
 
+        # *** NEW: Generate reservation agreement automatically ***
+        document_generated = False
+        if AUTO_DOCUMENT_GENERATION_AVAILABLE:
+            try:
+                document_generated = trigger_post_payment_document_generation(buying_transaction)
+            except Exception as e:
+                st.warning(f"Document generation failed: {e}")
+                document_generated = False
+
         # Update session state
         st.session_state["payment_successful"] = True
         st.session_state["buying_transaction_id"] = buying_transaction.buying_id
         st.session_state["reserved_property_id"] = property_id
+        st.session_state["document_auto_generated"] = document_generated
 
-        # Show next steps
-        st.markdown("---")
-        st.subheader("📋 Next Steps")
+        if document_generated:
+            st.success("📄 Reservation Agreement automatically generated!")
+            st.info("✍️ Please proceed to sign the reservation agreement in the Document Signing tab.")
+        else:
+            st.info("📄 Reservation Agreement will be generated shortly by the agent.")
 
-        col1, col2 = st.columns(2)
-
-        with col1:
-            st.info("""
-            **What happens next:**
-            1. Property is now reserved for you
-            2. Agent will prepare buying documents
-            3. You'll need to upload additional documents
-            4. Notary will validate all documents
-            5. Final contract signing and completion
-            """)
-
-        with col2:
-            st.success("""
-            **Your buying process has started!**
-            - Go to "My Purchases" tab to track progress
-            - Upload required documents when requested
-            - Communicate with agent and notary via chat
-            """)
-
-        # Action buttons (outside of any form)
-        st.markdown("### 🎯 Next Steps")
-        col1, col2, col3 = st.columns(3)
-
-        with col1:
-            if st.button("📋 View Buying Process", key="view_buying_process"):
-                st.session_state["selected_transaction"] = buying_transaction.buying_id
-                st.session_state["show_buying_details"] = True
-                st.rerun()
-
-        with col2:
-            if st.button("💬 Start Chat", key="start_chat_process"):
-                st.session_state["start_buying_chat"] = property_id
-                st.rerun()
-
-        with col3:
-            if st.button("🏠 Back to Properties", key="back_to_properties"):
-                # Clear payment session state
-                if "payment_page_property" in st.session_state:
-                    del st.session_state["payment_page_property"]
-                st.rerun()
+        # REMOVE THIS LINE - it causes the button error:
+        # show_enhanced_payment_success()
 
     except Exception as e:
         st.error(f"❌ Error processing reservation: {str(e)}")
         st.info("Payment was successful, but there was an error creating the buying process. Please contact support.")
+
+        # Debug information
+        import traceback
+        st.error(f"Debug info: {traceback.format_exc()}")
+
+
+
+def show_enhanced_payment_success():
+    """Show enhanced payment success message with next steps"""
+    if st.session_state.get("payment_successful"):
+
+        st.markdown("---")
+        st.subheader("📋 Next Steps")
+
+        if st.session_state.get("document_auto_generated"):
+            col1, col2 = st.columns(2)
+
+            with col1:
+                st.info("""
+                **Your Complete Buying Journey:**
+                1. ✅ **Payment Completed** - Reservation secured
+                2. ✍️ **Sign Reservation Agreement** - Auto-generated
+                3. 💰 **Upload Proof of Funds** - Financial verification
+                4. 📋 **Preliminary Contract** - Agent prepares contract
+                5. 🔍 **Due Diligence** - Property inspection & research
+                6. ✍️ **Final Contract Signing** - Legal completion
+                7. 💳 **Final Payment** - Complete purchase
+                8. 🔑 **Receive Keys** - Property ownership transfer
+                """)
+
+            with col2:
+                transaction_id = st.session_state.get("buying_transaction_id", "")
+                if transaction_id:
+                    st.metric("Transaction ID", transaction_id[:12] + "...")
+
+                st.success("**Document Auto-Generated!**")
+                st.write("📄 Reservation Agreement is ready for signing")
+
+                if st.button("✍️ Go to Document Signing", type="primary", key="go_to_signing"):
+                    # Clear payment session state
+                    if "payment_page_property" in st.session_state:
+                        del st.session_state["payment_page_property"]
+
+                    # Set navigation to signing
+                    st.session_state["navigate_to_signing"] = True
+                    st.session_state["selected_transaction"] = transaction_id
+                    st.rerun()
+
+        else:
+            col1, col2 = st.columns(2)
+
+            with col1:
+                st.info("""
+                **What happens next:**
+                1. ✅ Property is now reserved for you
+                2. 📄 Agent will prepare buying documents
+                3. 💼 You'll need to upload additional documents
+                4. ⚖️ Notary will validate all documents
+                5. ✍️ Final contract signing and completion
+                """)
+
+            with col2:
+                st.success("""
+                **Your buying process has started!**
+                - Go to "My Purchases" tab to track progress
+                - Upload required documents when requested
+                - Communicate with agent and notary via chat
+                """)
+
+        # Action buttons (outside of any form)
+        st.markdown("### 🎯 Available Actions")
+        col1, col2, col3, col4 = st.columns(4)
+
+        with col1:
+            if st.button("📋 View Buying Process", key="view_buying_process"):
+                transaction_id = st.session_state.get("buying_transaction_id")
+                if transaction_id:
+                    st.session_state["selected_transaction"] = transaction_id
+                    st.session_state["show_buying_details"] = True
+                    if "payment_page_property" in st.session_state:
+                        del st.session_state["payment_page_property"]
+                    st.rerun()
+
+        with col2:
+            if st.button("💬 Start Chat", key="start_chat_process"):
+                property_id = st.session_state.get("reserved_property_id")
+                if property_id:
+                    st.session_state["start_buying_chat"] = property_id
+                    if "payment_page_property" in st.session_state:
+                        del st.session_state["payment_page_property"]
+                    st.rerun()
+
+        with col3:
+            if st.button("📄 My Documents", key="view_documents"):
+                if "payment_page_property" in st.session_state:
+                    del st.session_state["payment_page_property"]
+                # Navigate to buyer dashboard documents section
+                st.session_state["buyer_tab"] = "documents"
+                st.rerun()
+
+        with col4:
+            if st.button("🏠 Back to Properties", key="back_to_properties"):
+                # Clear payment session state
+                clear_payment_session()
+                st.rerun()
+
+        st.markdown("---")
 
 
 def show_payment_demo_info():
@@ -307,25 +401,254 @@ def show_payment_demo_info():
     with st.expander("💡 Demo Payment Information"):
         st.markdown("""
         ### Demo Payment System Information
-        
+
         This is a **demonstration payment system** for testing purposes only.
-        
+
         **Test Card Numbers:**
         - ✅ **Successful payment:** Any card number except those starting with "4000"
         - ❌ **Failed payment:** Card numbers starting with "4000" (simulates insufficient funds)
-        
+
         **Valid Test Cards:**
         - `4242 4242 4242 4242` (Visa)
         - `5555 5555 5555 4444` (Mastercard)
         - `3782 8224 6310 005` (American Express)
-        
+
         **Invalid Test Card:**
         - `4000 0000 0000 0002` (Declined - insufficient funds)
-        
+
         **Other Requirements:**
         - Expiry date must be in the future (MM/YY format)
         - CVV must be 3 or 4 digits
         - All fields must be filled
-        
+
+        **Enhanced Features:**
+        - 📄 Automatic document generation after payment
+        - ✍️ Digital signature workflow integration
+        - 💬 Chat system activation
+        - 📊 Progress tracking
+
         **No real money is processed in this demo system.**
         """)
+
+
+def get_payment_fee_info(property_price: float) -> dict:
+    """Get payment fee information"""
+    reservation_percentage = 5.0
+    reservation_amount = property_price * (reservation_percentage / 100)
+    remaining_amount = property_price - reservation_amount
+
+    return {
+        "property_price": property_price,
+        "reservation_percentage": reservation_percentage,
+        "reservation_amount": reservation_amount,
+        "remaining_amount": remaining_amount,
+        "currency": "EUR"
+    }
+
+
+def show_payment_calculator(property_price: float):
+    """Show payment calculation breakdown"""
+    fee_info = get_payment_fee_info(property_price)
+
+    st.subheader("💰 Payment Breakdown")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.metric(
+            "Total Property Price",
+            f"€{fee_info['property_price']:,.2f}"
+        )
+        st.metric(
+            "Reservation Fee (5%)",
+            f"€{fee_info['reservation_amount']:,.2f}",
+            help="This amount secures your reservation"
+        )
+
+    with col2:
+        st.metric(
+            "Due at Closing",
+            f"€{fee_info['remaining_amount']:,.2f}",
+            help="Remaining amount to be paid when completing purchase"
+        )
+
+    # Payment schedule
+    with st.expander("📅 Payment Schedule"):
+        st.write("**Today:** Reservation fee to secure the property")
+        st.write("**At Closing:** Remaining balance when finalizing purchase")
+        st.write("**Note:** Final closing amount may vary based on inspections and negotiations")
+
+
+def show_payment_success_page(transaction_id: str, property_id: str):
+    """Show payment success confirmation page"""
+    st.title("🎉 Payment Successful!")
+
+    st.success("Your property reservation has been confirmed!")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.subheader("📋 Transaction Details")
+        st.write(f"**Transaction ID:** {transaction_id[:8]}...")
+        st.write(f"**Property ID:** {property_id[:8]}...")
+        st.write(f"**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+        st.write(f"**Status:** Reserved")
+
+    with col2:
+        st.subheader("📞 Contact Information")
+        st.info("The property agent will contact you within 24 hours to discuss next steps.")
+
+        st.subheader("📋 Next Steps")
+        st.write("1. Upload financial documents")
+        st.write("2. Schedule property inspection")
+        st.write("3. Review purchase contract")
+        st.write("4. Complete transaction")
+
+    # Navigation buttons
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        if st.button("🏠 Browse More Properties"):
+            clear_payment_session()
+            st.rerun()
+
+    with col2:
+        if st.button("📋 View My Reservations"):
+            clear_payment_session()
+            st.session_state["show_buying_dashboard"] = True
+            st.rerun()
+
+    with col3:
+        if st.button("💬 Contact Agent"):
+            st.info("Agent contact feature coming soon!")
+
+
+def validate_payment_form(card_number: str, card_name: str, expiry_date: str,
+                          cvv: str, billing_address: str) -> tuple[bool, str]:
+    """Validate payment form data"""
+
+    # Card number validation
+    if not card_number or len(card_number.replace(" ", "")) < 13:
+        return False, "Please enter a valid card number"
+
+    # Cardholder name validation
+    if not card_name or len(card_name.strip()) < 2:
+        return False, "Please enter cardholder name"
+
+    # Expiry date validation (basic format check)
+    if not expiry_date or len(expiry_date) != 5 or "/" not in expiry_date:
+        return False, "Please enter expiry date in MM/YY format"
+
+    # CVV validation
+    if not cvv or len(cvv) < 3:
+        return False, "Please enter a valid CVV"
+
+    # Billing address validation
+    if not billing_address or len(billing_address.strip()) < 5:
+        return False, "Please enter billing address"
+
+    return True, "Valid"
+
+
+def clear_payment_session():
+    """Clear payment-related session state"""
+    keys_to_clear = [
+        "payment_page_property",
+        "payment_form_data",
+        "payment_processing",
+        "payment_successful",
+        "buying_transaction_id",
+        "reserved_property_id",
+        "document_auto_generated"
+    ]
+
+    for key in keys_to_clear:
+        if key in st.session_state:
+            del st.session_state[key]
+
+
+def integrate_payment_with_dashboard():
+    """Integration helper for payment system with buyer dashboard"""
+    if st.session_state.get("payment_page_property"):
+        return True
+    return False
+
+
+def show_payment_demo():
+    """Show payment system demo"""
+    st.title("💳 Payment System Demo")
+
+    show_payment_demo_info()
+
+    # Mock property for demo
+    mock_property_price = 250000.0
+    show_payment_calculator(mock_property_price)
+
+    st.info("This demo shows the payment interface. Use the 'Browse Properties' section to make actual reservations.")
+
+
+# New enhanced functions for post-payment workflow
+def show_post_payment_workflow_info():
+    """Show information about what happens after payment"""
+    st.subheader("🔄 Post-Payment Workflow")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.write("**Immediate Actions:**")
+        st.write("✅ Property reserved in your name")
+        st.write("📄 Reservation agreement auto-generated")
+        st.write("💬 Chat system activated")
+        st.write("📊 Progress tracking enabled")
+
+    with col2:
+        st.write("**Next 24-48 Hours:**")
+        st.write("📞 Agent will contact you")
+        st.write("📋 Document upload requests")
+        st.write("🏠 Property inspection scheduling")
+        st.write("⚖️ Notary assignment")
+
+
+def get_reservation_summary(property_id: str, transaction_id: str) -> dict:
+    """Get summary of reservation for display"""
+    properties = get_properties()
+    property_data = properties.get(property_id)
+
+    if not property_data:
+        return {}
+
+    reservation_fee = property_data.price * Decimal("0.05")
+
+    return {
+        "property_title": property_data.title,
+        "property_address": f"{property_data.address}, {property_data.city}",
+        "total_price": float(property_data.price),
+        "reservation_fee": float(reservation_fee),
+        "remaining_amount": float(property_data.price - reservation_fee),
+        "transaction_id": transaction_id,
+        "reserved_date": datetime.now(),
+        "agent_id": property_data.agent_id
+    }
+
+
+def show_reservation_summary(property_id: str, transaction_id: str):
+    """Show detailed reservation summary"""
+    summary = get_reservation_summary(property_id, transaction_id)
+
+    if not summary:
+        st.error("Unable to load reservation summary")
+        return
+
+    st.subheader("📋 Reservation Summary")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.write(f"**Property:** {summary['property_title']}")
+        st.write(f"**Location:** {summary['property_address']}")
+        st.write(f"**Reserved:** {summary['reserved_date'].strftime('%Y-%m-%d %H:%M')}")
+
+    with col2:
+        st.write(f"**Total Price:** €{summary['total_price']:,.2f}")
+        st.write(f"**Paid Today:** €{summary['reservation_fee']:,.2f}")
+        st.write(f"**Due at Closing:** €{summary['remaining_amount']:,.2f}")

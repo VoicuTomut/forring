@@ -11,16 +11,22 @@ from gpp.interface.components.agent.property_form import add_property_form
 from gpp.interface.components.agent.property_list import show_agent_properties
 from gpp.interface.components.agent.document_manager import manage_additional_documents
 from gpp.interface.components.agent.chat_management import agent_chat_dashboard
+from gpp.interface.components.shared.document_signing_ui import (
+    show_signing_workflow_dashboard, integrate_signing_with_agent_dashboard
+)
+from gpp.interface.utils.buying_database import get_user_buying_transactions
+
 
 def agent_dashboard(current_agent: Agent):
     """Main agent dashboard interface"""
     st.header(f"🏢 Agent Dashboard - {current_agent.agent_id[:8]}...")
 
-    # Tabs for different agent functions - ENHANCED with chat
-    tab1, tab2, tab3, tab4 = st.tabs([
+    # Enhanced tabs for agent functions - ADD SIGNING TAB
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "📝 Add New Property",
         "📋 My Properties",
         "📎 Manage Documents",
+        "✍️ Document Signing",  # NEW TAB
         "💬 Communications"
     ])
 
@@ -34,4 +40,75 @@ def agent_dashboard(current_agent: Agent):
         manage_additional_documents(current_agent)
 
     with tab4:
+        # NEW SIGNING TAB CONTENT
+        _show_agent_signing_dashboard(current_agent)
+
+    with tab5:
         agent_chat_dashboard(current_agent)
+
+
+# ADD this new function:
+def _show_agent_signing_dashboard(current_agent: Agent):
+    """Show agent signing dashboard"""
+    st.subheader("✍️ Document Signing & Transaction Management")
+
+    # Get agent's transactions
+    buying_transactions = get_user_buying_transactions(current_agent.agent_id, "agent")
+
+    if not buying_transactions:
+        st.info("📋 No active buying transactions. Transactions will appear here when buyers reserve your properties!")
+        return
+
+    # Show transaction statistics
+    total_transactions = len(buying_transactions)
+    pending_signatures = 0
+    completed_transactions = 0
+
+    for txn in buying_transactions.values():
+        if txn.status == "completed":
+            completed_transactions += 1
+        else:
+            # Check if agent has pending signatures
+            from gpp.interface.config.constants import ENHANCED_BUYING_DOCUMENT_TYPES
+            from gpp.classes.buying import can_user_sign_document
+
+            for doc_type, doc_config in ENHANCED_BUYING_DOCUMENT_TYPES.items():
+                if "agent" in doc_config.get("required_signers", []):
+                    if txn.buying_documents.get(doc_type):
+                        can_sign, _ = can_user_sign_document(txn, doc_type, current_agent.agent_id, "agent")
+                        if can_sign:
+                            pending_signatures += 1
+                            break
+
+    # Statistics display
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("Total Transactions", total_transactions)
+    with col2:
+        st.metric("Pending Signatures", pending_signatures)
+    with col3:
+        st.metric("Completed", completed_transactions)
+
+    st.markdown("---")
+
+    # Transaction selector if multiple transactions
+    if len(buying_transactions) > 1:
+        transaction_options = {}
+        for txn_id, txn in buying_transactions.items():
+            # Get property info for display
+            from gpp.interface.utils.database import get_properties
+            properties = get_properties()
+            prop_data = properties.get(txn.property_id)
+            display_name = f"{prop_data.title if prop_data else txn.property_id[:8]}... - {txn.status}"
+            transaction_options[display_name] = txn
+
+        selected_option = st.selectbox(
+            "Select Transaction:",
+            options=list(transaction_options.keys())
+        )
+        selected_transaction = transaction_options[selected_option]
+    else:
+        selected_transaction = list(buying_transactions.values())[0]
+
+    # Show signing workflow for selected transaction
+    show_signing_workflow_dashboard(selected_transaction, current_agent, "agent")
