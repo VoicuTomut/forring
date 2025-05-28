@@ -530,5 +530,82 @@
       }
     ],
     "agent_notes": []
+  },
+  "0959a620-ea4c-4c4b-ba85-c0b2ad0f5965": {
+    "property_id": "0959a620-ea4c-4c4b-ba85-c0b2ad0f5965",
+    "agent_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+    "attached_notarys_id": [
+      "f18bc416-cfc0-435c-aee6-b2c80755d6fe"
+    ],
+    "title": "andrei",
+    "description": "uikb",
+    "dimension": "67",
+    "price": "2000.0",
+    "address": "234",
+    "city": "uj",
+    "postal_code": "",
+    "country": "",
+    "number_of_rooms": null,
+    "finishes": null,
+    "renovations": null,
+    "neighborhood_description": null,
+    "post_date": "2025-05-28 13:01:59.665378",
+    "validation_date": "2025-05-28 13:02:37.922613",
+    "reserved": false,
+    "looking_for_notary": false,
+    "notary_attached": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+    "status": "active",
+    "document_ids": [
+      "0fd8e3e5-27e7-4cba-b89a-ed99f9265c28",
+      "12a98862-bceb-4005-89ce-850b4d5f13be",
+      "f7ef4f9e-fdc2-4255-8dd7-2a979d68bf98",
+      "639edf8d-ac20-4533-95e2-5d27064dc0c7"
+    ],
+    "mandatory_legal_docs": {
+      "title_deed": "0fd8e3e5-27e7-4cba-b89a-ed99f9265c28",
+      "land_registry_extract": "12a98862-bceb-4005-89ce-850b4d5f13be",
+      "building_permit": "f7ef4f9e-fdc2-4255-8dd7-2a979d68bf98",
+      "habitation_certificate": null,
+      "mortgage_lien_certificate": null,
+      "seller_id_document": null,
+      "marital_status_documents": null,
+      "power_of_attorney": null,
+      "litigation_certificate": null
+    },
+    "additional_docs": {
+      "supplementary_documents": [],
+      "corrections": [],
+      "clarifications": [],
+      "agent_notes": [],
+      "updated_photos": [],
+      "floor_plans": [],
+      "certificates": [],
+      "correspondence": [],
+      "other": []
+    },
+    "document_history": [
+      {
+        "action": "mandatory_document_added",
+        "document_type": "title_deed",
+        "document_id": "0fd8e3e5-27e7-4cba-b89a-ed99f9265c28",
+        "timestamp": "2025-05-28 13:01:59.665508",
+        "added_by": "97bddf61-3ef7-4972-8bff-2157ce42e779"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "land_registry_extract",
+        "document_id": "12a98862-bceb-4005-89ce-850b4d5f13be",
+        "timestamp": "2025-05-28 13:01:59.665511",
+        "added_by": "97bddf61-3ef7-4972-8bff-2157ce42e779"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "building_permit",
+        "document_id": "f7ef4f9e-fdc2-4255-8dd7-2a979d68bf98",
+        "timestamp": "2025-05-28 13:01:59.665511",
+        "added_by": "97bddf61-3ef7-4972-8bff-2157ce42e779"
+      }
+    ],
+    "agent_notes": []
   }
 }

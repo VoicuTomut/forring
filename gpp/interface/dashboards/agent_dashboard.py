@@ -12,7 +12,7 @@ from gpp.interface.components.agent.property_list import show_agent_properties
 from gpp.interface.components.agent.document_manager import manage_additional_documents
 from gpp.interface.components.agent.chat_management import agent_chat_dashboard
 from gpp.interface.components.shared.document_signing_ui import (
-    show_signing_workflow_dashboard, integrate_signing_with_agent_dashboard
+    show_signing_workflow_dashboard, integrate_signing_with_agent_dashboard, show_document_upload_modal
 )
 from gpp.interface.utils.buying_database import get_user_buying_transactions
 
@@ -47,9 +47,8 @@ def agent_dashboard(current_agent: Agent):
         agent_chat_dashboard(current_agent)
 
 
-# ADD this new function:
 def _show_agent_signing_dashboard(current_agent: Agent):
-    """Show agent signing dashboard"""
+    """Enhanced agent signing dashboard with upload modal handling"""
     st.subheader("✍️ Document Signing & Transaction Management")
 
     # Get agent's transactions
@@ -68,7 +67,6 @@ def _show_agent_signing_dashboard(current_agent: Agent):
         if txn.status == "completed":
             completed_transactions += 1
         else:
-            # Check if agent has pending signatures
             from gpp.interface.config.constants import ENHANCED_BUYING_DOCUMENT_TYPES
             from gpp.classes.buying import can_user_sign_document
 
@@ -95,7 +93,6 @@ def _show_agent_signing_dashboard(current_agent: Agent):
     if len(buying_transactions) > 1:
         transaction_options = {}
         for txn_id, txn in buying_transactions.items():
-            # Get property info for display
             from gpp.interface.utils.database import get_properties
             properties = get_properties()
             prop_data = properties.get(txn.property_id)
@@ -112,3 +109,11 @@ def _show_agent_signing_dashboard(current_agent: Agent):
 
     # Show signing workflow for selected transaction
     show_signing_workflow_dashboard(selected_transaction, current_agent, "agent")
+
+    # Handle document upload modals
+    from gpp.interface.config.constants import ENHANCED_BUYING_DOCUMENT_TYPES
+
+    for doc_type in ENHANCED_BUYING_DOCUMENT_TYPES.keys():
+        if st.session_state.get(f"upload_doc_{doc_type}"):
+            show_document_upload_modal(selected_transaction, doc_type, current_agent, "agent")
+            break

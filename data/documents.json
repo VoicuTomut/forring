@@ -339,5 +339,126 @@
     "validation_date": "2025-05-28 08:53:33.595598",
     "who_validate": "afdeff0c-a29e-4b2a-9430-00fa5febf12c",
     "visibility": true
+  },
+  "c238fc97-4b64-42ba-8d9c-340c1a8a6a83": {
+    "document_id": "c238fc97-4b64-42ba-8d9c-340c1a8a6a83",
+    "document_name": "Reservation Agreement - w",
+    "document_path": "data/files/buying_documents/reservation_agreement_9b30ca0f-c6d1-4958-84ce-15c5cd110bd4_20250528_0858.txt",
+    "upload_id": "system",
+    "validation_status": true,
+    "upload_date": "2025-05-28 08:58:04.521773",
+    "validation_date": null,
+    "who_validate": null,
+    "visibility": true
+  },
+  "00624db7-2ab5-4c3d-8c80-893e272e5263": {
+    "document_id": "00624db7-2ab5-4c3d-8c80-893e272e5263",
+    "document_name": "\ud83d\udcb0 Proof of Funds - BuildingPermit.pdf",
+    "document_path": "data/files/documents/BuildingPermit_20250528_090140.pdf",
+    "upload_id": "9849391a-1481-41bf-9bac-fd232ba73cd2",
+    "validation_status": false,
+    "upload_date": "2025-05-28 09:01:40.315762",
+    "validation_date": null,
+    "who_validate": null,
+    "visibility": true
+  },
+  "6597f272-7251-4292-921f-e2f0f44706f5": {
+    "document_id": "6597f272-7251-4292-921f-e2f0f44706f5",
+    "document_name": "\ud83c\udfe6 Mortgage Pre-Approval - LanndRegistry.pdf",
+    "document_path": "data/files/documents/LanndRegistry_20250528_090155.pdf",
+    "upload_id": "9849391a-1481-41bf-9bac-fd232ba73cd2",
+    "validation_status": false,
+    "upload_date": "2025-05-28 09:01:55.710819",
+    "validation_date": null,
+    "who_validate": null,
+    "visibility": true
+  },
+  "639edf8d-ac20-4533-95e2-5d27064dc0c7": {
+    "document_id": "639edf8d-ac20-4533-95e2-5d27064dc0c7",
+    "document_name": "Property Photo 1",
+    "document_path": "data/files/photos/photo_20250528_130159.jpeg",
+    "upload_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:01:59.662017",
+    "validation_date": null,
+    "who_validate": null,
+    "visibility": true
+  },
+  "0fd8e3e5-27e7-4cba-b89a-ed99f9265c28": {
+    "document_id": "0fd8e3e5-27e7-4cba-b89a-ed99f9265c28",
+    "document_name": "Title Deed / Property Ownership Document",
+    "document_path": "data/files/documents/BuildingPermit_20250528_130159.pdf",
+    "upload_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:01:59.663749",
+    "validation_date": "2025-05-28 13:02:29.658428",
+    "who_validate": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+    "visibility": true
+  },
+  "12a98862-bceb-4005-89ce-850b4d5f13be": {
+    "document_id": "12a98862-bceb-4005-89ce-850b4d5f13be",
+    "document_name": "Land Registry Extract",
+    "document_path": "data/files/documents/Ownership_20250528_130159.pdf",
+    "upload_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:01:59.664306",
+    "validation_date": "2025-05-28 13:02:34.558932",
+    "who_validate": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+    "visibility": true
+  },
+  "f7ef4f9e-fdc2-4255-8dd7-2a979d68bf98": {
+    "document_id": "f7ef4f9e-fdc2-4255-8dd7-2a979d68bf98",
+    "document_name": "Building Permit",
+    "document_path": "data/files/documents/LanndRegistry_20250528_130159.pdf",
+    "upload_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:01:59.664864",
+    "validation_date": "2025-05-28 13:02:36.259271",
+    "who_validate": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+    "visibility": true
+  },
+  "d1c50d75-0464-476b-93a6-e93a3f3a3bf4": {
+    "document_id": "d1c50d75-0464-476b-93a6-e93a3f3a3bf4",
+    "document_name": "Reservation Agreement - andrei",
+    "document_path": "data/files/buying_documents/reservation_agreement_d8c611cb-e394-4a60-af1c-abc7a0a68665_20250528_1303.txt",
+    "upload_id": "system",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:03:15.665683",
+    "validation_date": "2025-05-28 13:05:26.468703",
+    "who_validate": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+    "visibility": true
+  },
+  "7a68b6ff-018f-4cbb-810e-948423d9eb63": {
+    "document_id": "7a68b6ff-018f-4cbb-810e-948423d9eb63",
+    "document_name": "\ud83d\udcb0 Proof of Funds - photo.jpeg",
+    "document_path": "data/files/documents/photo_20250528_130440.jpeg",
+    "upload_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:04:40.865010",
+    "validation_date": "2025-05-28 13:05:32.052444",
+    "who_validate": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+    "visibility": true
+  },
+  "0aaa08e2-9cd5-4532-9b54-7244cd3103d3": {
+    "document_id": "0aaa08e2-9cd5-4532-9b54-7244cd3103d3",
+    "document_name": "\ud83c\udfe6 Mortgage Pre-Approval - Ownership.pdf",
+    "document_path": "data/files/documents/Ownership_20250528_130455.pdf",
+    "upload_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:04:55.109466",
+    "validation_date": "2025-05-28 13:05:42.893341",
+    "who_validate": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+    "visibility": true
+  },
+  "5fce1d78-0736-46f9-a6e7-a22a21f2b043": {
+    "document_id": "5fce1d78-0736-46f9-a6e7-a22a21f2b043",
+    "document_name": "\ud83d\udcb3 Deposit Payment Proof - BuildingPermit.pdf",
+    "document_path": "data/files/documents/BuildingPermit_20250528_130654.pdf",
+    "upload_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+    "validation_status": false,
+    "upload_date": "2025-05-28 13:06:54.660568",
+    "validation_date": null,
+    "who_validate": null,
+    "visibility": true
   }
 }

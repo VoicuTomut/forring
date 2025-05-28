@@ -319,5 +319,19 @@
       "business_registration": null
     },
     "additional_docs": {}
+  },
+  "97bddf61-3ef7-4972-8bff-2157ce42e779": {
+    "agent_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+    "agent_active_prop_list": [
+      "0959a620-ea4c-4c4b-ba85-c0b2ad0f5965"
+    ],
+    "agent_sold_prop": [],
+    "agent_notary_pending_prop": [],
+    "documents": {
+      "id_document": null,
+      "professional_license": null,
+      "business_registration": null
+    },
+    "additional_docs": {}
   }
 }

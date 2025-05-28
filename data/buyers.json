@@ -275,5 +275,19 @@
       "credit_report": null
     },
     "additional_docs": {}
+  },
+  "91f72217-7236-4093-9f1b-cf3d1cb32952": {
+    "buyer_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [],
+    "reserved_properties": [],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
   }
 }

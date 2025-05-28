@@ -123,36 +123,6 @@ class DigitalSignature(BaseModel):
     metadata: Dict[str, Any] = Field(default_factory=dict, description="Additional signature metadata")
 
 
-# Document type configurations for buying transactions
-BUYING_DOCUMENT_TYPES = {
-    "purchase_contract": "Purchase Contract",
-    "payment_proof": "Payment Verification",
-    "loan_approval": "Bank Loan Approval",
-    "inspection_report": "Property Inspection Report",
-    "insurance_policy": "Property Insurance Policy",
-    "transfer_deed": "Property Transfer Deed"
-}
-
-MEETING_TYPES = {
-    "property_viewing": "Property Viewing",
-    "contract_discussion": "Contract Discussion",
-    "final_signing": "Final Contract Signing",
-    "inspection_meeting": "Property Inspection Meeting",
-    "closing_meeting": "Transaction Closing Meeting",
-    "general_discussion": "General Discussion"
-}
-
-TRANSACTION_STATUSES = {
-    "pending": "🟡 Pending - Initial Interest",
-    "documents_pending": "📄 Documents Pending",
-    "under_review": "🔍 Under Review",
-    "approved": "✅ Approved - Ready to Close",
-    "completed": "🎉 Transaction Completed",
-    "cancelled": "❌ Transaction Cancelled",
-    "on_hold": "⏸️ On Hold"
-}
-
-
 # ===== BACKWARD COMPATIBILITY FUNCTIONS =====
 
 def ensure_enhanced_fields(buying_obj: Buying) -> Buying:
@@ -190,7 +160,7 @@ def ensure_enhanced_fields(buying_obj: Buying) -> Buying:
     return buying_obj
 
 
-# ===== ORIGINAL HELPER FUNCTIONS (Enhanced) =====
+# ===== CORE HELPER FUNCTIONS =====
 
 def add_document_to_buying(buying_obj: Buying, doc_type: str, document_id: str) -> Buying:
     """Add document ID to buying transaction's document dictionary"""
@@ -301,58 +271,16 @@ def schedule_meeting(buying_obj: Buying, meeting_data: Dict[str, Any]) -> Buying
     buying_obj.last_updated = datetime.now()
 
     # Add note about meeting scheduling
+    from gpp.interface.config.constants import MEETING_TYPES
+    meeting_type_name = MEETING_TYPES.get(meeting['meeting_type'], meeting['meeting_type'])
+
     add_transaction_note(
         buying_obj,
-        f"Meeting scheduled: {MEETING_TYPES.get(meeting['meeting_type'], meeting['meeting_type'])} "
+        f"Meeting scheduled: {meeting_type_name} "
         f"on {meeting['scheduled_date'].strftime('%Y-%m-%d %H:%M')}",
         meeting_data.get("created_by", "system"),
         "meeting"
     )
-
-    return buying_obj
-
-
-def validate_buying_document(buying_obj: Buying, doc_type: str, validator_id: str,
-                             validation_status: bool, notes: str = "") -> Buying:
-    """Validate a document in the buying transaction"""
-    buying_obj = ensure_enhanced_fields(buying_obj)
-
-    if doc_type in buying_obj.document_validation_status:
-        buying_obj.document_validation_status[doc_type].update({
-            "validation_status": validation_status,
-            "validated_by": validator_id,
-            "validation_date": datetime.now(),
-            "validation_notes": notes
-        })
-
-        buying_obj.last_updated = datetime.now()
-
-        # Add validation note
-        status_text = "approved" if validation_status else "rejected"
-        add_transaction_note(
-            buying_obj,
-            f"Document {BUYING_DOCUMENT_TYPES.get(doc_type, doc_type)} {status_text}. {notes}".strip(),
-            validator_id,
-            "validation"
-        )
-
-        # Add audit trail entry
-        add_audit_entry(buying_obj, "document_validated", {
-            "document_type": doc_type,
-            "validation_status": validation_status,
-            "validator_id": validator_id,
-            "notes": notes
-        }, validator_id)
-
-        # Check if all documents are validated and update status accordingly
-        all_docs_validated = all(
-            doc_info.get("validation_status", False)
-            for doc_info in buying_obj.document_validation_status.values()
-            if buying_obj.buying_documents.get(doc_type) is not None
-        )
-
-        if all_docs_validated and buying_obj.status == "documents_pending":
-            update_buying_status(buying_obj, "under_review", "All documents validated")
 
     return buying_obj
 
@@ -368,6 +296,8 @@ def get_buying_progress(buying_obj: Buying) -> Dict[str, Any]:
     ])
 
     progress = (validated_docs / total_docs * 100) if total_docs > 0 else 0
+
+    from gpp.interface.config.constants import TRANSACTION_STATUSES
 
     return {
         "total_documents": total_docs,
@@ -412,8 +342,7 @@ def can_user_edit_transaction(buying_obj: Buying, user_id: str, user_type: str) 
     return False
 
 
-def get_user_buying_transactions(user_id: str, user_type: str, all_transactions: Dict[str, Buying]) -> Dict[
-    str, Buying]:
+def get_user_buying_transactions(user_id: str, user_type: str, all_transactions: Dict[str, Buying]) -> Dict[str, Buying]:
     """Get buying transactions relevant to a specific user"""
     relevant_transactions = {}
 
@@ -637,37 +566,40 @@ def check_and_advance_phase(buying_obj: Buying) -> bool:
 
     buying_obj = ensure_enhanced_fields(buying_obj)
 
-    current_phase_config = ENHANCED_WORKFLOW_PHASES.get(buying_obj.current_phase)
-    if not current_phase_config:
-        return False
-
-    # Check if all required documents are uploaded and validated
+    current_phase_config = ENHANCED_WORKFLOW_PHASES.get(buying_obj.current_phase, {})
     required_docs = current_phase_config.get("required_documents", [])
+
+    # Check if all required documents for current phase are validated
+    all_validated = True
     for doc_type in required_docs:
         if not buying_obj.buying_documents.get(doc_type):
-            return False  # Document missing
+            all_validated = False
+            break
 
         validation_status = buying_obj.document_validation_status.get(doc_type, {})
         if not validation_status.get("validation_status", False):
-            return False  # Document not validated
+            all_validated = False
+            break
 
-    # Check if all required signatures are complete
-    required_signatures = current_phase_config.get("required_signatures", [])
-    for doc_type in required_signatures:
-        if not is_document_fully_signed(buying_obj, doc_type):
-            return False  # Document not fully signed
+    # If all documents are validated, check if phase can advance
+    if all_validated:
+        # Check if signatures are also complete (if required)
+        required_signatures = current_phase_config.get("required_signatures", [])
+        signatures_complete = True
 
-    # Phase is complete - advance to next phase
-    next_phase = current_phase_config.get("next_phase")
-    if next_phase:
-        advance_workflow_phase(buying_obj, next_phase, "system")
+        for doc_type in required_signatures:
+            if not is_document_fully_signed(buying_obj, doc_type):
+                signatures_complete = False
+                break
 
-        # Add completion message
-        completion_message = current_phase_config.get("completion_message",
-                                                      f"Phase {buying_obj.current_phase} completed")
-        add_transaction_note(buying_obj, completion_message, "system", "phase_complete")
+        # If both documents and signatures are complete, advance phase
+        if signatures_complete:
+            next_phase = current_phase_config.get("next_phase")
+            if next_phase:
+                advance_workflow_phase(buying_obj, next_phase, "system")
+                return True
 
-    return True
+    return False
 
 
 def advance_workflow_phase(buying_obj: Buying, new_phase: str, advanced_by: str) -> Buying:
@@ -760,145 +692,240 @@ def get_current_phase_requirements(buying_obj: Buying) -> Dict[str, Any]:
     }
 
 
-# Database operations (to be implemented with your database system)
-def save_buying_transaction(buying_obj: Buying):
-    """Save buying transaction to database"""
-    # Ensure enhanced fields before saving
+# ===== ENHANCED VALIDATION FUNCTIONS =====
+
+def validate_buying_document(buying_obj: Buying, doc_type: str, validator_id: str,
+                             validation_status: bool, notes: str = "") -> Buying:
+    """Enhanced validation function that properly updates progress"""
     buying_obj = ensure_enhanced_fields(buying_obj)
 
-    # Implement with your database system
-    # This is where you'd integrate with buying_database.py
-    pass
+    if doc_type in buying_obj.document_validation_status:
+        # Update validation status
+        buying_obj.document_validation_status[doc_type].update({
+            "validation_status": validation_status,
+            "validated_by": validator_id,
+            "validation_date": datetime.now(),
+            "validation_notes": notes
+        })
 
+        # Also update the actual document in the documents database
+        try:
+            from gpp.interface.utils.database import get_documents, save_document
+            from gpp.classes.document import validate_document
 
-def load_buying_transaction(buying_id: str) -> Optional[Buying]:
-    """Load buying transaction from database"""
-    # Implement with your database system
-    # This is where you'd integrate with buying_database.py
-    pass
+            documents = get_documents()
+            doc_id = buying_obj.buying_documents.get(doc_type)
 
+            if doc_id and doc_id in documents:
+                document = documents[doc_id]
+                if validation_status:
+                    # Validate the document
+                    validated_doc = validate_document(document, validator_id)
+                    save_document(validated_doc)
+        except ImportError:
+            pass  # Skip document database update if imports fail
 
-def get_all_buying_transactions() -> Dict[str, Buying]:
-    """Get all buying transactions from database"""
-    # Implement with your database system
-    # This is where you'd integrate with buying_database.py
-    pass
+        buying_obj.last_updated = datetime.now()
 
+        # Add validation note
+        status_text = "approved" if validation_status else "rejected"
+        add_transaction_note(
+            buying_obj,
+            f"Document {doc_type.replace('_', ' ').title()} {status_text}. {notes}".strip(),
+            validator_id,
+            "validation"
+        )
 
-# ===== UTILITY FUNCTIONS FOR MIGRATION =====
+        # Add audit trail entry
+        add_audit_entry(buying_obj, "document_validated", {
+            "document_type": doc_type,
+            "validation_status": validation_status,
+            "validator_id": validator_id,
+            "notes": notes
+        }, validator_id)
 
-def migrate_old_buying_transaction(old_buying_dict: Dict[str, Any]) -> Buying:
-    """
-    Migrate old buying transaction format to new enhanced format
-    Use this when loading old transactions from database
-    """
-    # Create buying object from old data
-    buying_obj = Buying(**old_buying_dict)
-
-    # Ensure all enhanced fields are present
-    buying_obj = ensure_enhanced_fields(buying_obj)
+        # Check if this document validation allows phase advancement
+        check_and_advance_phase(buying_obj)
 
     return buying_obj
 
 
-def get_workflow_phase_from_status(status: str) -> str:
-    """
-    Map old status to new workflow phase for migration
-    """
-    status_to_phase_mapping = {
-        "pending": "reservation",
-        "documents_pending": "financial_verification",
-        "under_review": "preliminary_contract",
-        "approved": "final_contract",
-        "completed": "completed",
-        "cancelled": "cancelled",
-        "on_hold": "on_hold"
-    }
-
-    return status_to_phase_mapping.get(status, "reservation")
-
-
-def get_signing_progress_summary(buying_obj: Buying) -> Dict[str, Any]:
-    """Get summary of signing progress across all documents"""
-    buying_obj = ensure_enhanced_fields(buying_obj)
-
-    try:
-        from gpp.interface.config.constants import ENHANCED_BUYING_DOCUMENT_TYPES
-    except ImportError:
-        return {
-            "total_signable_documents": 0,
-            "fully_signed_documents": 0,
-            "pending_signatures": 0,
-            "user_pending_signatures": {},
-            "overall_progress": 0
-        }
-
-    total_signable = 0
-    fully_signed = 0
-    pending_by_user_type = {"buyer": 0, "agent": 0, "notary": 0}
-
-    for doc_type, doc_config in ENHANCED_BUYING_DOCUMENT_TYPES.items():
-        required_signers = doc_config.get("required_signers", [])
-
-        if required_signers and buying_obj.buying_documents.get(doc_type):
-            total_signable += 1
-
-            if is_document_fully_signed(buying_obj, doc_type):
-                fully_signed += 1
-            else:
-                # Count pending signatures by user type
-                existing_signatures = buying_obj.document_signatures.get(doc_type, [])
-                signed_by_types = [sig.get("signer_type") for sig in existing_signatures]
-
-                for signer_type in required_signers:
-                    if signer_type not in signed_by_types:
-                        pending_by_user_type[signer_type] += 1
-
-    overall_progress = (fully_signed / total_signable * 100) if total_signable > 0 else 0
-
-    return {
-        "total_signable_documents": total_signable,
-        "fully_signed_documents": fully_signed,
-        "pending_signatures": sum(pending_by_user_type.values()),
-        "user_pending_signatures": pending_by_user_type,
-        "overall_progress": overall_progress
-    }
-
-
-def get_documents_by_phase(buying_obj: Buying) -> Dict[str, List[Dict[str, Any]]]:
-    """Get documents organized by workflow phase"""
+def get_enhanced_buying_progress(buying_obj: Buying) -> Dict[str, Any]:
+    """Enhanced progress calculation with proper phase tracking"""
     buying_obj = ensure_enhanced_fields(buying_obj)
 
     try:
         from gpp.interface.config.constants import ENHANCED_BUYING_DOCUMENT_TYPES, ENHANCED_WORKFLOW_PHASES
-    except ImportError:
-        return {}
 
-    documents_by_phase = {}
+        # Calculate document progress
+        total_docs = 0
+        uploaded_docs = 0
+        validated_docs = 0
+        signed_docs = 0
 
-    for phase_key, phase_config in ENHANCED_WORKFLOW_PHASES.items():
-        documents_by_phase[phase_key] = {
-            "phase_name": phase_config.get("name", phase_key),
-            "documents": []
+        for doc_type, doc_config in ENHANCED_BUYING_DOCUMENT_TYPES.items():
+            # Only count documents that are relevant to current phase or earlier
+            doc_phase = doc_config.get("phase", "unknown")
+            current_phase_order = ENHANCED_WORKFLOW_PHASES.get(buying_obj.current_phase, {}).get("order", 1)
+            doc_phase_order = ENHANCED_WORKFLOW_PHASES.get(doc_phase, {}).get("order", 999)
+
+            # Only count documents from current phase and earlier phases
+            if doc_phase_order <= current_phase_order:
+                total_docs += 1
+
+                # Check if uploaded
+                if buying_obj.buying_documents.get(doc_type):
+                    uploaded_docs += 1
+
+                    # Check if validated
+                    validation_status = buying_obj.document_validation_status.get(doc_type, {})
+                    if validation_status.get("validation_status", False):
+                        validated_docs += 1
+
+                    # Check if signed (if signatures required)
+                    if doc_config.get("required_signers"):
+                        if is_document_fully_signed(buying_obj, doc_type):
+                            signed_docs += 1
+
+        # Calculate phase progress
+        phases = list(ENHANCED_WORKFLOW_PHASES.keys())
+        current_phase_index = phases.index(buying_obj.current_phase) if buying_obj.current_phase in phases else 0
+        phase_progress = (current_phase_index / len(phases)) * 100
+
+        # Calculate overall progress
+        if total_docs > 0:
+            upload_progress = (uploaded_docs / total_docs) * 100
+            validation_progress = (validated_docs / total_docs) * 100
+            overall_progress = (validation_progress + phase_progress) / 2
+        else:
+            upload_progress = 0
+            validation_progress = 0
+            overall_progress = phase_progress
+
+        return {
+            "total_documents": total_docs,
+            "uploaded_documents": uploaded_docs,
+            "validated_documents": validated_docs,
+            "signed_documents": signed_docs,
+            "upload_progress": upload_progress,
+            "validation_progress": validation_progress,
+            "signing_progress": (signed_docs / max(1, total_docs)) * 100,
+            "phase_progress": phase_progress,
+            "overall_progress": overall_progress,
+            "status": buying_obj.status,
+            "current_phase": buying_obj.current_phase,
+            "current_phase_name": ENHANCED_WORKFLOW_PHASES.get(buying_obj.current_phase, {}).get("name", buying_obj.current_phase),
+            "last_updated": buying_obj.last_updated,
+            "can_advance_phase": _can_current_phase_advance(buying_obj)
         }
 
-    for doc_type, doc_config in ENHANCED_BUYING_DOCUMENT_TYPES.items():
-        phase = doc_config.get("phase", "unknown")
+    except ImportError:
+        # Fallback to original progress calculation if constants not available
+        return get_buying_progress(buying_obj)
 
-        if phase in documents_by_phase:
-            doc_info = {
-                "document_type": doc_type,
-                "document_name": doc_config.get("name", doc_type),
-                "uploaded": bool(buying_obj.buying_documents.get(doc_type)),
-                "validated": buying_obj.document_validation_status.get(doc_type, {}).get("validation_status", False),
-                "fully_signed": is_document_fully_signed(buying_obj, doc_type),
-                "required_signers": doc_config.get("required_signers", []),
-                "signing_status": get_document_signing_status(buying_obj, doc_type)
-            }
 
-            documents_by_phase[phase]["documents"].append(doc_info)
+def _can_current_phase_advance(buying_obj: Buying) -> bool:
+    """Check if current phase can advance"""
+    try:
+        from gpp.interface.config.constants import ENHANCED_WORKFLOW_PHASES
 
-    return documents_by_phase
+        current_phase_config = ENHANCED_WORKFLOW_PHASES.get(buying_obj.current_phase, {})
+
+        # Check required documents
+        required_docs = current_phase_config.get("required_documents", [])
+        for doc_type in required_docs:
+            if not buying_obj.buying_documents.get(doc_type):
+                return False
+
+            validation_status = buying_obj.document_validation_status.get(doc_type, {})
+            if not validation_status.get("validation_status", False):
+                return False
+
+        # Check required signatures
+        required_signatures = current_phase_config.get("required_signatures", [])
+        for doc_type in required_signatures:
+            if not is_document_fully_signed(buying_obj, doc_type):
+                return False
+
+        return True
+
+    except ImportError:
+        return False
+
+
+def bulk_validate_documents(buying_obj: Buying, doc_types: List[str], validator_id: str,
+                           validation_status: bool, notes: str = "") -> Buying:
+    """Validate multiple documents at once (useful for notaries)"""
+    buying_obj = ensure_enhanced_fields(buying_obj)
+
+    validated_docs = []
+
+    for doc_type in doc_types:
+        if doc_type in buying_obj.document_validation_status:
+            buying_obj = validate_buying_document(buying_obj, doc_type, validator_id, validation_status, notes)
+            validated_docs.append(doc_type)
+
+    # Add bulk validation note
+    if validated_docs:
+        status_text = "approved" if validation_status else "rejected"
+        doc_names = [doc_type.replace('_', ' ').title() for doc_type in validated_docs]
+        add_transaction_note(
+            buying_obj,
+            f"Bulk validation - {status_text}: {', '.join(doc_names)}. {notes}".strip(),
+            validator_id,
+            "validation"
+        )
+
+    return buying_obj
+
+
+def force_phase_advancement(buying_obj: Buying, target_phase: str, advanced_by: str,
+                           reason: str = "Manual advancement") -> Buying:
+    """Force phase advancement (for admin/notary override)"""
+    buying_obj = ensure_enhanced_fields(buying_obj)
+
+    # Add note about forced advancement
+    add_transaction_note(
+        buying_obj,
+        f"Phase manually advanced to {target_phase}. Reason: {reason}",
+        advanced_by,
+        "phase_complete"
+    )
+
+    # Advance phase
+    buying_obj = advance_workflow_phase(buying_obj, target_phase, advanced_by)
+
+    return buying_obj
+
+
+def get_user_dashboard_summary(buying_obj: Buying, user_id: str, user_type: str) -> Dict[str, Any]:
+    """Get dashboard summary for specific user type"""
+    buying_obj = ensure_enhanced_fields(buying_obj)
+
+    progress = get_enhanced_buying_progress(buying_obj)
+    action_items = get_user_action_items(buying_obj, user_id, user_type)
+
+    # Get recent activity
+    recent_notes = buying_obj.transaction_notes[-5:] if buying_obj.transaction_notes else []
+
+    # Get next actions
+    next_actions = [item for item in action_items if item["priority"] == "high"][:3]
+
+    return {
+        "transaction_id": buying_obj.buying_id,
+        "current_phase": buying_obj.current_phase,
+        "current_phase_name": progress["current_phase_name"],
+        "overall_progress": progress["overall_progress"],
+        "validation_progress": progress["validation_progress"],
+        "signing_progress": progress["signing_progress"],
+        "status": buying_obj.status,
+        "last_updated": buying_obj.last_updated,
+        "action_items_count": len(action_items),
+        "high_priority_actions": len(next_actions),
+        "next_actions": next_actions,
+        "recent_activity": recent_notes,
+        "can_advance_phase": progress["can_advance_phase"]
+    }
 
 
 def get_user_action_items(buying_obj: Buying, user_id: str, user_type: str) -> List[Dict[str, Any]]:
@@ -907,100 +934,103 @@ def get_user_action_items(buying_obj: Buying, user_id: str, user_type: str) -> L
 
     try:
         from gpp.interface.config.constants import ENHANCED_BUYING_DOCUMENT_TYPES
+
+        action_items = []
+
+        for doc_type, doc_config in ENHANCED_BUYING_DOCUMENT_TYPES.items():
+            # Check if user can upload this document
+            if user_type in doc_config.get("uploadable_by", []):
+                if not buying_obj.buying_documents.get(doc_type):
+                    action_items.append({
+                        "type": "upload",
+                        "priority": "high" if doc_config.get("mandatory", False) else "medium",
+                        "action": f"Upload {doc_config.get('name', doc_type)}",
+                        "document_type": doc_type,
+                        "description": f"Upload required document: {doc_config.get('name', doc_type)}"
+                    })
+
+            # Check if user can sign this document
+            if user_type in doc_config.get("required_signers", []):
+                if buying_obj.buying_documents.get(doc_type):
+                    can_sign, reason = can_user_sign_document(buying_obj, doc_type, user_id, user_type)
+                    if can_sign:
+                        action_items.append({
+                            "type": "sign",
+                            "priority": "high",
+                            "action": f"Sign {doc_config.get('name', doc_type)}",
+                            "document_type": doc_type,
+                            "description": f"Digital signature required for: {doc_config.get('name', doc_type)}"
+                        })
+
+            # Check if user can validate this document (notaries)
+            if user_type in doc_config.get("validatable_by", []):
+                if buying_obj.buying_documents.get(doc_type):
+                    validation_status = buying_obj.document_validation_status.get(doc_type, {})
+                    if not validation_status.get("validation_status", False):
+                        action_items.append({
+                            "type": "validate",
+                            "priority": "high",
+                            "action": f"Validate {doc_config.get('name', doc_type)}",
+                            "document_type": doc_type,
+                            "description": f"Review and validate: {doc_config.get('name', doc_type)}"
+                        })
+
+        # Sort by priority (high first)
+        priority_order = {"high": 1, "medium": 2, "low": 3}
+        action_items.sort(key=lambda x: priority_order.get(x["priority"], 3))
+
+        return action_items
+
     except ImportError:
         return []
 
-    action_items = []
 
-    for doc_type, doc_config in ENHANCED_BUYING_DOCUMENT_TYPES.items():
-        # Check if user can upload this document
-        if user_type in doc_config.get("uploadable_by", []):
-            if not buying_obj.buying_documents.get(doc_type):
-                action_items.append({
-                    "type": "upload",
-                    "priority": "high" if doc_config.get("mandatory", False) else "medium",
-                    "action": f"Upload {doc_config.get('name', doc_type)}",
-                    "document_type": doc_type,
-                    "description": f"Upload required document: {doc_config.get('name', doc_type)}"
-                })
-
-        # Check if user can sign this document
-        if user_type in doc_config.get("required_signers", []):
-            if buying_obj.buying_documents.get(doc_type):
-                can_sign, reason = can_user_sign_document(buying_obj, doc_type, user_id, user_type)
-                if can_sign:
-                    action_items.append({
-                        "type": "sign",
-                        "priority": "high",
-                        "action": f"Sign {doc_config.get('name', doc_type)}",
-                        "document_type": doc_type,
-                        "description": f"Digital signature required for: {doc_config.get('name', doc_type)}"
-                    })
-
-        # Check if user can validate this document (notaries)
-        if user_type in doc_config.get("validatable_by", []):
-            if buying_obj.buying_documents.get(doc_type):
-                validation_status = buying_obj.document_validation_status.get(doc_type, {})
-                if not validation_status.get("validation_status", False):
-                    action_items.append({
-                        "type": "validate",
-                        "priority": "high",
-                        "action": f"Validate {doc_config.get('name', doc_type)}",
-                        "document_type": doc_type,
-                        "description": f"Review and validate: {doc_config.get('name', doc_type)}"
-                    })
-
-        # Check if user needs to generate this document (notaries)
-        if (doc_config.get("auto_generated") and
-                doc_config.get("generated_by") == user_type and
-                not buying_obj.buying_documents.get(doc_type)):
-            action_items.append({
-                "type": "generate",
-                "priority": "high",
-                "action": f"Generate {doc_config.get('name', doc_type)}",
-                "document_type": doc_type,
-                "description": f"Generate legal document: {doc_config.get('name', doc_type)}"
-            })
-
-    # Sort by priority (high first)
-    priority_order = {"high": 1, "medium": 2, "low": 3}
-    action_items.sort(key=lambda x: priority_order.get(x["priority"], 3))
-
-    return action_items
-
-
-def is_phase_ready_for_advancement(buying_obj: Buying, phase_key: str) -> tuple[bool, List[str]]:
-    """Check if a specific phase is ready for advancement"""
+def get_signing_progress_summary(buying_obj: Buying) -> Dict[str, Any]:
+    """Get summary of signing progress across all documents"""
     buying_obj = ensure_enhanced_fields(buying_obj)
 
     try:
-        from gpp.interface.config.constants import ENHANCED_WORKFLOW_PHASES
+        from gpp.interface.config.constants import ENHANCED_BUYING_DOCUMENT_TYPES
+
+        total_signable = 0
+        fully_signed = 0
+        pending_by_user_type = {"buyer": 0, "agent": 0, "notary": 0}
+
+        for doc_type, doc_config in ENHANCED_BUYING_DOCUMENT_TYPES.items():
+            required_signers = doc_config.get("required_signers", [])
+
+            if required_signers and buying_obj.buying_documents.get(doc_type):
+                total_signable += 1
+
+                if is_document_fully_signed(buying_obj, doc_type):
+                    fully_signed += 1
+                else:
+                    # Count pending signatures by user type
+                    existing_signatures = buying_obj.document_signatures.get(doc_type, [])
+                    signed_by_types = [sig.get("signer_type") for sig in existing_signatures]
+
+                    for signer_type in required_signers:
+                        if signer_type not in signed_by_types:
+                            pending_by_user_type[signer_type] += 1
+
+        overall_progress = (fully_signed / total_signable * 100) if total_signable > 0 else 0
+
+        return {
+            "total_signable_documents": total_signable,
+            "fully_signed_documents": fully_signed,
+            "pending_signatures": sum(pending_by_user_type.values()),
+            "user_pending_signatures": pending_by_user_type,
+            "overall_progress": overall_progress
+        }
+
     except ImportError:
-        return False, ["Configuration not available"]
-
-    phase_config = ENHANCED_WORKFLOW_PHASES.get(phase_key)
-    if not phase_config:
-        return False, ["Invalid phase"]
-
-    blocking_issues = []
-
-    # Check required documents
-    required_docs = phase_config.get("required_documents", [])
-    for doc_type in required_docs:
-        if not buying_obj.buying_documents.get(doc_type):
-            blocking_issues.append(f"Missing document: {doc_type}")
-        else:
-            validation_status = buying_obj.document_validation_status.get(doc_type, {})
-            if not validation_status.get("validation_status", False):
-                blocking_issues.append(f"Document not validated: {doc_type}")
-
-    # Check required signatures
-    required_signatures = phase_config.get("required_signatures", [])
-    for doc_type in required_signatures:
-        if not is_document_fully_signed(buying_obj, doc_type):
-            blocking_issues.append(f"Document not fully signed: {doc_type}")
-
-    return len(blocking_issues) == 0, blocking_issues
+        return {
+            "total_signable_documents": 0,
+            "fully_signed_documents": 0,
+            "pending_signatures": 0,
+            "user_pending_signatures": {},
+            "overall_progress": 0
+        }
 
 
 def generate_transaction_summary(buying_obj: Buying) -> Dict[str, Any]:
@@ -1066,6 +1096,39 @@ def generate_transaction_summary(buying_obj: Buying) -> Dict[str, Any]:
     }
 
 
+# ===== UTILITY FUNCTIONS FOR MIGRATION =====
+
+def migrate_old_buying_transaction(old_buying_dict: Dict[str, Any]) -> Buying:
+    """
+    Migrate old buying transaction format to new enhanced format
+    Use this when loading old transactions from database
+    """
+    # Create buying object from old data
+    buying_obj = Buying(**old_buying_dict)
+
+    # Ensure all enhanced fields are present
+    buying_obj = ensure_enhanced_fields(buying_obj)
+
+    return buying_obj
+
+
+def get_workflow_phase_from_status(status: str) -> str:
+    """
+    Map old status to new workflow phase for migration
+    """
+    status_to_phase_mapping = {
+        "pending": "reservation",
+        "documents_pending": "financial_verification",
+        "under_review": "preliminary_contract",
+        "approved": "final_contract",
+        "completed": "completed",
+        "cancelled": "cancelled",
+        "on_hold": "on_hold"
+    }
+
+    return status_to_phase_mapping.get(status, "reservation")
+
+
 # ===== BACKWARD COMPATIBILITY WRAPPER FUNCTIONS =====
 
 def ensure_buying_compatibility(func):
@@ -1097,6 +1160,63 @@ add_transaction_note = ensure_buying_compatibility(add_transaction_note)
 schedule_meeting = ensure_buying_compatibility(schedule_meeting)
 validate_buying_document = ensure_buying_compatibility(validate_buying_document)
 get_buying_progress = ensure_buying_compatibility(get_buying_progress)
+
+
+# ===== DATABASE OPERATIONS =====
+
+def save_buying_transaction(buying_obj: Buying):
+    """Save buying transaction to database"""
+    # Ensure enhanced fields before saving
+    buying_obj = ensure_enhanced_fields(buying_obj)
+
+    # Import here to avoid circular imports
+    try:
+        from gpp.interface.utils.database import load_data, save_data
+        from gpp.interface.config.constants import BUYING_TRANSACTIONS_FILE
+
+        transactions = load_data(BUYING_TRANSACTIONS_FILE)
+        transactions[buying_obj.buying_id] = buying_obj.dict()
+        save_data(BUYING_TRANSACTIONS_FILE, transactions)
+    except ImportError:
+        pass  # Skip database save if imports fail
+
+
+def load_buying_transaction(buying_id: str) -> Optional[Buying]:
+    """Load buying transaction from database"""
+    try:
+        from gpp.interface.utils.database import load_data
+        from gpp.interface.config.constants import BUYING_TRANSACTIONS_FILE
+
+        transactions = load_data(BUYING_TRANSACTIONS_FILE)
+        if buying_id in transactions:
+            buying_obj = Buying(**transactions[buying_id])
+            return ensure_enhanced_fields(buying_obj)
+    except ImportError:
+        pass  # Skip database load if imports fail
+
+    return None
+
+
+def get_all_buying_transactions() -> Dict[str, Buying]:
+    """Get all buying transactions from database"""
+    try:
+        from gpp.interface.utils.database import load_data
+        from gpp.interface.config.constants import BUYING_TRANSACTIONS_FILE
+
+        transactions_data = load_data(BUYING_TRANSACTIONS_FILE)
+        transactions = {}
+
+        for buying_id, buying_data in transactions_data.items():
+            try:
+                buying_obj = Buying(**buying_data)
+                transactions[buying_id] = ensure_enhanced_fields(buying_obj)
+            except Exception as e:
+                # Log error but continue with other transactions
+                print(f"Error loading transaction {buying_id}: {e}")
+
+        return transactions
+    except ImportError:
+        return {}
 
 
 # ===== INITIALIZATION FUNCTION =====

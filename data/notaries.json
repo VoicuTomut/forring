@@ -243,5 +243,20 @@
       "chamber_registration": null
     },
     "additional_docs": {}
+  },
+  "f18bc416-cfc0-435c-aee6-b2c80755d6fe": {
+    "notary_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+    "checked_prop_list": [
+      "0959a620-ea4c-4c4b-ba85-c0b2ad0f5965"
+    ],
+    "properties_to_check": [],
+    "buyers_to_check": [],
+    "documents": {
+      "professional_license": null,
+      "certification": null,
+      "id_document": null,
+      "chamber_registration": null
+    },
+    "additional_docs": {}
   }
 }

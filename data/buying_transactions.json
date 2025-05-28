@@ -628,5 +628,498 @@
         "visibility": "all"
       }
     ]
+  },
+  "9b30ca0f-c6d1-4958-84ce-15c5cd110bd4": {
+    "buying_id": "9b30ca0f-c6d1-4958-84ce-15c5cd110bd4",
+    "agent_id": "3678cae0-8dda-4e74-8364-12fc1d2e552c",
+    "buyer_id": "9849391a-1481-41bf-9bac-fd232ba73cd2",
+    "property_id": "b3f4fa78-621e-4963-8539-887babae574b",
+    "buying_documents": {
+      "purchase_contract": null,
+      "payment_proof": null,
+      "loan_approval": null,
+      "inspection_report": null,
+      "insurance_policy": null,
+      "transfer_deed": null,
+      "reservation_agreement": "c238fc97-4b64-42ba-8d9c-340c1a8a6a83",
+      "proof_of_funds": "00624db7-2ab5-4c3d-8c80-893e272e5263",
+      "mortgage_pre_approval": "6597f272-7251-4292-921f-e2f0f44706f5",
+      "preliminary_contract": null,
+      "deposit_payment_proof": null,
+      "due_diligence_documents": null,
+      "final_purchase_contract": null,
+      "final_payment_proof": null,
+      "notary_validation_certificate": null
+    },
+    "document_signatures": {},
+    "current_phase": "reservation",
+    "phase_history": [],
+    "audit_trail": [
+      {
+        "audit_id": "e044824c-609d-4ac2-9ba0-0590d7991162",
+        "timestamp": "2025-05-28T08:58:04.522114",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "reservation_agreement",
+          "document_id": "c238fc97-4b64-42ba-8d9c-340c1a8a6a83"
+        },
+        "transaction_id": "9b30ca0f-c6d1-4958-84ce-15c5cd110bd4"
+      },
+      {
+        "audit_id": "145ca841-3f08-44bf-b00f-3b967cd0128c",
+        "timestamp": "2025-05-28T09:01:40.316319",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "proof_of_funds",
+          "document_id": "00624db7-2ab5-4c3d-8c80-893e272e5263"
+        },
+        "transaction_id": "9b30ca0f-c6d1-4958-84ce-15c5cd110bd4"
+      },
+      {
+        "audit_id": "220862d3-7312-436c-a9fd-26b162f857c8",
+        "timestamp": "2025-05-28T09:01:55.711402",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "mortgage_pre_approval",
+          "document_id": "6597f272-7251-4292-921f-e2f0f44706f5"
+        },
+        "transaction_id": "9b30ca0f-c6d1-4958-84ce-15c5cd110bd4"
+      }
+    ],
+    "transaction_date": null,
+    "final_price": 2000.0,
+    "status": "pending",
+    "scheduled_meetings": [],
+    "additional_docs": {},
+    "document_validation_status": {
+      "reservation_agreement": {
+        "document_id": "c238fc97-4b64-42ba-8d9c-340c1a8a6a83",
+        "validation_status": false,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T08:58:04.522105",
+        "validated_by": null,
+        "validation_date": null,
+        "validation_notes": "",
+        "fully_signed": false,
+        "signing_completed_date": null
+      },
+      "proof_of_funds": {
+        "document_id": "00624db7-2ab5-4c3d-8c80-893e272e5263",
+        "validation_status": false,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T09:01:40.316280",
+        "validated_by": null,
+        "validation_date": null,
+        "validation_notes": "",
+        "fully_signed": false,
+        "signing_completed_date": null
+      },
+      "mortgage_pre_approval": {
+        "document_id": "6597f272-7251-4292-921f-e2f0f44706f5",
+        "validation_status": false,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T09:01:55.711384",
+        "validated_by": null,
+        "validation_date": null,
+        "validation_notes": "",
+        "fully_signed": false,
+        "signing_completed_date": null
+      }
+    },
+    "created_date": "2025-05-28T08:58:04.519009",
+    "last_updated": "2025-05-28T09:01:55.711417",
+    "transaction_notes": [
+      {
+        "note_id": "7c94408c-00e0-409a-9b1f-42814cf6796a",
+        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: 494f362b-59a7-4a29-8dea-69c5e074d5d3",
+        "author_id": "9849391a-1481-41bf-9bac-fd232ba73cd2",
+        "note_type": "payment",
+        "timestamp": "2025-05-28T08:58:04.519200",
+        "visibility": "all"
+      },
+      {
+        "note_id": "f4b4e6db-32ae-4dc4-8842-96bcdf82cf37",
+        "note": "Reservation Agreement automatically generated after successful payment",
+        "author_id": "system",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T08:58:04.522122",
+        "visibility": "all"
+      },
+      {
+        "note_id": "9a02844c-56f4-4345-af06-1e94cd07610b",
+        "note": "Document uploaded: \ud83d\udcb0 Proof of Funds.",
+        "author_id": "9849391a-1481-41bf-9bac-fd232ba73cd2",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T09:01:40.316370",
+        "visibility": "all"
+      },
+      {
+        "note_id": "c195d1e2-9af3-4af3-bd31-bed67018a1d4",
+        "note": "Document uploaded: \ud83c\udfe6 Mortgage Pre-Approval.",
+        "author_id": "9849391a-1481-41bf-9bac-fd232ba73cd2",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T09:01:55.711416",
+        "visibility": "all"
+      }
+    ]
+  },
+  "d8c611cb-e394-4a60-af1c-abc7a0a68665": {
+    "buying_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665",
+    "agent_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+    "buyer_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+    "property_id": "0959a620-ea4c-4c4b-ba85-c0b2ad0f5965",
+    "buying_documents": {
+      "purchase_contract": null,
+      "payment_proof": null,
+      "loan_approval": null,
+      "inspection_report": null,
+      "insurance_policy": null,
+      "transfer_deed": null,
+      "reservation_agreement": "d1c50d75-0464-476b-93a6-e93a3f3a3bf4",
+      "proof_of_funds": "7a68b6ff-018f-4cbb-810e-948423d9eb63",
+      "mortgage_pre_approval": "0aaa08e2-9cd5-4532-9b54-7244cd3103d3",
+      "preliminary_contract": null,
+      "deposit_payment_proof": "5fce1d78-0736-46f9-a6e7-a22a21f2b043",
+      "due_diligence_documents": null,
+      "final_purchase_contract": null,
+      "final_payment_proof": null,
+      "notary_validation_certificate": null
+    },
+    "document_signatures": {
+      "reservation_agreement": [
+        {
+          "signature_id": "fee09a85-aaf1-45e4-9c0a-b7426b066a7c",
+          "signer_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+          "signer_type": "buyer",
+          "document_type": "reservation_agreement",
+          "signature_hash": "69e0573c9b0c203dc60d77ef45966744a91ad8f44e6d74e26b51b429cd3cde02",
+          "timestamp": "2025-05-28T13:13:15.538765",
+          "metadata": {}
+        },
+        {
+          "signature_id": "d430143b-aa3e-41bc-becb-2a944902f6f5",
+          "signer_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+          "signer_type": "agent",
+          "document_type": "reservation_agreement",
+          "signature_hash": "4afb920b211696286722f353094742a393b17962df556c3ae0ea5d851bcf8c88",
+          "timestamp": "2025-05-28T13:14:10.004737",
+          "metadata": {}
+        }
+      ]
+    },
+    "current_phase": "preliminary_contract",
+    "phase_history": [
+      {
+        "from_phase": "reservation",
+        "to_phase": "financial_verification",
+        "advanced_by": "system",
+        "timestamp": "2025-05-28T13:14:10.004833",
+        "automatic": true
+      },
+      {
+        "from_phase": "financial_verification",
+        "to_phase": "preliminary_contract",
+        "advanced_by": "system",
+        "timestamp": "2025-05-28T13:14:10.117988",
+        "automatic": true
+      }
+    ],
+    "audit_trail": [
+      {
+        "audit_id": "5554ea37-e98b-47b7-adb8-1e080e86baa4",
+        "timestamp": "2025-05-28T13:03:15.666190",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "reservation_agreement",
+          "document_id": "d1c50d75-0464-476b-93a6-e93a3f3a3bf4"
+        },
+        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+      },
+      {
+        "audit_id": "71308555-083d-41e0-8c42-202db32b7fd1",
+        "timestamp": "2025-05-28T13:04:40.865725",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "proof_of_funds",
+          "document_id": "7a68b6ff-018f-4cbb-810e-948423d9eb63"
+        },
+        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+      },
+      {
+        "audit_id": "4185b1ea-f016-4fb2-b3c4-b0e6f531aea7",
+        "timestamp": "2025-05-28T13:04:55.110054",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "mortgage_pre_approval",
+          "document_id": "0aaa08e2-9cd5-4532-9b54-7244cd3103d3"
+        },
+        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+      },
+      {
+        "audit_id": "8762040c-e2ea-4c77-9f5e-872e002e957b",
+        "timestamp": "2025-05-28T13:05:26.470477",
+        "action": "document_validated",
+        "user_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "details": {
+          "document_type": "reservation_agreement",
+          "validation_status": true,
+          "validator_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+      },
+      {
+        "audit_id": "ce108ef6-d825-478d-a8e8-3dd5ae688c0a",
+        "timestamp": "2025-05-28T13:05:32.052910",
+        "action": "document_validated",
+        "user_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "details": {
+          "document_type": "proof_of_funds",
+          "validation_status": true,
+          "validator_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+      },
+      {
+        "audit_id": "4396b655-33cd-4aea-af39-6b93984073f5",
+        "timestamp": "2025-05-28T13:05:42.893839",
+        "action": "document_validated",
+        "user_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "details": {
+          "document_type": "mortgage_pre_approval",
+          "validation_status": true,
+          "validator_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+      },
+      {
+        "audit_id": "fd8a375c-12ed-432e-b43c-e0bc67c888c1",
+        "timestamp": "2025-05-28T13:06:54.661448",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "deposit_payment_proof",
+          "document_id": "5fce1d78-0736-46f9-a6e7-a22a21f2b043"
+        },
+        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+      },
+      {
+        "audit_id": "4530160e-0bc8-4b4a-8824-56ad2e8ff86d",
+        "timestamp": "2025-05-28T13:13:15.538773",
+        "action": "document_signed",
+        "user_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+        "details": {
+          "document_type": "reservation_agreement",
+          "signer_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+          "signer_type": "buyer",
+          "signature_id": "fee09a85-aaf1-45e4-9c0a-b7426b066a7c"
+        },
+        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+      },
+      {
+        "audit_id": "56814d7c-bd25-416f-91cd-dd17580d342f",
+        "timestamp": "2025-05-28T13:14:10.004791",
+        "action": "document_signed",
+        "user_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+        "details": {
+          "document_type": "reservation_agreement",
+          "signer_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+          "signer_type": "agent",
+          "signature_id": "d430143b-aa3e-41bc-becb-2a944902f6f5"
+        },
+        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+      },
+      {
+        "audit_id": "1b427c16-cb07-4870-925c-71e8f9ed1510",
+        "timestamp": "2025-05-28T13:14:10.004845",
+        "action": "phase_advanced",
+        "user_id": "system",
+        "details": {
+          "old_phase": "reservation",
+          "new_phase": "financial_verification",
+          "advanced_by": "system"
+        },
+        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+      },
+      {
+        "audit_id": "91459070-892d-4bbf-8f46-da8ec40463ca",
+        "timestamp": "2025-05-28T13:14:10.118162",
+        "action": "phase_advanced",
+        "user_id": "system",
+        "details": {
+          "old_phase": "financial_verification",
+          "new_phase": "preliminary_contract",
+          "advanced_by": "system"
+        },
+        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+      }
+    ],
+    "transaction_date": null,
+    "final_price": 2000.0,
+    "status": "pending",
+    "scheduled_meetings": [],
+    "additional_docs": {},
+    "document_validation_status": {
+      "reservation_agreement": {
+        "document_id": "d1c50d75-0464-476b-93a6-e93a3f3a3bf4",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T13:03:15.666178",
+        "validated_by": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "validation_date": "2025-05-28T13:05:26.468406",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": true,
+        "signing_completed_date": "2025-05-28T13:14:10.004811"
+      },
+      "proof_of_funds": {
+        "document_id": "7a68b6ff-018f-4cbb-810e-948423d9eb63",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T13:04:40.865709",
+        "validated_by": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "validation_date": "2025-05-28T13:05:32.052278",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": false,
+        "signing_completed_date": null
+      },
+      "mortgage_pre_approval": {
+        "document_id": "0aaa08e2-9cd5-4532-9b54-7244cd3103d3",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T13:04:55.110014",
+        "validated_by": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "validation_date": "2025-05-28T13:05:42.893242",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": false,
+        "signing_completed_date": null
+      },
+      "deposit_payment_proof": {
+        "document_id": "5fce1d78-0736-46f9-a6e7-a22a21f2b043",
+        "validation_status": false,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T13:06:54.661416",
+        "validated_by": null,
+        "validation_date": null,
+        "validation_notes": "",
+        "fully_signed": false,
+        "signing_completed_date": null
+      }
+    },
+    "created_date": "2025-05-28T13:03:15.660672",
+    "last_updated": "2025-05-28T13:14:10.118078",
+    "transaction_notes": [
+      {
+        "note_id": "4148166a-24ab-4194-b3a1-04b71498a820",
+        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: b366a8fc-5888-47e5-842f-92769205e3ae",
+        "author_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+        "note_type": "payment",
+        "timestamp": "2025-05-28T13:03:15.660739",
+        "visibility": "all"
+      },
+      {
+        "note_id": "4c5c1b99-a2f2-41a8-a50c-994f4d79827e",
+        "note": "Reservation Agreement automatically generated after successful payment",
+        "author_id": "system",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T13:03:15.666199",
+        "visibility": "all"
+      },
+      {
+        "note_id": "a69b33a4-c05b-4d41-b641-53c54d8fc8cc",
+        "note": "Document uploaded: \ud83d\udcb0 Proof of Funds.",
+        "author_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T13:04:40.865739",
+        "visibility": "all"
+      },
+      {
+        "note_id": "f797dd6c-3ff9-429c-b34d-cff6bf17c429",
+        "note": "Document uploaded: \ud83c\udfe6 Mortgage Pre-Approval.",
+        "author_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T13:04:55.110071",
+        "visibility": "all"
+      },
+      {
+        "note_id": "7054c0c2-762a-4644-848f-3594646087e3",
+        "note": "Document Reservation Agreement approved. Document validated by notary",
+        "author_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T13:05:26.470437",
+        "visibility": "all"
+      },
+      {
+        "note_id": "818b1d63-594b-43cc-ba85-9e67df720b9b",
+        "note": "Document Proof Of Funds approved. Document validated by notary",
+        "author_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T13:05:32.052905",
+        "visibility": "all"
+      },
+      {
+        "note_id": "53700074-f57f-4fb0-afbf-46adc22afb32",
+        "note": "Document Mortgage Pre Approval approved. Document validated by notary",
+        "author_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T13:05:42.893833",
+        "visibility": "all"
+      },
+      {
+        "note_id": "c8add094-9a34-4f95-b96a-530b6fd506a7",
+        "note": "Document uploaded: \ud83d\udcb3 Deposit Payment Proof.",
+        "author_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T13:06:54.661469",
+        "visibility": "all"
+      },
+      {
+        "note_id": "5b32d3f1-fd81-4ebf-a445-a0e142256f09",
+        "note": "Document signed: \ud83c\udfe0 Reservation Agreement",
+        "author_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T13:13:15.538784",
+        "visibility": "all"
+      },
+      {
+        "note_id": "c18d8f12-67cf-432f-895a-a23eb48f9b7c",
+        "note": "Document signed: \ud83c\udfe0 Reservation Agreement",
+        "author_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T13:14:10.004805",
+        "visibility": "all"
+      },
+      {
+        "note_id": "3b1b4dc3-14ac-4da0-b0ed-a7845657a3f9",
+        "note": "Document fully signed: \ud83c\udfe0 Reservation Agreement",
+        "author_id": "system",
+        "note_type": "signature_complete",
+        "timestamp": "2025-05-28T13:14:10.004819",
+        "visibility": "all"
+      },
+      {
+        "note_id": "6a963aa0-61b6-4165-a222-51dbd6562732",
+        "note": "Phase advanced from \ud83c\udfe0 Property Reservation to \ud83d\udcb0 Financial Verification",
+        "author_id": "system",
+        "note_type": "phase_complete",
+        "timestamp": "2025-05-28T13:14:10.004841",
+        "visibility": "all"
+      },
+      {
+        "note_id": "6cf3823c-e47f-4148-83cd-cbce39613078",
+        "note": "Phase advanced from \ud83d\udcb0 Financial Verification to \ud83d\udccb Preliminary Contract",
+        "author_id": "system",
+        "note_type": "phase_complete",
+        "timestamp": "2025-05-28T13:14:10.118072",
+        "visibility": "all"
+      }
+    ]
   }
 }
