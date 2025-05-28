@@ -197,55 +197,86 @@ def _render_enhanced_document_card(buying_obj: Buying, doc_type: str, doc_config
                 st.info("📄 No signatures required")
 
         with col4:
-            # Enhanced action buttons
-            _render_enhanced_action_buttons(buying_obj, doc_type, doc_config, user_id, user_type)
+            # Enhanced action buttons with download for ALL users
+            if buying_obj.buying_documents.get(doc_type):
+                doc_id = buying_obj.buying_documents.get(doc_type)
+                documents = get_documents()
+                if doc_id and doc_id in documents:
+                    doc_data = documents[doc_id]
+
+                    # Show download button for everyone
+                    _render_universal_download_button(doc_data, doc_type, user_type)
+
+                    # Show signing button if applicable
+                    required_signers = doc_config.get("required_signers", [])
+                    if required_signers and user_type in required_signers:
+                        _render_simple_signing_button(buying_obj, doc_type, doc_config, user_id, user_type)
+            else:
+                # No document uploaded yet, just show signing button if applicable
+                required_signers = doc_config.get("required_signers", [])
+                if required_signers and user_type in required_signers:
+                    st.info("📄 Upload first")
+                elif user_type in doc_config.get("uploadable_by", []):
+                    st.info("📤 Can upload")
 
         st.divider()
 
 
 def _render_enhanced_action_buttons(buying_obj: Buying, doc_type: str, doc_config: Dict[str, Any],
                                     user_id: str, user_type: str):
-    """Enhanced action buttons with download capability for notaries"""
+    """Enhanced action buttons with download capability for ALL users"""
 
-    # Download button for notaries (always show if document exists)
-    if user_type == "notary" and buying_obj.buying_documents.get(doc_type):
+    # Download button for ALL users (not just notaries)
+    if buying_obj.buying_documents.get(doc_type):
         doc_id = buying_obj.buying_documents.get(doc_type)
         documents = get_documents()
         if doc_id and doc_id in documents:
             doc_data = documents[doc_id]
-            if _render_notary_download_button(doc_data, doc_type):
-                pass  # Download handled in function
+            # Show download button for everyone
+            col1, col2 = st.columns(2)
+            with col1:
+                if _render_universal_download_button(doc_data, doc_type, user_type):
+                    pass  # Download handled in function
+            with col2:
+                # FIXED: Simple direct signing button
+                required_signers = doc_config.get("required_signers", [])
+                if required_signers and user_type in required_signers:
+                    _render_simple_signing_button(buying_obj, doc_type, doc_config, user_id, user_type)
+    else:
+        # No document to download, just show signing button if applicable
+        required_signers = doc_config.get("required_signers", [])
+        if required_signers and user_type in required_signers:
+            _render_simple_signing_button(buying_obj, doc_type, doc_config, user_id, user_type)
 
-    # FIXED: Simple direct signing button
-    required_signers = doc_config.get("required_signers", [])
-    if required_signers and user_type in required_signers:
-        _render_simple_signing_button(buying_obj, doc_type, doc_config, user_id, user_type)
 
+def _render_universal_download_button(doc_data, doc_type: str, user_type: str):
+    """Render download button for ALL users (not just notaries) - FIXED DUPLICATE KEY"""
+    import time  # Add this import
 
-def _render_notary_download_button(doc_data, doc_type: str):
-    """Render download button specifically for notaries"""
     if not file_exists(doc_data.document_path):
-        st.button("📥 Download", disabled=True, help="File not available", key=f"dl_{doc_type}_{doc_data.document_id}")
+        st.button("📥 Download", disabled=True, help="File not available",
+                  key=f"dl_{doc_type}_{doc_data.document_id}_{user_type}_disabled_{int(time.time() * 1000)}")
         return False
 
     # Read file content
     file_content = read_file_content(doc_data.document_path)
     if not file_content:
-        st.button("📥 Download", disabled=True, help="Cannot read file", key=f"dl_{doc_type}_{doc_data.document_id}")
+        st.button("📥 Download", disabled=True, help="Cannot read file",
+                  key=f"dl_{doc_type}_{doc_data.document_id}_{user_type}_error_{int(time.time() * 1000)}")
         return False
 
     # Get safe filename and MIME type
     safe_filename = _get_safe_filename(doc_data.document_name, doc_data.document_path)
     mime_type = _get_mime_type(doc_data.document_path)
 
-    # Create download button
+    # Create download button for all users - FIXED WITH TIMESTAMP
     st.download_button(
-        label="📥",
+        label="📥 Download",
         data=file_content,
         file_name=safe_filename,
         mime=mime_type,
-        key=f"dl_{doc_type}_{doc_data.document_id}",
-        help="Download document"
+        key=f"dl_{doc_type}_{doc_data.document_id}_{user_type}_{int(time.time() * 1000)}",
+        help=f"Download {safe_filename}"
     )
     return True
 
@@ -470,9 +501,9 @@ def _get_mime_type(file_path):
     return mime_types.get(extension, 'application/octet-stream')
 
 
-# Integration functions for dashboards (updated with simple signing)
+# Integration functions for dashboards (updated with download buttons for all users)
 def integrate_signing_with_buyer_dashboard(buying_obj: Buying, current_buyer):
-    """Integration function for buyer dashboard"""
+    """Integration function for buyer dashboard with download capability"""
     st.markdown("---")
     st.subheader("✍️ Your Action Items")
 
@@ -502,6 +533,15 @@ def integrate_signing_with_buyer_dashboard(buying_obj: Buying, current_buyer):
                         "action": f"✍️ Sign {doc_config.get('name', doc_type)}"
                     })
 
+        # Add download option for uploaded documents
+        if buying_obj.buying_documents.get(doc_type):
+            buyer_actions.append({
+                "type": "download",
+                "doc_type": doc_type,
+                "doc_name": doc_config.get("name", doc_type),
+                "action": f"📥 Download {doc_config.get('name', doc_type)}"
+            })
+
     if buyer_actions:
         for action in buyer_actions:
             col1, col2 = st.columns([3, 1])
@@ -513,10 +553,11 @@ def integrate_signing_with_buyer_dashboard(buying_obj: Buying, current_buyer):
                         st.session_state[f"upload_doc_{action['doc_type']}"] = True
                         st.rerun()
                 elif action["type"] == "sign":
-                    # FIXED: Direct signing for buyer dashboard too
+                    # FIXED: Direct signing for buyer dashboard
                     if st.button(f"✍️ Sign", key=f"buyer_action_{action['doc_type']}"):
                         with st.spinner(f"Signing {action['doc_name']}..."):
-                            success, message = sign_document(buying_obj, action['doc_type'], current_buyer.buyer_id, "buyer")
+                            success, message = sign_document(buying_obj, action['doc_type'], current_buyer.buyer_id,
+                                                             "buyer")
 
                             if success:
                                 save_buying_transaction(buying_obj)
@@ -530,62 +571,188 @@ def integrate_signing_with_buyer_dashboard(buying_obj: Buying, current_buyer):
                                 st.rerun()
                             else:
                                 st.error(f"❌ Signature failed: {message}")
+                elif action["type"] == "download":
+                    # Add download functionality to buyer dashboard
+                    doc_id = buying_obj.buying_documents.get(action['doc_type'])
+                    if doc_id:
+                        documents = get_documents()
+                        if doc_id in documents:
+                            doc_data = documents[doc_id]
+                            _render_universal_download_button(doc_data, action['doc_type'], "buyer")
     else:
         st.info("📋 No immediate actions required. Check back later for updates!")
 
 
 def integrate_signing_with_agent_dashboard(buying_obj: Buying, current_agent):
-    """Integration function for agent dashboard"""
+    """Integration function for agent dashboard with download capability"""
     st.markdown("---")
     st.subheader("✍️ Agent Actions")
 
-    # Show documents that agent can sign
-    agent_signable_docs = []
+    # Show documents that agent can work with
+    agent_actions = []
+
     for doc_type, doc_config in ENHANCED_BUYING_DOCUMENT_TYPES.items():
+        # Check if agent can sign
         if "agent" in doc_config.get("required_signers", []):
             if buying_obj.buying_documents.get(doc_type):
                 can_sign, reason = can_user_sign_document(buying_obj, doc_type, current_agent.agent_id, "agent")
-                if can_sign or "already signed" in reason.lower():
-                    agent_signable_docs.append((doc_type, doc_config, can_sign, reason))
+                if can_sign:
+                    agent_actions.append({
+                        "type": "sign",
+                        "doc_type": doc_type,
+                        "doc_name": doc_config.get("name", doc_type),
+                        "action": f"✍️ Sign {doc_config.get('name', doc_type)}"
+                    })
+                elif "already signed" in reason.lower():
+                    agent_actions.append({
+                        "type": "signed",
+                        "doc_type": doc_type,
+                        "doc_name": doc_config.get("name", doc_type),
+                        "action": f"✅ Signed {doc_config.get('name', doc_type)}"
+                    })
 
-    if agent_signable_docs:
-        for doc_type, doc_config, can_sign, reason in agent_signable_docs:
-            _render_enhanced_document_card(buying_obj, doc_type, doc_config, current_agent.agent_id, "agent")
+        # Add download option for uploaded documents
+        if buying_obj.buying_documents.get(doc_type):
+            agent_actions.append({
+                "type": "download",
+                "doc_type": doc_type,
+                "doc_name": doc_config.get("name", doc_type),
+                "action": f"📥 Download {doc_config.get('name', doc_type)}"
+            })
+
+    if agent_actions:
+        for action in agent_actions:
+            col1, col2 = st.columns([3, 1])
+            with col1:
+                st.write(f"**{action['action']}**")
+            with col2:
+                if action["type"] == "sign":
+                    if st.button(f"✍️ Sign", key=f"agent_action_{action['doc_type']}"):
+                        with st.spinner(f"Signing {action['doc_name']}..."):
+                            success, message = sign_document(buying_obj, action['doc_type'], current_agent.agent_id,
+                                                             "agent")
+
+                            if success:
+                                save_buying_transaction(buying_obj)
+                                st.success(f"✅ {message}")
+                                st.success(f"🎉 You have successfully signed: {action['doc_name']}")
+
+                                if is_document_fully_signed(buying_obj, action['doc_type']):
+                                    st.success(f"🎉 {action['doc_name']} is now fully signed by all parties!")
+
+                                st.rerun()
+                            else:
+                                st.error(f"❌ Signature failed: {message}")
+                elif action["type"] == "signed":
+                    st.success("✅ Signed")
+                elif action["type"] == "download":
+                    # Add download functionality to agent dashboard
+                    doc_id = buying_obj.buying_documents.get(action['doc_type'])
+                    if doc_id:
+                        documents = get_documents()
+                        if doc_id in documents:
+                            doc_data = documents[doc_id]
+                            _render_universal_download_button(doc_data, action['doc_type'], "agent")
     else:
-        st.info("📋 No documents available for signing at this time.")
+        st.info("📋 No documents available for action at this time.")
 
 
 def integrate_signing_with_notary_dashboard(buying_obj: Buying, current_notary):
-    """Enhanced integration function for notary dashboard"""
+    """Enhanced integration function for notary dashboard with download capability"""
     st.markdown("---")
     st.subheader("✍️ Notary Actions")
 
     # Show documents that notary can work with
-    notary_docs = []
+    notary_actions = []
+
     for doc_type, doc_config in ENHANCED_BUYING_DOCUMENT_TYPES.items():
-        if ("notary" in doc_config.get("required_signers", []) or
-                "notary" in doc_config.get("uploadable_by", []) or
-                "notary" in doc_config.get("validatable_by", [])):
-            notary_docs.append((doc_type, doc_config))
+        # Check if notary needs to upload this document
+        if ("notary" in doc_config.get("uploadable_by", []) and
+                not buying_obj.buying_documents.get(doc_type)):
+            notary_actions.append({
+                "type": "upload",
+                "doc_type": doc_type,
+                "doc_name": doc_config.get("name", doc_type),
+                "action": f"📤 Upload {doc_config.get('name', doc_type)}"
+            })
 
-    if notary_docs:
-        for doc_type, doc_config in notary_docs:
-            # Check if notary needs to upload this document
-            if ("notary" in doc_config.get("uploadable_by", []) and
-                    not buying_obj.buying_documents.get(doc_type)):
+        # Check if notary can validate
+        if ("notary" in doc_config.get("validatable_by", []) and
+                buying_obj.buying_documents.get(doc_type)):
+            validation_status = buying_obj.document_validation_status.get(doc_type, {})
+            if not validation_status.get("validation_status", False):
+                notary_actions.append({
+                    "type": "validate",
+                    "doc_type": doc_type,
+                    "doc_name": doc_config.get("name", doc_type),
+                    "action": f"✅ Validate {doc_config.get('name', doc_type)}"
+                })
 
-                col1, col2 = st.columns([3, 1])
-                with col1:
-                    st.warning(f"📄 {doc_config['name']} - Ready to upload")
-                with col2:
-                    if st.button(f"📤 Upload", key=f"notary_upload_{doc_type}"):
-                        st.session_state[f"upload_doc_{doc_type}"] = True
+        # Check if notary can sign
+        if "notary" in doc_config.get("required_signers", []):
+            if buying_obj.buying_documents.get(doc_type):
+                can_sign, reason = can_user_sign_document(buying_obj, doc_type, current_notary.notary_id, "notary")
+                if can_sign:
+                    notary_actions.append({
+                        "type": "sign",
+                        "doc_type": doc_type,
+                        "doc_name": doc_config.get("name", doc_type),
+                        "action": f"✍️ Sign {doc_config.get('name', doc_type)}"
+                    })
+
+        # Add download option for uploaded documents
+        if buying_obj.buying_documents.get(doc_type):
+            notary_actions.append({
+                "type": "download",
+                "doc_type": doc_type,
+                "doc_name": doc_config.get("name", doc_type),
+                "action": f"📥 Download {doc_config.get('name', doc_type)}"
+            })
+
+    if notary_actions:
+        for action in notary_actions:
+            col1, col2 = st.columns([3, 1])
+            with col1:
+                st.write(f"**{action['action']}**")
+            with col2:
+                if action["type"] == "upload":
+                    if st.button(f"📤 Upload", key=f"notary_upload_{action['doc_type']}"):
+                        st.session_state[f"upload_doc_{action['doc_type']}"] = True
                         st.rerun()
-            else:
-                _render_enhanced_document_card(buying_obj, doc_type, doc_config, current_notary.notary_id, "notary")
+                elif action["type"] == "validate":
+                    if st.button(f"✅ Validate", key=f"notary_validate_{action['doc_type']}"):
+                        validate_buying_document(buying_obj, action['doc_type'], current_notary.notary_id, True,
+                                                 "Document validated by notary")
+                        save_buying_transaction(buying_obj)
+                        st.success("✅ Document validated!")
+                        st.rerun()
+                elif action["type"] == "sign":
+                    if st.button(f"✍️ Sign", key=f"notary_sign_{action['doc_type']}"):
+                        with st.spinner(f"Signing {action['doc_name']}..."):
+                            success, message = sign_document(buying_obj, action['doc_type'], current_notary.notary_id,
+                                                             "notary")
+
+                            if success:
+                                save_buying_transaction(buying_obj)
+                                st.success(f"✅ {message}")
+                                st.success(f"🎉 You have successfully signed: {action['doc_name']}")
+
+                                if is_document_fully_signed(buying_obj, action['doc_type']):
+                                    st.success(f"🎉 {action['doc_name']} is now fully signed by all parties!")
+
+                                st.rerun()
+                            else:
+                                st.error(f"❌ Signature failed: {message}")
+                elif action["type"] == "download":
+                    # Add download functionality to notary dashboard
+                    doc_id = buying_obj.buying_documents.get(action['doc_type'])
+                    if doc_id:
+                        documents = get_documents()
+                        if doc_id in documents:
+                            doc_data = documents[doc_id]
+                            _render_universal_download_button(doc_data, action['doc_type'], "notary")
     else:
         st.info("📋 No documents available for action at this time.")
-
 
 # REMOVED: The old modal confirmation function since we're doing direct signing now
 # _show_signing_confirmation_modal function has been removed as it's no longer needed

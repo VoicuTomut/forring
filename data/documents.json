@@ -460,5 +460,71 @@
     "validation_date": null,
     "who_validate": null,
     "visibility": true
+  },
+  "4e75376d-90b2-4209-a0b6-8dde057af6d3": {
+    "document_id": "4e75376d-90b2-4209-a0b6-8dde057af6d3",
+    "document_name": "Property Photo 1",
+    "document_path": "data/files/photos/photo_20250528_132310.jpeg",
+    "upload_id": "41d25ebb-7808-47eb-90ba-c7745654848a",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:23:10.972608",
+    "validation_date": null,
+    "who_validate": null,
+    "visibility": true
+  },
+  "8ae89e54-3d0b-4953-85d2-8eed09e1cfc9": {
+    "document_id": "8ae89e54-3d0b-4953-85d2-8eed09e1cfc9",
+    "document_name": "Title Deed / Property Ownership Document",
+    "document_path": "data/files/documents/BuildingPermit_20250528_132310.pdf",
+    "upload_id": "41d25ebb-7808-47eb-90ba-c7745654848a",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:23:10.974069",
+    "validation_date": "2025-05-28 13:23:28.104387",
+    "who_validate": "87daa91f-9853-44de-9d0f-a5feb79469b4",
+    "visibility": true
+  },
+  "d6720e9a-8661-483f-b314-4f23497803a9": {
+    "document_id": "d6720e9a-8661-483f-b314-4f23497803a9",
+    "document_name": "Land Registry Extract",
+    "document_path": "data/files/documents/Ownership_20250528_132310.pdf",
+    "upload_id": "41d25ebb-7808-47eb-90ba-c7745654848a",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:23:10.974911",
+    "validation_date": "2025-05-28 13:23:29.107770",
+    "who_validate": "87daa91f-9853-44de-9d0f-a5feb79469b4",
+    "visibility": true
+  },
+  "837360c1-beee-4823-8559-0b2952aa52cb": {
+    "document_id": "837360c1-beee-4823-8559-0b2952aa52cb",
+    "document_name": "Building Permit",
+    "document_path": "data/files/documents/LanndRegistry_20250528_132310.pdf",
+    "upload_id": "41d25ebb-7808-47eb-90ba-c7745654848a",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:23:10.975500",
+    "validation_date": "2025-05-28 13:23:30.327208",
+    "who_validate": "87daa91f-9853-44de-9d0f-a5feb79469b4",
+    "visibility": true
+  },
+  "75c59d01-ebcf-4110-a914-823ce92aaa42": {
+    "document_id": "75c59d01-ebcf-4110-a914-823ce92aaa42",
+    "document_name": "Reservation Agreement - 99",
+    "document_path": "data/files/buying_documents/reservation_agreement_c2db1cfe-8db1-4a12-8985-bc3da8f5626d_20250528_1324.txt",
+    "upload_id": "system",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:24:02.283099",
+    "validation_date": null,
+    "who_validate": null,
+    "visibility": true
+  },
+  "28152789-b915-471b-8966-b7d3646fc122": {
+    "document_id": "28152789-b915-471b-8966-b7d3646fc122",
+    "document_name": "Reservation Agreement - 99",
+    "document_path": "data/files/buying_documents/reservation_agreement_0b328a48-174a-443b-aa2b-9c82dd886197_20250528_1337.txt",
+    "upload_id": "system",
+    "validation_status": true,
+    "upload_date": "2025-05-28 13:37:34.527367",
+    "validation_date": null,
+    "who_validate": null,
+    "visibility": true
   }
 }

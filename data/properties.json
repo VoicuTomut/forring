@@ -607,5 +607,82 @@
       }
     ],
     "agent_notes": []
+  },
+  "b338592e-14d5-4026-b0f4-33a966f28c61": {
+    "property_id": "b338592e-14d5-4026-b0f4-33a966f28c61",
+    "agent_id": "41d25ebb-7808-47eb-90ba-c7745654848a",
+    "attached_notarys_id": [
+      "87daa91f-9853-44de-9d0f-a5feb79469b4"
+    ],
+    "title": "99",
+    "description": "bi",
+    "dimension": "67",
+    "price": "2000.0",
+    "address": "tg",
+    "city": "bhk",
+    "postal_code": "",
+    "country": "",
+    "number_of_rooms": null,
+    "finishes": null,
+    "renovations": null,
+    "neighborhood_description": null,
+    "post_date": "2025-05-28 13:23:10.975978",
+    "validation_date": "2025-05-28 13:23:32.278859",
+    "reserved": false,
+    "looking_for_notary": false,
+    "notary_attached": "87daa91f-9853-44de-9d0f-a5feb79469b4",
+    "status": "active",
+    "document_ids": [
+      "8ae89e54-3d0b-4953-85d2-8eed09e1cfc9",
+      "d6720e9a-8661-483f-b314-4f23497803a9",
+      "837360c1-beee-4823-8559-0b2952aa52cb",
+      "4e75376d-90b2-4209-a0b6-8dde057af6d3"
+    ],
+    "mandatory_legal_docs": {
+      "title_deed": "8ae89e54-3d0b-4953-85d2-8eed09e1cfc9",
+      "land_registry_extract": "d6720e9a-8661-483f-b314-4f23497803a9",
+      "building_permit": "837360c1-beee-4823-8559-0b2952aa52cb",
+      "habitation_certificate": null,
+      "mortgage_lien_certificate": null,
+      "seller_id_document": null,
+      "marital_status_documents": null,
+      "power_of_attorney": null,
+      "litigation_certificate": null
+    },
+    "additional_docs": {
+      "supplementary_documents": [],
+      "corrections": [],
+      "clarifications": [],
+      "agent_notes": [],
+      "updated_photos": [],
+      "floor_plans": [],
+      "certificates": [],
+      "correspondence": [],
+      "other": []
+    },
+    "document_history": [
+      {
+        "action": "mandatory_document_added",
+        "document_type": "title_deed",
+        "document_id": "8ae89e54-3d0b-4953-85d2-8eed09e1cfc9",
+        "timestamp": "2025-05-28 13:23:10.976063",
+        "added_by": "41d25ebb-7808-47eb-90ba-c7745654848a"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "land_registry_extract",
+        "document_id": "d6720e9a-8661-483f-b314-4f23497803a9",
+        "timestamp": "2025-05-28 13:23:10.976064",
+        "added_by": "41d25ebb-7808-47eb-90ba-c7745654848a"
+      },
+      {
+        "action": "mandatory_document_added",
+        "document_type": "building_permit",
+        "document_id": "837360c1-beee-4823-8559-0b2952aa52cb",
+        "timestamp": "2025-05-28 13:23:10.976065",
+        "added_by": "41d25ebb-7808-47eb-90ba-c7745654848a"
+      }
+    ],
+    "agent_notes": []
   }
 }

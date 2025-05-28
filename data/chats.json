@@ -183,5 +183,17 @@
     "created_date": "2025-05-28 13:01:59.677465",
     "last_activity": "2025-05-28 13:01:59.677468",
     "is_active": true
+  },
+  "b338592e-14d5-4026-b0f4-33a966f28c61": {
+    "chat_id": "5fd1bfb1-19df-4ba5-a9a2-79d963752ad9",
+    "property_id": "b338592e-14d5-4026-b0f4-33a966f28c61",
+    "agent_id": "41d25ebb-7808-47eb-90ba-c7745654848a",
+    "agent_notary_messages": [],
+    "buyer_agent_chats": {},
+    "notary_id": null,
+    "buyer_ids": [],
+    "created_date": "2025-05-28 13:23:10.990020",
+    "last_activity": "2025-05-28 13:23:10.990023",
+    "is_active": true
   }
 }

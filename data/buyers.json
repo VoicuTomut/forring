@@ -289,5 +289,33 @@
       "credit_report": null
     },
     "additional_docs": {}
+  },
+  "adaad08f-fb6a-428f-886c-3abdaf78ccbf": {
+    "buyer_id": "adaad08f-fb6a-428f-886c-3abdaf78ccbf",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [],
+    "reserved_properties": [],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
+  },
+  "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1": {
+    "buyer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+    "bank_account": null,
+    "income_segment": null,
+    "interested_properties": [],
+    "reserved_properties": [],
+    "documents": {
+      "id_document": null,
+      "income_proof": null,
+      "bank_statements": null,
+      "credit_report": null
+    },
+    "additional_docs": {}
   }
 }
