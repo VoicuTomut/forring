@@ -41,8 +41,8 @@ def notary_dashboard(current_notary: Notary):
 
 # ADD this new function:
 def _show_notary_signing_dashboard(current_notary: Notary):
-    """Show notary signing dashboard"""
-    st.subheader("✍️ Document Signing & Contract Generation")
+    """Enhanced notary signing dashboard with validation and upload capabilities"""
+    st.subheader("✍️ Document Signing & Validation")
 
     # Get all buying transactions (notaries can see all transactions)
     all_transactions = get_all_buying_transactions()
@@ -62,25 +62,24 @@ def _show_notary_signing_dashboard(current_notary: Notary):
     total_transactions = len(notary_transactions)
     pending_validations = 0
     pending_signatures = 0
-    documents_to_generate = 0
+    documents_to_upload = 0
 
     for txn in notary_transactions.values():
         # Check for pending validations
         for doc_type, validation_status in txn.document_validation_status.items():
-            if not validation_status.get("validation_status", False):
+            if txn.buying_documents.get(doc_type) and not validation_status.get("validation_status", False):
                 pending_validations += 1
                 break
 
-        # Check for pending signatures and documents to generate
+        # Check for documents to upload and signatures
         from gpp.interface.config.constants import ENHANCED_BUYING_DOCUMENT_TYPES
         from gpp.classes.buying import can_user_sign_document
 
         for doc_type, doc_config in ENHANCED_BUYING_DOCUMENT_TYPES.items():
-            # Check if notary needs to generate document
-            if (doc_config.get("auto_generated") and
-                    doc_config.get("generated_by") == "notary" and
+            # Check if notary needs to upload document
+            if ("notary" in doc_config.get("uploadable_by", []) and
                     not txn.buying_documents.get(doc_type)):
-                documents_to_generate += 1
+                documents_to_upload += 1
 
             # Check if notary needs to sign
             elif "notary" in doc_config.get("required_signers", []):
@@ -96,7 +95,7 @@ def _show_notary_signing_dashboard(current_notary: Notary):
     with col2:
         st.metric("Pending Validations", pending_validations)
     with col3:
-        st.metric("Documents to Generate", documents_to_generate)
+        st.metric("Documents to Upload", documents_to_upload)
     with col4:
         st.metric("Pending Signatures", pending_signatures)
 
@@ -108,21 +107,33 @@ def _show_notary_signing_dashboard(current_notary: Notary):
     priority_actions = []
 
     for txn_id, txn in notary_transactions.items():
-        # Get property info
         from gpp.interface.utils.database import get_properties
         properties = get_properties()
         prop_data = properties.get(txn.property_id)
         property_name = prop_data.title if prop_data else txn.property_id[:8] + "..."
 
-        # Check for documents to generate
+        # Check for documents to upload
         from gpp.interface.config.constants import ENHANCED_BUYING_DOCUMENT_TYPES
         for doc_type, doc_config in ENHANCED_BUYING_DOCUMENT_TYPES.items():
-            if (doc_config.get("auto_generated") and
-                    doc_config.get("generated_by") == "notary" and
+            if ("notary" in doc_config.get("uploadable_by", []) and
                     not txn.buying_documents.get(doc_type)):
                 priority_actions.append({
-                    "type": "generate",
-                    "action": f"Generate {doc_config['name']}",
+                    "type": "upload",
+                    "action": f"Upload {doc_config['name']}",
+                    "property": property_name,
+                    "transaction_id": txn_id,
+                    "doc_type": doc_type,
+                    "priority": "high"
+                })
+
+        # Check for documents to validate
+        for doc_type, validation_status in txn.document_validation_status.items():
+            if (txn.buying_documents.get(doc_type) and
+                    not validation_status.get("validation_status", False)):
+                doc_config = ENHANCED_BUYING_DOCUMENT_TYPES.get(doc_type, {})
+                priority_actions.append({
+                    "type": "validate",
+                    "action": f"Validate {doc_config.get('name', doc_type)}",
                     "property": property_name,
                     "transaction_id": txn_id,
                     "doc_type": doc_type,
@@ -161,6 +172,8 @@ def _show_notary_signing_dashboard(current_notary: Notary):
             with col3:
                 if st.button("🔧 Action", key=f"priority_{action['transaction_id']}_{action['doc_type']}"):
                     st.session_state["selected_notary_transaction"] = action['transaction_id']
+                    if action["type"] == "upload":
+                        st.session_state[f"upload_doc_{action['doc_type']}"] = True
                     st.rerun()
     else:
         st.success("✅ No priority actions required at this time!")
@@ -173,7 +186,6 @@ def _show_notary_signing_dashboard(current_notary: Notary):
 
         transaction_options = {}
         for txn_id, txn in notary_transactions.items():
-            # Get property info for display
             properties = get_properties()
             prop_data = properties.get(txn.property_id)
             display_name = f"{prop_data.title if prop_data else txn.property_id[:8]}... - {txn.status} - Phase: {txn.current_phase}"
@@ -189,8 +201,14 @@ def _show_notary_signing_dashboard(current_notary: Notary):
         selected_transaction = list(notary_transactions.values())[0]
 
     # Show signing workflow for selected transaction
+    from gpp.interface.components.shared.document_signing_ui import show_signing_workflow_dashboard
     show_signing_workflow_dashboard(selected_transaction, current_notary, "notary")
 
-    # Integrate additional notary signing features
-    integrate_signing_with_notary_dashboard(selected_transaction, current_notary)
-    
+    # Handle document upload modals
+    from gpp.interface.components.shared.document_signing_ui import show_document_upload_modal
+    from gpp.interface.config.constants import ENHANCED_BUYING_DOCUMENT_TYPES
+
+    for doc_type in ENHANCED_BUYING_DOCUMENT_TYPES.keys():
+        if st.session_state.get(f"upload_doc_{doc_type}"):
+            show_document_upload_modal(selected_transaction, doc_type, current_notary, "notary")
+            break

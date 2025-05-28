@@ -1218,10 +1218,8 @@ def _render_property_card(prop_id: str, prop_data, current_buyer: Buyer):
                     st.rerun()
 
 
-
-
 def _show_buyer_signing_dashboard(current_buyer: Buyer):
-    """Show buyer signing dashboard"""
+    """Enhanced buyer signing dashboard with upload modal handling"""
     st.subheader("✍️ Document Signing & Workflow")
 
     # Get buyer's transactions
@@ -1235,7 +1233,6 @@ def _show_buyer_signing_dashboard(current_buyer: Buyer):
     if len(buying_transactions) > 1:
         transaction_options = {}
         for txn_id, txn in buying_transactions.items():
-            # Get property info for display
             from gpp.interface.utils.database import get_properties
             properties = get_properties()
             prop_data = properties.get(txn.property_id)
@@ -1251,11 +1248,15 @@ def _show_buyer_signing_dashboard(current_buyer: Buyer):
         selected_transaction = list(buying_transactions.values())[0]
 
     # Show signing workflow for selected transaction
+    from gpp.interface.components.shared.document_signing_ui import show_signing_workflow_dashboard
     show_signing_workflow_dashboard(selected_transaction, current_buyer, "buyer")
 
     # Handle document upload modals
-    for doc_type in ["proof_of_funds", "mortgage_pre_approval", "deposit_payment_proof",
-                     "due_diligence_documents", "final_payment_proof"]:
+    from gpp.interface.components.shared.document_signing_ui import show_document_upload_modal
+    from gpp.interface.config.constants import ENHANCED_BUYING_DOCUMENT_TYPES
+
+    for doc_type in ENHANCED_BUYING_DOCUMENT_TYPES.keys():
         if st.session_state.get(f"upload_doc_{doc_type}"):
             show_document_upload_modal(selected_transaction, doc_type, current_buyer, "buyer")
             break
+

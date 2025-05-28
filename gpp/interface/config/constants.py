@@ -328,22 +328,21 @@ INTEGRATION_ENDPOINTS = {
         "encryption_enabled": True,
         "backup_enabled": True
     }
-
 }
 
-# ===== ADD THESE TO YOUR EXISTING constants.py FILE =====
+# ========== ENHANCED DOCUMENT TYPES WITH UPLOAD SYSTEM ==========
 
-# Enhanced document types with complete signing workflow
+# Enhanced document types with simple upload workflow (NO AUTO-GENERATION)
 ENHANCED_BUYING_DOCUMENT_TYPES = {
-    # Phase 1: Reservation (Auto-generated after payment)
+    # Phase 1: Reservation (Upload by agent after payment)
     "reservation_agreement": {
         "name": "🏠 Reservation Agreement",
         "phase": "reservation",
         "required_signers": ["buyer", "agent"],
         "signing_order": ["buyer", "agent"],
-        "auto_generated": True,
-        "uploadable_by": [],
-        "validatable_by": ["notary"]
+        "uploadable_by": ["agent", "notary"],  # Agent or notary can upload
+        "validatable_by": ["notary"],
+        "description": "Property reservation agreement between buyer and agent"
     },
 
     # Phase 2: Financial Verification
@@ -353,7 +352,8 @@ ENHANCED_BUYING_DOCUMENT_TYPES = {
         "required_signers": [],
         "uploadable_by": ["buyer"],
         "validatable_by": ["notary"],
-        "mandatory": True
+        "mandatory": True,
+        "description": "Bank statements or financial proof showing ability to purchase"
     },
     "mortgage_pre_approval": {
         "name": "🏦 Mortgage Pre-Approval",
@@ -361,7 +361,8 @@ ENHANCED_BUYING_DOCUMENT_TYPES = {
         "required_signers": [],
         "uploadable_by": ["buyer"],
         "validatable_by": ["notary"],
-        "mandatory": False
+        "mandatory": False,
+        "description": "Bank pre-approval letter for mortgage financing"
     },
 
     # Phase 3: Preliminary Contract
@@ -370,10 +371,9 @@ ENHANCED_BUYING_DOCUMENT_TYPES = {
         "phase": "preliminary_contract",
         "required_signers": ["notary", "buyer", "agent"],
         "signing_order": ["notary", "buyer", "agent"],
-        "auto_generated": True,
-        "generated_by": "notary",
-        "uploadable_by": ["notary"],
-        "validatable_by": ["notary"]
+        "uploadable_by": ["notary"],  # Simple upload by notary
+        "validatable_by": ["notary"],
+        "description": "Initial purchase agreement with terms and conditions"
     },
     "deposit_payment_proof": {
         "name": "💳 Deposit Payment Proof",
@@ -381,7 +381,8 @@ ENHANCED_BUYING_DOCUMENT_TYPES = {
         "required_signers": [],
         "uploadable_by": ["buyer"],
         "validatable_by": ["notary"],
-        "mandatory": True
+        "mandatory": True,
+        "description": "Proof of deposit payment to secure the property"
     },
 
     # Phase 4: Due Diligence
@@ -391,7 +392,8 @@ ENHANCED_BUYING_DOCUMENT_TYPES = {
         "required_signers": [],
         "uploadable_by": ["buyer"],
         "validatable_by": ["notary"],
-        "mandatory": True
+        "mandatory": True,
+        "description": "Property inspection reports, surveys, and legal checks"
     },
 
     # Phase 5: Final Contract
@@ -400,10 +402,9 @@ ENHANCED_BUYING_DOCUMENT_TYPES = {
         "phase": "final_contract",
         "required_signers": ["notary", "buyer", "agent"],
         "signing_order": ["notary", "buyer", "agent"],
-        "auto_generated": True,
-        "generated_by": "notary",
-        "uploadable_by": ["notary"],
-        "validatable_by": ["notary"]
+        "uploadable_by": ["notary"],  # Simple upload by notary
+        "validatable_by": ["notary"],
+        "description": "Final legally binding purchase agreement"
     },
 
     # Phase 6: Final Payment
@@ -413,17 +414,17 @@ ENHANCED_BUYING_DOCUMENT_TYPES = {
         "required_signers": [],
         "uploadable_by": ["buyer"],
         "validatable_by": ["notary"],
-        "mandatory": True
+        "mandatory": True,
+        "description": "Proof of final payment transfer to complete purchase"
     },
     "notary_validation_certificate": {
         "name": "⚖️ Notary Validation Certificate",
         "phase": "final_payment",
         "required_signers": ["notary"],
         "signing_order": ["notary"],
-        "auto_generated": True,
-        "generated_by": "notary",
-        "uploadable_by": ["notary"],
-        "validatable_by": ["notary"]
+        "uploadable_by": ["notary"],  # Simple upload by notary
+        "validatable_by": ["notary"],
+        "description": "Final notary certificate validating the complete transaction"
     }
 }
 

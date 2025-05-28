@@ -9,11 +9,18 @@ from decimal import Decimal
 from typing import Dict, Any, Optional, List
 import uuid
 
+# FIXED IMPORTS - Import constants from the correct location
 from gpp.classes.buying import (
     Buying, add_document_to_buying, add_transaction_note, update_buying_status,
-    get_buying_progress, validate_buying_document, BUYING_DOCUMENT_TYPES, TRANSACTION_STATUSES
+    get_buying_progress, validate_buying_document, ensure_enhanced_fields
 )
 from gpp.classes.document import Document
+
+# Import constants from constants.py instead of buying.py
+from gpp.interface.config.constants import (
+    BUYING_DOCUMENT_TYPES, TRANSACTION_STATUSES
+)
+
 from gpp.interface.utils.database import save_document, get_properties
 from gpp.interface.utils.buying_database import save_buying_transaction, load_buying_transaction
 
@@ -49,8 +56,12 @@ def show_enhanced_buying_dashboard(current_user, user_type: str):
         _show_payment_success_summary()
 
     # Load user's buying transactions
-    from gpp.interface.utils.buying_database import get_user_buying_transactions
-    transactions = get_user_buying_transactions(user_id, user_type.lower())
+    try:
+        from gpp.interface.utils.buying_database import get_user_buying_transactions
+        transactions = get_user_buying_transactions(user_id, user_type.lower())
+    except Exception as e:
+        st.error(f"Error loading transactions: {e}")
+        transactions = {}
 
     if not transactions:
         if user_type.lower() == "buyer":
@@ -93,8 +104,16 @@ def _show_available_properties_for_buying(current_buyer):
     """Show available properties with buy button that leads to payment"""
     st.subheader("🏠 Available Properties")
 
-    from gpp.interface.utils.property_helpers import get_validated_properties
-    validated_properties = get_validated_properties()
+    try:
+        from gpp.interface.utils.property_helpers import get_validated_properties
+        validated_properties = get_validated_properties()
+    except ImportError:
+        # Fallback to getting properties directly
+        properties = get_properties()
+        validated_properties = {
+            prop_id: prop for prop_id, prop in properties.items()
+            if getattr(prop, 'notary_attached', False) and not getattr(prop, 'looking_for_notary', True)
+        }
 
     if not validated_properties:
         st.info("No validated properties available at the moment.")
@@ -102,21 +121,24 @@ def _show_available_properties_for_buying(current_buyer):
 
     for prop_id, prop in validated_properties.items():
         # Skip if already reserved
-        if prop.reserved:
+        if getattr(prop, 'reserved', False):
             continue
 
         with st.expander(f"🏠 {prop.title} - €{prop.price:,.2f}"):
             col1, col2 = st.columns([2, 1])
 
             with col1:
-                st.write(f"**📍 Location:** {prop.address}, {prop.city}")
-                st.write(f"**📐 Size:** {prop.dimension}")
-                st.write(f"**🏠 Rooms:** {prop.nb_room if hasattr(prop, 'nb_room') else 'N/A'}")
-                st.write(f"**📝 Description:** {prop.description[:100]}...")
+                st.write(f"**📍 Location:** {getattr(prop, 'address', 'N/A')}, {getattr(prop, 'city', 'N/A')}")
+                st.write(f"**📐 Size:** {getattr(prop, 'dimension', 'N/A')}")
+                st.write(f"**🏠 Rooms:** {getattr(prop, 'nb_room', 'N/A')}")
+                description = getattr(prop, 'description', 'N/A')
+                if len(description) > 100:
+                    description = description[:100] + "..."
+                st.write(f"**📝 Description:** {description}")
 
             with col2:
                 st.write(f"**💰 Price:** €{prop.price:,.2f}")
-                st.write(f"**🏘️ Agent:** {prop.agent_id[:8]}...")
+                st.write(f"**🏘️ Agent:** {getattr(prop, 'agent_id', 'Unknown')[:8]}...")
 
                 reservation_fee = prop.price * Decimal("0.05")
                 st.write(f"**💳 Reservation Fee:** €{reservation_fee:,.2f}")
@@ -244,6 +266,9 @@ def _render_transaction_cards(transactions, current_user, user_type: str):
 
 def _render_enhanced_transaction_card(buying_id: str, transaction: Buying, current_user, user_type: str):
     """Enhanced transaction card with more details"""
+    # Ensure enhanced fields
+    transaction = ensure_enhanced_fields(transaction)
+
     # Get property details
     properties = get_properties()
     property_data = properties.get(transaction.property_id)
@@ -269,7 +294,8 @@ def _render_enhanced_transaction_card(buying_id: str, transaction: Buying, curre
         with col1:
             if property_data:
                 st.write(f"**🏠 Property:** {property_data.title}")
-                st.write(f"**📍 Location:** {property_data.address}, {property_data.city}")
+                st.write(
+                    f"**📍 Location:** {getattr(property_data, 'address', 'N/A')}, {getattr(property_data, 'city', 'N/A')}")
             else:
                 st.write(f"**🏠 Property ID:** {transaction.property_id[:12]}...")
 
@@ -309,7 +335,9 @@ def _render_enhanced_transaction_card(buying_id: str, transaction: Buying, curre
 
 def _render_quick_actions(transaction: Buying, current_user, user_type: str):
     """Render quick action buttons based on user type and transaction status"""
-    user_id = getattr(current_user, f'{user_type.lower()}_id')
+    user_id = getattr(current_user, f'{user_type.lower()}_id', None)
+    if not user_id:
+        return
 
     col1, col2, col3, col4 = st.columns(4)
 
@@ -343,7 +371,7 @@ def _render_quick_actions(transaction: Buying, current_user, user_type: str):
         with col2:
             if transaction.status == "approved":
                 if st.button("🎉 Complete", key=f"complete_{transaction.buying_id}"):
-                    update_buying_status(transaction, "completed", "Transaction completed by notary")
+                    transaction = update_buying_status(transaction, "completed", "Transaction completed by notary")
                     save_buying_transaction(transaction)
                     st.success("Transaction completed!")
                     st.rerun()
@@ -407,7 +435,13 @@ def show_document_upload_modal(transaction_id: str, current_user, user_type: str
         st.error("Transaction not found")
         return
 
-    user_id = getattr(current_user, f'{user_type.lower()}_id')
+    # Ensure enhanced fields
+    transaction = ensure_enhanced_fields(transaction)
+
+    user_id = getattr(current_user, f'{user_type.lower()}_id', None)
+    if not user_id:
+        st.error("Could not retrieve user ID")
+        return
 
     # Document categories based on user type
     if user_type.lower() == "buyer":
@@ -459,10 +493,10 @@ def show_document_upload_modal(transaction_id: str, current_user, user_type: str
                         save_document(doc)
 
                         # Add to buying transaction
-                        add_document_to_buying(transaction, doc_type, doc.document_id)
+                        transaction = add_document_to_buying(transaction, doc_type, doc.document_id)
 
                         # Add note about upload
-                        add_transaction_note(
+                        transaction = add_transaction_note(
                             transaction,
                             f"Additional document uploaded: {available_docs[doc_type]}. {upload_notes}".strip(),
                             user_id,
@@ -471,7 +505,7 @@ def show_document_upload_modal(transaction_id: str, current_user, user_type: str
 
                         # Update transaction status if needed
                         if transaction.status == "pending":
-                            update_buying_status(transaction, "documents_pending")
+                            transaction = update_buying_status(transaction, "documents_pending")
 
                         save_buying_transaction(transaction)
 
@@ -503,7 +537,13 @@ def show_notary_validation_interface(transaction_id: str, current_user):
         st.error("Transaction not found")
         return
 
-    notary_id = getattr(current_user, 'notary_id')
+    # Ensure enhanced fields
+    transaction = ensure_enhanced_fields(transaction)
+
+    notary_id = getattr(current_user, 'notary_id', None)
+    if not notary_id:
+        st.error("Could not retrieve notary ID")
+        return
 
     # Show transaction summary
     properties = get_properties()
@@ -555,9 +595,9 @@ def show_notary_validation_interface(transaction_id: str, current_user):
     if validation_actions:
         for action, doc_type in validation_actions:
             if action == "approve":
-                validate_buying_document(transaction, doc_type, notary_id, True)
+                transaction = validate_buying_document(transaction, doc_type, notary_id, True)
             else:
-                validate_buying_document(transaction, doc_type, notary_id, False)
+                transaction = validate_buying_document(transaction, doc_type, notary_id, False)
 
         save_buying_transaction(transaction)
         st.rerun()
@@ -572,23 +612,23 @@ def show_notary_validation_interface(transaction_id: str, current_user):
         if st.button("✅ Approve All Documents", type="primary"):
             for doc_type in transaction.buying_documents:
                 if transaction.buying_documents[doc_type]:
-                    validate_buying_document(transaction, doc_type, notary_id, True)
+                    transaction = validate_buying_document(transaction, doc_type, notary_id, True)
 
-            update_buying_status(transaction, "approved", "All documents approved by notary")
+            transaction = update_buying_status(transaction, "approved", "All documents approved by notary")
             save_buying_transaction(transaction)
             st.success("All documents approved!")
             st.rerun()
 
     with col2:
         if st.button("🔄 Request More Documents"):
-            update_buying_status(transaction, "documents_pending", "Additional documents requested")
+            transaction = update_buying_status(transaction, "documents_pending", "Additional documents requested")
             save_buying_transaction(transaction)
             st.info("Status updated - more documents requested")
             st.rerun()
 
     with col3:
         if st.button("❌ Reject Transaction"):
-            update_buying_status(transaction, "cancelled", "Transaction rejected by notary")
+            transaction = update_buying_status(transaction, "cancelled", "Transaction rejected by notary")
             save_buying_transaction(transaction)
             st.error("Transaction rejected")
             st.rerun()
@@ -604,7 +644,13 @@ def show_buying_chat_interface(transaction_id: str, current_user, user_type: str
         st.error("Transaction not found")
         return
 
-    user_id = getattr(current_user, f'{user_type.lower()}_id')
+    # Ensure enhanced fields
+    transaction = ensure_enhanced_fields(transaction)
+
+    user_id = getattr(current_user, f'{user_type.lower()}_id', None)
+    if not user_id:
+        st.error("Could not retrieve user ID")
+        return
 
     # Chat tabs based on user type
     if user_type.lower() == "buyer":
@@ -648,7 +694,7 @@ def _render_buyer_agent_chat(transaction: Buying, user_id: str):
         new_message = st.text_input("Type your message...")
         if st.form_submit_button("📤 Send"):
             if new_message:
-                add_transaction_note(transaction, new_message, user_id, "chat")
+                transaction = add_transaction_note(transaction, new_message, user_id, "chat")
                 save_buying_transaction(transaction)
                 st.rerun()
 
@@ -667,14 +713,18 @@ def integrate_payment_system_with_buyer_dashboard():
     """Integration point for buyer dashboard"""
     # Check if payment page should be shown
     if st.session_state.get("payment_page_property"):
-        from gpp.interface.components.shared.demo_payment_system import show_payment_page, show_payment_demo_info
+        try:
+            from gpp.interface.components.shared.demo_payment_system import show_payment_page, show_payment_demo_info
 
-        property_id = st.session_state["payment_page_property"]
-        current_buyer = st.session_state.get("current_user")  # Assume this is set
+            property_id = st.session_state["payment_page_property"]
+            current_buyer = st.session_state.get("current_user")  # Assume this is set
 
-        show_payment_demo_info()
-        show_payment_page(property_id, current_buyer)
-        return True
+            show_payment_demo_info()
+            show_payment_page(property_id, current_buyer)
+            return True
+        except ImportError:
+            st.error("Payment system not available")
+            return False
 
     return False
 
@@ -707,3 +757,134 @@ def integrate_enhanced_buying_with_dashboards():
         return True
 
     return False
+
+
+# Additional helper functions for safe operations
+def get_property_safe_attribute(prop, attr_name: str, default="N/A"):
+    """Safely get property attribute with fallback"""
+    return getattr(prop, attr_name, default)
+
+
+def format_currency_safe(amount):
+    """Format currency amount safely"""
+    try:
+        if amount is None:
+            return "€0.00"
+        return f"€{float(amount):,.2f}"
+    except (ValueError, TypeError):
+        return "€0.00"
+
+
+def format_date_safe(date_obj, format_str="%m/%d/%Y"):
+    """Safely format date with fallback"""
+    try:
+        if date_obj:
+            return date_obj.strftime(format_str)
+        return "N/A"
+    except (AttributeError, ValueError):
+        return "N/A"
+
+
+def get_user_id_safe(user_obj, user_type: str):
+    """Safely get user ID based on user type"""
+    try:
+        return getattr(user_obj, f'{user_type.lower()}_id', None)
+    except AttributeError:
+        return None
+
+
+def validate_transaction_access(buying_transaction: Buying, user_id: str, user_type: str) -> bool:
+    """Validate if user has access to transaction"""
+    if not user_id:
+        return False
+
+    if user_type.lower() == "notary":
+        return True  # Notaries can access all transactions
+    elif user_type.lower() == "agent":
+        return buying_transaction.agent_id == user_id
+    elif user_type.lower() == "buyer":
+        return buying_transaction.buyer_id == user_id
+
+    return False
+
+
+def handle_transaction_error(error: Exception, context: str = "transaction operation"):
+    """Handle transaction errors gracefully"""
+    error_msg = f"Error in {context}: {str(error)}"
+    st.error(f"❌ {error_msg}")
+
+    # Log error for debugging (you can implement proper logging here)
+    print(f"ENHANCED_BUYING_PROCESS ERROR: {error_msg}")
+
+    return None
+
+
+def create_safe_session_key(prefix: str, transaction_id: str) -> str:
+    """Create safe session state key"""
+    return f"{prefix}_{transaction_id[:8]}"
+
+
+def ensure_transaction_enhanced_fields(transaction: Buying) -> Buying:
+    """Ensure transaction has all required enhanced fields"""
+    try:
+        return ensure_enhanced_fields(transaction)
+    except Exception as e:
+        st.error(f"Error ensuring enhanced fields: {e}")
+        return transaction
+
+
+def safe_get_progress(transaction: Buying) -> Dict[str, Any]:
+    """Safely get transaction progress with error handling"""
+    try:
+        return get_buying_progress(transaction)
+    except Exception as e:
+        st.error(f"Error calculating progress: {e}")
+        return {
+            'progress_percentage': 0,
+            'validated_documents': 0,
+            'total_documents': 0,
+            'active_meetings': 0,
+            'last_updated': datetime.now()
+        }
+
+
+def safe_load_transaction(transaction_id: str) -> Optional[Buying]:
+    """Safely load transaction with error handling"""
+    try:
+        transaction = load_buying_transaction(transaction_id)
+        if transaction:
+            return ensure_enhanced_fields(transaction)
+        return None
+    except Exception as e:
+        st.error(f"Error loading transaction: {e}")
+        return None
+
+
+def safe_save_transaction(transaction: Buying) -> bool:
+    """Safely save transaction with error handling"""
+    try:
+        save_buying_transaction(transaction)
+        return True
+    except Exception as e:
+        st.error(f"Error saving transaction: {e}")
+        return False
+
+
+# Export main functions for use in other modules
+__all__ = [
+    'show_enhanced_buying_dashboard',
+    'show_document_upload_modal',
+    'show_notary_validation_interface',
+    'show_buying_chat_interface',
+    'integrate_payment_system_with_buyer_dashboard',
+    'integrate_enhanced_buying_with_dashboards',
+    'get_property_safe_attribute',
+    'format_currency_safe',
+    'format_date_safe',
+    'get_user_id_safe',
+    'validate_transaction_access',
+    'handle_transaction_error',
+    'safe_get_progress',
+    'safe_load_transaction',
+    'safe_save_transaction'
+]
