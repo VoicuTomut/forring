@@ -9,15 +9,20 @@ from decimal import Decimal
 from typing import Dict, Any, Optional
 import os
 
-# Import buying system classes and functions
+# Import buying system classes and functions - FIXED IMPORTS
 from gpp.classes.buying import (
     Buying, create_buying_transaction, add_document_to_buying,
     schedule_meeting, add_transaction_note, update_buying_status,
     get_buying_progress, get_next_meeting, validate_buying_document,
-    BUYING_DOCUMENT_TYPES, MEETING_TYPES, TRANSACTION_STATUSES,
-    can_user_edit_transaction
+    can_user_edit_transaction, ensure_enhanced_fields
 )
 from gpp.classes.document import Document
+
+# Import constants from constants.py instead of buying.py
+from gpp.interface.config.constants import (
+    BUYING_DOCUMENT_TYPES, MEETING_TYPES, TRANSACTION_STATUSES,
+    ALLOWED_DOCUMENT_TYPES
+)
 
 # Import database and utility functions
 from gpp.interface.utils.database import save_document, get_properties
@@ -25,7 +30,6 @@ from gpp.interface.utils.buying_database import (
     save_buying_transaction, load_buying_transaction, get_user_buying_transactions
 )
 from gpp.interface.utils.file_storage import save_uploaded_file, file_exists, read_file_content
-from gpp.interface.config.constants import ALLOWED_DOCUMENT_TYPES
 
 
 def show_buying_dashboard(current_user, user_type: str):
@@ -39,7 +43,11 @@ def show_buying_dashboard(current_user, user_type: str):
         return
 
     # Load relevant transactions
-    all_transactions = get_user_buying_transactions(user_id, user_type.lower())
+    try:
+        all_transactions = get_user_buying_transactions(user_id, user_type.lower())
+    except Exception as e:
+        st.error(f"Error loading transactions: {e}")
+        all_transactions = {}
 
     if not all_transactions:
         if user_type.lower() == "buyer":
@@ -146,11 +154,15 @@ def start_buying_process(property_id: str, buyer_id: str, agent_id: str):
             try:
                 # Create buying transaction
                 buying_transaction = create_buying_transaction(agent_id, buyer_id, property_id)
+
+                # Ensure enhanced fields are present
+                buying_transaction = ensure_enhanced_fields(buying_transaction)
+
                 buying_transaction.final_price = Decimal(str(offered_price))
 
                 # Add initial note
                 if initial_notes:
-                    add_transaction_note(buying_transaction, initial_notes, buyer_id, "initial_offer")
+                    buying_transaction = add_transaction_note(buying_transaction, initial_notes, buyer_id, "initial_offer")
 
                 # Schedule meeting
                 meeting_datetime = datetime.combine(meeting_date, meeting_time)
@@ -162,7 +174,7 @@ def start_buying_process(property_id: str, buyer_id: str, agent_id: str):
                     "agenda": meeting_agenda,
                     "created_by": buyer_id
                 }
-                schedule_meeting(buying_transaction, meeting_data)
+                buying_transaction = schedule_meeting(buying_transaction, meeting_data)
 
                 # Save transaction
                 save_buying_transaction(buying_transaction)
@@ -185,6 +197,9 @@ def show_transaction_details(buying_id: str, current_user, user_type: str):
     if not buying_transaction:
         st.error("Transaction not found")
         return
+
+    # Ensure enhanced fields
+    buying_transaction = ensure_enhanced_fields(buying_transaction)
 
     # Transaction header
     _render_transaction_header(buying_transaction)
@@ -222,7 +237,7 @@ def _show_available_properties_for_buying(current_user):
     properties = get_properties()
     validated_properties = [
         (prop_id, prop) for prop_id, prop in properties.items()
-        if prop.notary_attached and not prop.looking_for_notary
+        if getattr(prop, 'notary_attached', False) and not getattr(prop, 'looking_for_notary', True)
     ]
 
     if not validated_properties:
@@ -234,14 +249,14 @@ def _show_available_properties_for_buying(current_user):
             col1, col2 = st.columns([2, 1])
 
             with col1:
-                st.write(f"**📍 Location:** {prop.address}, {prop.city}")
-                st.write(f"**📐 Size:** {prop.dimension}")
-                st.write(f"**🏠 Rooms:** {prop.nb_room}")
-                st.write(f"**📝 Description:** {prop.description}")
+                st.write(f"**📍 Location:** {getattr(prop, 'address', 'N/A')}, {getattr(prop, 'city', 'N/A')}")
+                st.write(f"**📐 Size:** {getattr(prop, 'dimension', 'N/A')}")
+                st.write(f"**🏠 Rooms:** {getattr(prop, 'nb_room', 'N/A')}")
+                st.write(f"**📝 Description:** {getattr(prop, 'description', 'N/A')}")
 
             with col2:
                 st.write(f"**💰 Price:** €{prop.price:,.2f}")
-                st.write(f"**🏘️ Agent:** {prop.agent_id[:8]}...")
+                st.write(f"**🏘️ Agent:** {getattr(prop, 'agent_id', 'Unknown')[:8]}...")
 
                 if st.button("🛒 Start Buying Process", key=f"buy_{prop_id}"):
                     st.session_state["start_buying_property"] = prop_id
@@ -352,7 +367,7 @@ def _render_transaction_header(buying_transaction: Buying):
 
     with col1:
         st.title(f"🏠 {property_data.title}")
-        st.write(f"**📍** {property_data.address}, {property_data.city}")
+        st.write(f"**📍** {getattr(property_data, 'address', 'N/A')}, {getattr(property_data, 'city', 'N/A')}")
         st.write(f"**💰** €{buying_transaction.final_price or property_data.price:,.2f}")
         st.caption(f"Transaction ID: {buying_transaction.buying_id[:12]}...")
 
@@ -453,10 +468,10 @@ def _render_document_upload(buying_transaction: Buying, current_user, user_type:
                         save_document(doc)
 
                         # Add to buying transaction
-                        add_document_to_buying(buying_transaction, doc_type, doc.document_id)
+                        buying_transaction = add_document_to_buying(buying_transaction, doc_type, doc.document_id)
 
                         # Add note about upload
-                        add_transaction_note(
+                        buying_transaction = add_transaction_note(
                             buying_transaction,
                             f"Document uploaded: {BUYING_DOCUMENT_TYPES[doc_type]}. {upload_notes}".strip(),
                             user_id,
@@ -465,7 +480,7 @@ def _render_document_upload(buying_transaction: Buying, current_user, user_type:
 
                         # Update transaction status
                         if buying_transaction.status == "pending":
-                            update_buying_status(buying_transaction, "documents_pending")
+                            buying_transaction = update_buying_status(buying_transaction, "documents_pending")
 
                         save_buying_transaction(buying_transaction)
 
@@ -502,16 +517,18 @@ def _render_document_row(buying_transaction: Buying, doc_type: str, doc_name: st
     with col2:
         if doc_id and user_type.lower() == "notary":
             if st.button("✅ Validate", key=f"validate_{doc_type}"):
-                validate_buying_document(buying_transaction, doc_type,
-                                       getattr(current_user, 'notary_id'), True)
+                buying_transaction = validate_buying_document(
+                    buying_transaction, doc_type, getattr(current_user, 'notary_id'), True
+                )
                 save_buying_transaction(buying_transaction)
                 st.rerun()
 
     with col3:
         if doc_id and user_type.lower() == "notary":
             if st.button("❌ Reject", key=f"reject_{doc_type}"):
-                validate_buying_document(buying_transaction, doc_type,
-                                       getattr(current_user, 'notary_id'), False)
+                buying_transaction = validate_buying_document(
+                    buying_transaction, doc_type, getattr(current_user, 'notary_id'), False
+                )
                 save_buying_transaction(buying_transaction)
                 st.rerun()
 
@@ -527,7 +544,8 @@ def _render_meetings_section(buying_transaction: Buying, current_user, user_type
     st.subheader("📅 Scheduled Meetings")
 
     # Schedule new meeting
-    if can_user_edit_transaction(buying_transaction, getattr(current_user, f'{user_type.lower()}_id'), user_type):
+    user_id = getattr(current_user, f'{user_type.lower()}_id', None)
+    if user_id and can_user_edit_transaction(buying_transaction, user_id, user_type):
         with st.expander("📅 Schedule New Meeting"):
             _render_meeting_scheduler(buying_transaction, current_user, user_type)
 
@@ -587,7 +605,7 @@ def _render_meeting_scheduler(buying_transaction: Buying, current_user, user_typ
                     "created_by": user_id
                 }
 
-                schedule_meeting(buying_transaction, meeting_data)
+                buying_transaction = schedule_meeting(buying_transaction, meeting_data)
                 save_buying_transaction(buying_transaction)
 
                 st.success(f"✅ Meeting scheduled for {meeting_datetime.strftime('%Y-%m-%d %H:%M')}")
@@ -639,7 +657,7 @@ def _render_communication_section(buying_transaction: Buying, current_user, user
 
         if st.form_submit_button("💬 Add Note"):
             if note_text:
-                add_transaction_note(buying_transaction, note_text, user_id, note_type)
+                buying_transaction = add_transaction_note(buying_transaction, note_text, user_id, note_type)
                 save_buying_transaction(buying_transaction)
                 st.success("Note added successfully!")
                 st.rerun()
@@ -768,7 +786,7 @@ def _render_transaction_settings(buying_transaction: Buying, current_user, user_
 
         if st.button("💾 Update Status") and new_status != current_status:
             try:
-                update_buying_status(buying_transaction, new_status, status_notes)
+                buying_transaction = update_buying_status(buying_transaction, new_status, status_notes)
                 save_buying_transaction(buying_transaction)
                 st.success(f"Status updated to: {TRANSACTION_STATUSES[new_status]}")
                 st.rerun()
@@ -794,7 +812,7 @@ def _render_transaction_settings(buying_transaction: Buying, current_user, user_
         if user_type.lower() == "notary" or buying_transaction.buyer_id == user_id:
             if st.button("❌ Cancel Transaction", type="secondary"):
                 if st.button("⚠️ Confirm Cancellation", type="secondary"):
-                    update_buying_status(buying_transaction, "cancelled", "Transaction cancelled by user")
+                    buying_transaction = update_buying_status(buying_transaction, "cancelled", "Transaction cancelled by user")
                     save_buying_transaction(buying_transaction)
                     st.success("Transaction cancelled")
                     st.rerun()
@@ -818,7 +836,7 @@ def _generate_transaction_report(buying_transaction: Buying):
 
 **Transaction ID:** {buying_transaction.buying_id}
 **Property:** {property_data.title}
-**Address:** {property_data.address}, {property_data.city}
+**Address:** {getattr(property_data, 'address', 'N/A')}, {getattr(property_data, 'city', 'N/A')}
 **Price:** €{buying_transaction.final_price or property_data.price:,.2f}
 
 ## Parties Involved
@@ -880,3 +898,81 @@ def _generate_transaction_report(buying_transaction: Buying):
         file_name=f"transaction_report_{buying_transaction.buying_id[:8]}.md",
         mime="text/markdown"
     )
+
+
+# Additional helper functions for enhanced compatibility
+
+def get_property_safe_attribute(prop, attr_name: str, default="N/A"):
+    """Safely get property attribute with fallback"""
+    return getattr(prop, attr_name, default)
+
+
+def format_currency(amount):
+    """Format currency amount safely"""
+    try:
+        return f"€{float(amount):,.2f}"
+    except (ValueError, TypeError):
+        return "€0.00"
+
+
+def format_date_safe(date_obj, format_str="%m/%d/%Y"):
+    """Safely format date with fallback"""
+    try:
+        if date_obj:
+            return date_obj.strftime(format_str)
+        return "N/A"
+    except (AttributeError, ValueError):
+        return "N/A"
+
+
+def get_user_id_safe(user_obj, user_type: str):
+    """Safely get user ID based on user type"""
+    try:
+        return getattr(user_obj, f'{user_type.lower()}_id', None)
+    except AttributeError:
+        return None
+
+
+def validate_transaction_access(buying_transaction: Buying, user_id: str, user_type: str) -> bool:
+    """Validate if user has access to transaction"""
+    if not user_id:
+        return False
+
+    if user_type.lower() == "notary":
+        return True  # Notaries can access all transactions
+    elif user_type.lower() == "agent":
+        return buying_transaction.agent_id == user_id
+    elif user_type.lower() == "buyer":
+        return buying_transaction.buyer_id == user_id
+
+    return False
+
+
+def handle_transaction_error(error: Exception, context: str = "transaction operation"):
+    """Handle transaction errors gracefully"""
+    error_msg = f"Error in {context}: {str(error)}"
+    st.error(f"❌ {error_msg}")
+
+    # Log error for debugging (you can implement proper logging here)
+    print(f"BUYING_COMPONENTS ERROR: {error_msg}")
+
+    return None
+
+
+def create_safe_session_key(prefix: str, transaction_id: str) -> str:
+    """Create safe session state key"""
+    return f"{prefix}_{transaction_id[:8]}"
+
+
+# Export main functions for use in other modules
+__all__ = [
+    'show_buying_dashboard',
+    'start_buying_process',
+    'show_transaction_details',
+    'get_property_safe_attribute',
+    'format_currency',
+    'format_date_safe',
+    'get_user_id_safe',
+    'validate_transaction_access',
+    'handle_transaction_error'
+]
