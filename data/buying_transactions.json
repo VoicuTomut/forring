@@ -1,639 +1,9 @@
 {
-  "6d960928-eb0c-4261-a310-5b629c160947": {
-    "buying_id": "6d960928-eb0c-4261-a310-5b629c160947",
-    "agent_id": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
-    "buyer_id": "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3",
-    "property_id": "73ec5bf0-f8ed-4e6a-af8c-4269256616ab",
-    "buying_documents": {
-      "purchase_contract": null,
-      "payment_proof": null,
-      "loan_approval": "27d6a9b1-5143-4e29-a842-9ba1db02a8b4",
-      "inspection_report": null,
-      "insurance_policy": null,
-      "transfer_deed": null
-    },
-    "transaction_date": null,
-    "final_price": 3000.0,
-    "status": "under_review",
-    "scheduled_meetings": [
-      {
-        "meeting_id": "551143af-8744-4dc1-ab72-d7a998eec6c5",
-        "meeting_type": "property_viewing",
-        "scheduled_date": "2025-05-28T14:00:00",
-        "participants": [
-          "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
-          "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3"
-        ],
-        "location": "",
-        "agenda": "",
-        "status": "completed",
-        "created_by": "c9000d54-6c1f-46f0-ae53-78ba984e6ac8",
-        "created_date": "2025-05-27T18:08:59.682193",
-        "meeting_notes": ""
-      }
-    ],
-    "additional_docs": {},
-    "document_validation_status": {
-      "loan_approval": {
-        "document_id": "27d6a9b1-5143-4e29-a842-9ba1db02a8b4",
-        "validation_status": true,
-        "uploaded_by": null,
-        "upload_date": "2025-05-27T18:01:47.049535",
-        "validated_by": "19941c50-5037-4005-a7df-9e494b6ec72f",
-        "validation_date": "2025-05-27T18:04:10.972600",
-        "validation_notes": ""
-      }
-    },
-    "created_date": "2025-05-27T18:00:29.336614",
-    "last_updated": "2025-05-27T20:51:02.898393",
-    "transaction_notes": [
-      {
-        "note_id": "6bfc3c85-8751-4475-b81f-9cf28ae7b6c5",
-        "note": "Reservation payment processed successfully. Amount: \u20ac150.00, Transaction ID: c794f599-a542-4d71-bc95-f65ae1d10b8c",
-        "author_id": "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3",
-        "note_type": "payment",
-        "timestamp": "2025-05-27T18:00:29.336690",
-        "visibility": "all"
-      },
-      {
-        "note_id": "c27a62ee-05ae-4998-8394-beed54253c6b",
-        "note": "Document uploaded: Bank Loan Approval.",
-        "author_id": "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3",
-        "note_type": "document_upload",
-        "timestamp": "2025-05-27T18:01:47.049557",
-        "visibility": "all"
-      },
-      {
-        "note_id": "55f1c6cc-8fc0-4fb6-9e87-dac0589a2d6a",
-        "note": "Status changed from pending to documents_pending.",
-        "author_id": "system",
-        "note_type": "general",
-        "timestamp": "2025-05-27T18:01:47.049580",
-        "visibility": "all"
-      },
-      {
-        "note_id": "15066e96-a1a5-4485-86bb-240492a9ca98",
-        "note": "[CHAT] nu ce zici?",
-        "author_id": "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3",
-        "note_type": "chat",
-        "timestamp": "2025-05-27T18:02:07.076871",
-        "visibility": "all"
-      },
-      {
-        "note_id": "afbab580-bcdd-45b9-938d-cea75aa7e54a",
-        "note": "[CHAT] nu ce zici?\noh no",
-        "author_id": "475a7f5e-9a11-4c4b-9c4b-ccbc6ac2d1b3",
-        "note_type": "chat",
-        "timestamp": "2025-05-27T18:02:12.983387",
-        "visibility": "all"
-      },
-      {
-        "note_id": "e4a582d4-d9c8-422c-a865-0a61a3fdae33",
-        "note": "Document Bank Loan Approval approved.",
-        "author_id": "19941c50-5037-4005-a7df-9e494b6ec72f",
-        "note_type": "validation",
-        "timestamp": "2025-05-27T18:04:10.972955",
-        "visibility": "all"
-      },
-      {
-        "note_id": "3441838f-9de9-4730-b06b-53234970dfc7",
-        "note": "Status changed from documents_pending to under_review. All documents validated",
-        "author_id": "system",
-        "note_type": "general",
-        "timestamp": "2025-05-27T18:04:10.972973",
-        "visibility": "all"
-      },
-      {
-        "note_id": "1e6ca399-702e-44ff-b2ec-0fdf0938f903",
-        "note": "we need ot mee soon\n",
-        "author_id": "19941c50-5037-4005-a7df-9e494b6ec72f",
-        "note_type": "meeting",
-        "timestamp": "2025-05-27T18:04:50.123512",
-        "visibility": "all"
-      },
-      {
-        "note_id": "d90df9bd-a6c9-424d-9bfc-74819b2594d0",
-        "note": "[CHAT] hei we ned to",
-        "author_id": "c9000d54-6c1f-46f0-ae53-78ba984e6ac8",
-        "note_type": "chat",
-        "timestamp": "2025-05-27T18:07:57.225900",
-        "visibility": "all"
-      },
-      {
-        "note_id": "898592c3-bd14-4a9d-bcc0-39c77fe69908",
-        "note": "hei ce mai zici \n",
-        "author_id": "c9000d54-6c1f-46f0-ae53-78ba984e6ac8",
-        "note_type": "general",
-        "timestamp": "2025-05-27T18:08:30.959378",
-        "visibility": "all"
-      },
-      {
-        "note_id": "faeabfa1-7965-40e6-92bc-2ada2dc46e61",
-        "note": "tu nu zici nimic",
-        "author_id": "8e8b0e25-8e40-4952-97b3-7fb5e5cc8c4c",
-        "note_type": "general",
-        "timestamp": "2025-05-27T18:08:44.050732",
-        "visibility": "all"
-      },
-      {
-        "note_id": "58be61d2-2697-4123-9157-a759a1e590e8",
-        "note": "Meeting scheduled: Property Viewing on 2025-05-28 14:00",
-        "author_id": "c9000d54-6c1f-46f0-ae53-78ba984e6ac8",
-        "note_type": "meeting",
-        "timestamp": "2025-05-27T18:08:59.682259",
-        "visibility": "all"
-      },
-      {
-        "note_id": "28c6aa1b-ba73-4373-8661-03944c773c96",
-        "note": "[CHAT] chat",
-        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
-        "note_type": "chat",
-        "timestamp": "2025-05-27T20:51:02.898392",
-        "visibility": "all"
-      }
-    ]
-  },
-  "a8aa1ad8-6077-40f0-bff4-bc8499011a81": {
-    "buying_id": "a8aa1ad8-6077-40f0-bff4-bc8499011a81",
-    "agent_id": "393df11c-355f-4c42-b923-f9a380e8e33c",
-    "buyer_id": "90e91036-a489-4704-96e4-b0ba8de39039",
-    "property_id": "c177c903-83e6-4683-95f0-d06418487c94",
-    "buying_documents": {
-      "purchase_contract": "3adead43-2970-45fa-aed1-a47c771df243",
-      "payment_proof": null,
-      "loan_approval": null,
-      "inspection_report": null,
-      "insurance_policy": null,
-      "transfer_deed": null
-    },
-    "transaction_date": null,
-    "final_price": 2000.0,
-    "status": "under_review",
-    "scheduled_meetings": [
-      {
-        "meeting_id": "247afcc6-edad-41e5-a542-7ce2ae124dd1",
-        "meeting_type": "property_viewing",
-        "scheduled_date": "2025-05-28T14:00:00",
-        "participants": [
-          "393df11c-355f-4c42-b923-f9a380e8e33c",
-          "90e91036-a489-4704-96e4-b0ba8de39039"
-        ],
-        "location": "",
-        "agenda": "",
-        "status": "completed",
-        "created_by": "90e91036-a489-4704-96e4-b0ba8de39039",
-        "created_date": "2025-05-27T18:41:12.858414",
-        "meeting_notes": ""
-      }
-    ],
-    "additional_docs": {},
-    "document_validation_status": {
-      "purchase_contract": {
-        "document_id": "3adead43-2970-45fa-aed1-a47c771df243",
-        "validation_status": true,
-        "uploaded_by": null,
-        "upload_date": "2025-05-27T18:40:15.640097",
-        "validated_by": "1c6a6bf8-d736-4562-a3af-4b0fb979d3d0",
-        "validation_date": "2025-05-27T18:41:30.225449",
-        "validation_notes": ""
-      }
-    },
-    "created_date": "2025-05-27T18:39:31.972409",
-    "last_updated": "2025-05-27T20:51:34.639133",
-    "transaction_notes": [
-      {
-        "note_id": "6b6e130d-0653-4f69-ab8c-8d4a39bb20d4",
-        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: 247794b1-e0bf-40cf-9b99-c56168543c90",
-        "author_id": "90e91036-a489-4704-96e4-b0ba8de39039",
-        "note_type": "payment",
-        "timestamp": "2025-05-27T18:39:31.972521",
-        "visibility": "all"
-      },
-      {
-        "note_id": "17466810-c3a1-49df-9d4b-d38cbfbb2e24",
-        "note": "Document uploaded: Purchase Contract. bo",
-        "author_id": "90e91036-a489-4704-96e4-b0ba8de39039",
-        "note_type": "document_upload",
-        "timestamp": "2025-05-27T18:40:15.640115",
-        "visibility": "all"
-      },
-      {
-        "note_id": "9ddca802-c366-467a-a78e-a31e4128fc01",
-        "note": "Status changed from pending to documents_pending.",
-        "author_id": "system",
-        "note_type": "general",
-        "timestamp": "2025-05-27T18:40:15.640128",
-        "visibility": "all"
-      },
-      {
-        "note_id": "97776e28-566c-4e6c-a5e9-3b366a8fa53d",
-        "note": "hei we need to meet fast",
-        "author_id": "1c6a6bf8-d736-4562-a3af-4b0fb979d3d0",
-        "note_type": "general",
-        "timestamp": "2025-05-27T18:40:45.080332",
-        "visibility": "all"
-      },
-      {
-        "note_id": "3230bb77-2367-483c-a2fc-fa9201321110",
-        "note": "Meeting scheduled: Property Viewing on 2025-05-28 14:00",
-        "author_id": "90e91036-a489-4704-96e4-b0ba8de39039",
-        "note_type": "meeting",
-        "timestamp": "2025-05-27T18:41:12.858430",
-        "visibility": "all"
-      },
-      {
-        "note_id": "8eb24c07-1281-4caf-80b8-d9f400ab4f66",
-        "note": "Document Purchase Contract approved.",
-        "author_id": "1c6a6bf8-d736-4562-a3af-4b0fb979d3d0",
-        "note_type": "validation",
-        "timestamp": "2025-05-27T18:41:30.225502",
-        "visibility": "all"
-      },
-      {
-        "note_id": "e1a6be9c-8dc6-46dc-b9ef-b57761b6951e",
-        "note": "Status changed from documents_pending to under_review. All documents validated",
-        "author_id": "system",
-        "note_type": "general",
-        "timestamp": "2025-05-27T18:41:30.225512",
-        "visibility": "all"
-      },
-      {
-        "note_id": "6ecb5878-70d0-41f9-b6cd-5a1df2f4f1f3",
-        "note": "Please ad the more doecuemtns like your passport",
-        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
-        "note_type": "urgent",
-        "timestamp": "2025-05-27T20:51:34.639129",
-        "visibility": "all"
-      }
-    ]
-  },
-  "770224c5-aa93-450f-9128-66f3762f28ed": {
-    "buying_id": "770224c5-aa93-450f-9128-66f3762f28ed",
-    "agent_id": "393df11c-355f-4c42-b923-f9a380e8e33c",
-    "buyer_id": "b940bb0a-531a-4f6a-8549-12acd92588aa",
-    "property_id": "c177c903-83e6-4683-95f0-d06418487c94",
-    "buying_documents": {
-      "purchase_contract": null,
-      "payment_proof": "86d615b6-0049-4cbf-b709-80ae2fc48b10",
-      "loan_approval": "a24f4277-cd61-473a-b323-ad629c114ebb",
-      "inspection_report": null,
-      "insurance_policy": null,
-      "transfer_deed": null
-    },
-    "transaction_date": null,
-    "final_price": 2000.0,
-    "status": "approved",
-    "scheduled_meetings": [],
-    "additional_docs": {},
-    "document_validation_status": {
-      "payment_proof": {
-        "document_id": "86d615b6-0049-4cbf-b709-80ae2fc48b10",
-        "validation_status": true,
-        "uploaded_by": null,
-        "upload_date": "2025-05-27T20:49:46.687270",
-        "validated_by": "bb7bc709-77a3-4583-b409-81f159d1094c",
-        "validation_date": "2025-05-27T20:50:41.677474",
-        "validation_notes": ""
-      },
-      "loan_approval": {
-        "document_id": "a24f4277-cd61-473a-b323-ad629c114ebb",
-        "validation_status": true,
-        "uploaded_by": null,
-        "upload_date": "2025-05-27T20:53:59.994891",
-        "validated_by": "bb7bc709-77a3-4583-b409-81f159d1094c",
-        "validation_date": "2025-05-27T20:54:14.850503",
-        "validation_notes": ""
-      }
-    },
-    "created_date": "2025-05-27T20:48:55.609005",
-    "last_updated": "2025-05-27T20:54:14.850764",
-    "transaction_notes": [
-      {
-        "note_id": "ace61a2b-b781-493c-b8d6-e11fb77db8b1",
-        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: dfdfa7d4-cc94-4b14-aa3a-82f9f24a042e",
-        "author_id": "b940bb0a-531a-4f6a-8549-12acd92588aa",
-        "note_type": "payment",
-        "timestamp": "2025-05-27T20:48:55.609053",
-        "visibility": "all"
-      },
-      {
-        "note_id": "c1e5eb81-23aa-4f2d-b515-c265676deb58",
-        "note": "Document uploaded: Payment Verification. new payment",
-        "author_id": "b940bb0a-531a-4f6a-8549-12acd92588aa",
-        "note_type": "document_upload",
-        "timestamp": "2025-05-27T20:49:46.687282",
-        "visibility": "all"
-      },
-      {
-        "note_id": "b3e9d6aa-e4c5-4196-b2c4-090aa9a35603",
-        "note": "Status changed from pending to documents_pending.",
-        "author_id": "system",
-        "note_type": "general",
-        "timestamp": "2025-05-27T20:49:46.687289",
-        "visibility": "all"
-      },
-      {
-        "note_id": "f3e36b70-8e66-46be-b48b-d3cfbe7e4792",
-        "note": "Document Payment Verification approved.",
-        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
-        "note_type": "validation",
-        "timestamp": "2025-05-27T20:50:18.837492",
-        "visibility": "all"
-      },
-      {
-        "note_id": "7c7ace16-2139-43da-baf6-b16373c43607",
-        "note": "Status changed from documents_pending to under_review. All documents validated",
-        "author_id": "system",
-        "note_type": "general",
-        "timestamp": "2025-05-27T20:50:18.837509",
-        "visibility": "all"
-      },
-      {
-        "note_id": "670fa3e8-f0db-41d3-99e0-2612e58a4535",
-        "note": "Document Payment Verification rejected.",
-        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
-        "note_type": "validation",
-        "timestamp": "2025-05-27T20:50:19.981280",
-        "visibility": "all"
-      },
-      {
-        "note_id": "965cac44-a1b2-4751-9bbc-a7e1cc2d85d1",
-        "note": "Document Payment Verification approved.",
-        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
-        "note_type": "validation",
-        "timestamp": "2025-05-27T20:50:21.359307",
-        "visibility": "all"
-      },
-      {
-        "note_id": "ba9c53e5-0536-4c40-aa6a-d009ccd8773b",
-        "note": "Document Payment Verification approved.",
-        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
-        "note_type": "validation",
-        "timestamp": "2025-05-27T20:50:35.692694",
-        "visibility": "all"
-      },
-      {
-        "note_id": "1cd884eb-40ec-455a-9a2e-060453b4069f",
-        "note": "Status changed from under_review to approved. All documents approved by notary",
-        "author_id": "system",
-        "note_type": "general",
-        "timestamp": "2025-05-27T20:50:35.692716",
-        "visibility": "all"
-      },
-      {
-        "note_id": "0e83b877-04ff-4d39-ac30-9a3cca787b73",
-        "note": "Status changed from approved to documents_pending. Additional documents requested",
-        "author_id": "system",
-        "note_type": "general",
-        "timestamp": "2025-05-27T20:50:39.678643",
-        "visibility": "all"
-      },
-      {
-        "note_id": "1c7650e6-84e6-4f54-9fa7-a9400d63d6a8",
-        "note": "Status changed from documents_pending to documents_pending. Additional documents requested",
-        "author_id": "system",
-        "note_type": "general",
-        "timestamp": "2025-05-27T20:50:40.667796",
-        "visibility": "all"
-      },
-      {
-        "note_id": "e4be62e8-2f6f-4496-a543-6d120937a780",
-        "note": "Document Payment Verification approved.",
-        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
-        "note_type": "validation",
-        "timestamp": "2025-05-27T20:50:41.677557",
-        "visibility": "all"
-      },
-      {
-        "note_id": "52b05e08-a546-4195-a2d9-1e2620c6d01f",
-        "note": "Status changed from documents_pending to under_review. All documents validated",
-        "author_id": "system",
-        "note_type": "general",
-        "timestamp": "2025-05-27T20:50:41.677730",
-        "visibility": "all"
-      },
-      {
-        "note_id": "f7af5e30-f8d2-4f42-971f-04f015649e38",
-        "note": "Status changed from under_review to approved. All documents approved by notary",
-        "author_id": "system",
-        "note_type": "general",
-        "timestamp": "2025-05-27T20:50:41.677741",
-        "visibility": "all"
-      },
-      {
-        "note_id": "797d216d-1f1a-4e91-a145-e07a36ca372a",
-        "note": "Document uploaded: Bank Loan Approval. I just proved",
-        "author_id": "b940bb0a-531a-4f6a-8549-12acd92588aa",
-        "note_type": "document_upload",
-        "timestamp": "2025-05-27T20:53:59.994914",
-        "visibility": "all"
-      },
-      {
-        "note_id": "d0780355-bc13-4c55-9a96-897060003cd1",
-        "note": "Document Bank Loan Approval approved.",
-        "author_id": "bb7bc709-77a3-4583-b409-81f159d1094c",
-        "note_type": "validation",
-        "timestamp": "2025-05-27T20:54:14.850763",
-        "visibility": "all"
-      }
-    ]
-  },
-  "5427956b-f5b1-4e15-9774-85b9bad8171a": {
-    "buying_id": "5427956b-f5b1-4e15-9774-85b9bad8171a",
-    "agent_id": "393df11c-355f-4c42-b923-f9a380e8e33c",
-    "buyer_id": "81f29b03-3da4-4322-964b-434b29df71cc",
-    "property_id": "c177c903-83e6-4683-95f0-d06418487c94",
-    "buying_documents": {
-      "purchase_contract": null,
-      "payment_proof": null,
-      "loan_approval": null,
-      "inspection_report": null,
-      "insurance_policy": null,
-      "transfer_deed": null
-    },
-    "transaction_date": null,
-    "final_price": 2000.0,
-    "status": "pending",
-    "scheduled_meetings": [],
-    "additional_docs": {},
-    "document_validation_status": {},
-    "created_date": "2025-05-27T21:13:14.383692",
-    "last_updated": "2025-05-27T21:13:14.384005",
-    "transaction_notes": [
-      {
-        "note_id": "cab88195-48b7-4395-85c6-b72b4af3600e",
-        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: d1d5fbb3-124b-4018-aa31-9d27e30fedc3",
-        "author_id": "81f29b03-3da4-4322-964b-434b29df71cc",
-        "note_type": "payment",
-        "timestamp": "2025-05-27T21:13:14.383949",
-        "visibility": "all"
-      }
-    ]
-  },
-  "3120119a-5e9f-489e-b761-92fdddc82caa": {
-    "buying_id": "3120119a-5e9f-489e-b761-92fdddc82caa",
-    "agent_id": "79e361df-7d74-46e6-96e9-1d663caee3a9",
-    "buyer_id": "81f29b03-3da4-4322-964b-434b29df71cc",
-    "property_id": "9a4426b5-bda0-45d6-a9b7-fc3d84399e5d",
-    "buying_documents": {
-      "purchase_contract": null,
-      "payment_proof": null,
-      "loan_approval": null,
-      "inspection_report": null,
-      "insurance_policy": null,
-      "transfer_deed": null
-    },
-    "transaction_date": null,
-    "final_price": 2000.0,
-    "status": "pending",
-    "scheduled_meetings": [],
-    "additional_docs": {},
-    "document_validation_status": {},
-    "created_date": "2025-05-27T21:18:22.558133",
-    "last_updated": "2025-05-27T21:18:22.558275",
-    "transaction_notes": [
-      {
-        "note_id": "a335978d-f6ca-4109-8c1b-34ecef8b20fc",
-        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: 58e62089-f3e2-4b44-9551-4a892e7f173e",
-        "author_id": "81f29b03-3da4-4322-964b-434b29df71cc",
-        "note_type": "payment",
-        "timestamp": "2025-05-27T21:18:22.558267",
-        "visibility": "all"
-      }
-    ]
-  },
-  "088b93b3-0880-4c45-bf14-b45ca075e89b": {
-    "buying_id": "088b93b3-0880-4c45-bf14-b45ca075e89b",
-    "agent_id": "9e0a059a-5fe9-4e50-a380-59d37141cf19",
-    "buyer_id": "21b5c9a3-e520-44ff-bf99-63f3ef1d5803",
-    "property_id": "98fc0d6f-64dd-4e11-88c5-c34c23751544",
-    "buying_documents": {
-      "purchase_contract": null,
-      "payment_proof": "da897e2b-8755-406f-ae4c-28f2c4ce4a02",
-      "loan_approval": null,
-      "inspection_report": null,
-      "insurance_policy": null,
-      "transfer_deed": null,
-      "reservation_agreement": "914aca7b-ce41-4e26-bdb2-f885961d6c41",
-      "proof_of_funds": null,
-      "mortgage_pre_approval": null,
-      "preliminary_contract": null,
-      "deposit_payment_proof": null,
-      "due_diligence_documents": null,
-      "final_purchase_contract": null,
-      "final_payment_proof": null,
-      "notary_validation_certificate": null
-    },
-    "document_signatures": {},
-    "current_phase": "reservation",
-    "phase_history": [],
-    "audit_trail": [
-      {
-        "audit_id": "93ddb405-c63a-4112-b6c6-7049e4b60aed",
-        "timestamp": "2025-05-28T08:17:42.541048",
-        "action": "document_uploaded",
-        "user_id": "system",
-        "details": {
-          "document_type": "reservation_agreement",
-          "document_id": "914aca7b-ce41-4e26-bdb2-f885961d6c41"
-        },
-        "transaction_id": "088b93b3-0880-4c45-bf14-b45ca075e89b"
-      },
-      {
-        "audit_id": "67e83336-ab7d-4f44-9153-61cdaf7f5ac8",
-        "timestamp": "2025-05-28T08:29:19.111369",
-        "action": "document_uploaded",
-        "user_id": "system",
-        "details": {
-          "document_type": "payment_proof",
-          "document_id": "da897e2b-8755-406f-ae4c-28f2c4ce4a02"
-        },
-        "transaction_id": "088b93b3-0880-4c45-bf14-b45ca075e89b"
-      },
-      {
-        "audit_id": "d9dc193c-455d-44d1-b8c3-f40920653867",
-        "timestamp": "2025-05-28T08:29:19.111401",
-        "action": "status_changed",
-        "user_id": "system",
-        "details": {
-          "old_status": "pending",
-          "new_status": "documents_pending",
-          "notes": ""
-        },
-        "transaction_id": "088b93b3-0880-4c45-bf14-b45ca075e89b"
-      }
-    ],
-    "transaction_date": null,
-    "final_price": 1000.0,
-    "status": "documents_pending",
-    "scheduled_meetings": [],
-    "additional_docs": {},
-    "document_validation_status": {
-      "reservation_agreement": {
-        "document_id": "914aca7b-ce41-4e26-bdb2-f885961d6c41",
-        "validation_status": false,
-        "uploaded_by": null,
-        "upload_date": "2025-05-28T08:17:42.541040",
-        "validated_by": null,
-        "validation_date": null,
-        "validation_notes": "",
-        "fully_signed": false,
-        "signing_completed_date": null
-      },
-      "payment_proof": {
-        "document_id": "da897e2b-8755-406f-ae4c-28f2c4ce4a02",
-        "validation_status": false,
-        "uploaded_by": null,
-        "upload_date": "2025-05-28T08:29:19.111360",
-        "validated_by": null,
-        "validation_date": null,
-        "validation_notes": "",
-        "fully_signed": false,
-        "signing_completed_date": null
-      }
-    },
-    "created_date": "2025-05-28T08:17:42.535406",
-    "last_updated": "2025-05-28T08:29:19.111397",
-    "transaction_notes": [
-      {
-        "note_id": "8ca7624e-5eb8-4bbd-a0d1-1343456e7ec5",
-        "note": "Reservation payment processed successfully. Amount: \u20ac50.00, Transaction ID: 191d8f50-2013-4970-99df-d9c7bf05bc18",
-        "author_id": "21b5c9a3-e520-44ff-bf99-63f3ef1d5803",
-        "note_type": "payment",
-        "timestamp": "2025-05-28T08:17:42.535719",
-        "visibility": "all"
-      },
-      {
-        "note_id": "9c341c70-b1c3-4652-ab29-04a565b886dc",
-        "note": "Reservation Agreement automatically generated after successful payment",
-        "author_id": "system",
-        "note_type": "document_upload",
-        "timestamp": "2025-05-28T08:17:42.541057",
-        "visibility": "all"
-      },
-      {
-        "note_id": "210fca0b-4da7-4a2d-a26c-7c8af858b2e2",
-        "note": "Document uploaded: Payment Verification.",
-        "author_id": "21b5c9a3-e520-44ff-bf99-63f3ef1d5803",
-        "note_type": "document_upload",
-        "timestamp": "2025-05-28T08:29:19.111386",
-        "visibility": "all"
-      },
-      {
-        "note_id": "79fa7d6d-7c3f-47cb-bc91-fca4cf950780",
-        "note": "Status changed from pending to documents_pending.",
-        "author_id": "system",
-        "note_type": "general",
-        "timestamp": "2025-05-28T08:29:19.111397",
-        "visibility": "all"
-      }
-    ]
-  },
-  "9b30ca0f-c6d1-4958-84ce-15c5cd110bd4": {
-    "buying_id": "9b30ca0f-c6d1-4958-84ce-15c5cd110bd4",
-    "agent_id": "3678cae0-8dda-4e74-8364-12fc1d2e552c",
-    "buyer_id": "9849391a-1481-41bf-9bac-fd232ba73cd2",
-    "property_id": "b3f4fa78-621e-4963-8539-887babae574b",
+  "89c06dad-7115-4758-8915-1e4fb883de2b": {
+    "buying_id": "89c06dad-7115-4758-8915-1e4fb883de2b",
+    "agent_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+    "buyer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+    "property_id": "5fdab796-2176-475b-a55b-9be06f437180",
     "buying_documents": {
       "purchase_contract": null,
       "payment_proof": null,
@@ -641,305 +11,291 @@
       "inspection_report": null,
       "insurance_policy": null,
       "transfer_deed": null,
-      "reservation_agreement": "c238fc97-4b64-42ba-8d9c-340c1a8a6a83",
-      "proof_of_funds": "00624db7-2ab5-4c3d-8c80-893e272e5263",
-      "mortgage_pre_approval": "6597f272-7251-4292-921f-e2f0f44706f5",
-      "preliminary_contract": null,
-      "deposit_payment_proof": null,
-      "due_diligence_documents": null,
-      "final_purchase_contract": null,
-      "final_payment_proof": null,
-      "notary_validation_certificate": null
-    },
-    "document_signatures": {},
-    "current_phase": "reservation",
-    "phase_history": [],
-    "audit_trail": [
-      {
-        "audit_id": "e044824c-609d-4ac2-9ba0-0590d7991162",
-        "timestamp": "2025-05-28T08:58:04.522114",
-        "action": "document_uploaded",
-        "user_id": "system",
-        "details": {
-          "document_type": "reservation_agreement",
-          "document_id": "c238fc97-4b64-42ba-8d9c-340c1a8a6a83"
-        },
-        "transaction_id": "9b30ca0f-c6d1-4958-84ce-15c5cd110bd4"
-      },
-      {
-        "audit_id": "145ca841-3f08-44bf-b00f-3b967cd0128c",
-        "timestamp": "2025-05-28T09:01:40.316319",
-        "action": "document_uploaded",
-        "user_id": "system",
-        "details": {
-          "document_type": "proof_of_funds",
-          "document_id": "00624db7-2ab5-4c3d-8c80-893e272e5263"
-        },
-        "transaction_id": "9b30ca0f-c6d1-4958-84ce-15c5cd110bd4"
-      },
-      {
-        "audit_id": "220862d3-7312-436c-a9fd-26b162f857c8",
-        "timestamp": "2025-05-28T09:01:55.711402",
-        "action": "document_uploaded",
-        "user_id": "system",
-        "details": {
-          "document_type": "mortgage_pre_approval",
-          "document_id": "6597f272-7251-4292-921f-e2f0f44706f5"
-        },
-        "transaction_id": "9b30ca0f-c6d1-4958-84ce-15c5cd110bd4"
-      }
-    ],
-    "transaction_date": null,
-    "final_price": 2000.0,
-    "status": "pending",
-    "scheduled_meetings": [],
-    "additional_docs": {},
-    "document_validation_status": {
-      "reservation_agreement": {
-        "document_id": "c238fc97-4b64-42ba-8d9c-340c1a8a6a83",
-        "validation_status": false,
-        "uploaded_by": null,
-        "upload_date": "2025-05-28T08:58:04.522105",
-        "validated_by": null,
-        "validation_date": null,
-        "validation_notes": "",
-        "fully_signed": false,
-        "signing_completed_date": null
-      },
-      "proof_of_funds": {
-        "document_id": "00624db7-2ab5-4c3d-8c80-893e272e5263",
-        "validation_status": false,
-        "uploaded_by": null,
-        "upload_date": "2025-05-28T09:01:40.316280",
-        "validated_by": null,
-        "validation_date": null,
-        "validation_notes": "",
-        "fully_signed": false,
-        "signing_completed_date": null
-      },
-      "mortgage_pre_approval": {
-        "document_id": "6597f272-7251-4292-921f-e2f0f44706f5",
-        "validation_status": false,
-        "uploaded_by": null,
-        "upload_date": "2025-05-28T09:01:55.711384",
-        "validated_by": null,
-        "validation_date": null,
-        "validation_notes": "",
-        "fully_signed": false,
-        "signing_completed_date": null
-      }
-    },
-    "created_date": "2025-05-28T08:58:04.519009",
-    "last_updated": "2025-05-28T09:01:55.711417",
-    "transaction_notes": [
-      {
-        "note_id": "7c94408c-00e0-409a-9b1f-42814cf6796a",
-        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: 494f362b-59a7-4a29-8dea-69c5e074d5d3",
-        "author_id": "9849391a-1481-41bf-9bac-fd232ba73cd2",
-        "note_type": "payment",
-        "timestamp": "2025-05-28T08:58:04.519200",
-        "visibility": "all"
-      },
-      {
-        "note_id": "f4b4e6db-32ae-4dc4-8842-96bcdf82cf37",
-        "note": "Reservation Agreement automatically generated after successful payment",
-        "author_id": "system",
-        "note_type": "document_upload",
-        "timestamp": "2025-05-28T08:58:04.522122",
-        "visibility": "all"
-      },
-      {
-        "note_id": "9a02844c-56f4-4345-af06-1e94cd07610b",
-        "note": "Document uploaded: \ud83d\udcb0 Proof of Funds.",
-        "author_id": "9849391a-1481-41bf-9bac-fd232ba73cd2",
-        "note_type": "document_upload",
-        "timestamp": "2025-05-28T09:01:40.316370",
-        "visibility": "all"
-      },
-      {
-        "note_id": "c195d1e2-9af3-4af3-bd31-bed67018a1d4",
-        "note": "Document uploaded: \ud83c\udfe6 Mortgage Pre-Approval.",
-        "author_id": "9849391a-1481-41bf-9bac-fd232ba73cd2",
-        "note_type": "document_upload",
-        "timestamp": "2025-05-28T09:01:55.711416",
-        "visibility": "all"
-      }
-    ]
-  },
-  "d8c611cb-e394-4a60-af1c-abc7a0a68665": {
-    "buying_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665",
-    "agent_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
-    "buyer_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
-    "property_id": "0959a620-ea4c-4c4b-ba85-c0b2ad0f5965",
-    "buying_documents": {
-      "purchase_contract": null,
-      "payment_proof": null,
-      "loan_approval": null,
-      "inspection_report": null,
-      "insurance_policy": null,
-      "transfer_deed": null,
-      "reservation_agreement": "d1c50d75-0464-476b-93a6-e93a3f3a3bf4",
-      "proof_of_funds": "7a68b6ff-018f-4cbb-810e-948423d9eb63",
-      "mortgage_pre_approval": "0aaa08e2-9cd5-4532-9b54-7244cd3103d3",
-      "preliminary_contract": null,
-      "deposit_payment_proof": "5fce1d78-0736-46f9-a6e7-a22a21f2b043",
-      "due_diligence_documents": null,
-      "final_purchase_contract": null,
-      "final_payment_proof": null,
-      "notary_validation_certificate": null
+      "reservation_agreement": "2ec87fc2-3d79-479c-8f52-715ecb7985b3",
+      "proof_of_funds": "2512d433-da57-4344-b63c-61edc16fa6c7",
+      "mortgage_pre_approval": "ed69c2d0-6ea8-4d35-88f8-bf00377bba51",
+      "preliminary_contract": "a6fecad4-562f-4244-b40a-0be986702c6b",
+      "deposit_payment_proof": "da5cebff-8a19-4eda-922e-d2e5f2bce980",
+      "due_diligence_documents": "9c694ed3-8fd6-4fde-9a21-11a3628f3a69",
+      "final_purchase_contract": "58aca431-e58c-4b3b-9ff3-533e1fc0aa1d",
+      "final_payment_proof": "fdd46ca4-ac47-4580-80c3-fa54fa17e222",
+      "notary_validation_certificate": "234f22cc-ca44-408c-8dad-c0fc676084cb"
     },
     "document_signatures": {
-      "reservation_agreement": [
+      "preliminary_contract": [
         {
-          "signature_id": "fee09a85-aaf1-45e4-9c0a-b7426b066a7c",
-          "signer_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
-          "signer_type": "buyer",
-          "document_type": "reservation_agreement",
-          "signature_hash": "69e0573c9b0c203dc60d77ef45966744a91ad8f44e6d74e26b51b429cd3cde02",
-          "timestamp": "2025-05-28T13:13:15.538765",
+          "signature_id": "779d3146-f3d7-4dec-83f6-b9813d7af829",
+          "signer_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "signer_type": "notary",
+          "document_type": "preliminary_contract",
+          "signature_hash": "8c5114fcb2981ce7db1880fdc36d89880facc6912d5be41db6f90f8729cacccd",
+          "timestamp": "2025-05-28T14:37:59.676510",
           "metadata": {}
         },
         {
-          "signature_id": "d430143b-aa3e-41bc-becb-2a944902f6f5",
-          "signer_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+          "signature_id": "e880b287-dd20-4039-ad50-503de31055cc",
+          "signer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+          "signer_type": "buyer",
+          "document_type": "preliminary_contract",
+          "signature_hash": "92b22f8d9bc1cedff0dc7a46f810d56edf273129ff7cd26c965dc9e2fa70965d",
+          "timestamp": "2025-05-28T14:39:27.305879",
+          "metadata": {}
+        },
+        {
+          "signature_id": "b7a41dcc-bb09-4969-bdff-facf3a76faae",
+          "signer_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+          "signer_type": "agent",
+          "document_type": "preliminary_contract",
+          "signature_hash": "ca353c4599300e963e0dba865fa775b4777c7f6fd61dd66035af8bf023f179ef",
+          "timestamp": "2025-05-28T14:39:32.557380",
+          "metadata": {}
+        }
+      ],
+      "reservation_agreement": [
+        {
+          "signature_id": "32d59b99-0f65-4166-8569-6ddd3733ab0c",
+          "signer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+          "signer_type": "buyer",
+          "document_type": "reservation_agreement",
+          "signature_hash": "3789d5da9b5681be4c1df260043c1ee92ae4dd7bfde5b1ef3a94c303be127360",
+          "timestamp": "2025-05-28T14:38:11.997224",
+          "metadata": {}
+        },
+        {
+          "signature_id": "ed298c12-7d63-4e20-8896-342622e309e9",
+          "signer_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
           "signer_type": "agent",
           "document_type": "reservation_agreement",
-          "signature_hash": "4afb920b211696286722f353094742a393b17962df556c3ae0ea5d851bcf8c88",
-          "timestamp": "2025-05-28T13:14:10.004737",
+          "signature_hash": "0ad9fceb43c118c2d4e0c6390797e6085c33265fde31317edb90b9efe9cfe890",
+          "timestamp": "2025-05-28T14:38:24.124290",
+          "metadata": {}
+        }
+      ],
+      "final_purchase_contract": [
+        {
+          "signature_id": "49d16462-9b50-4d94-a699-89d89835d981",
+          "signer_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "signer_type": "notary",
+          "document_type": "final_purchase_contract",
+          "signature_hash": "33fbeb7841efd606c2537638f5449f757053f28e29580529a0289ed4b3bd9ea4",
+          "timestamp": "2025-05-28T14:40:30.301369",
+          "metadata": {}
+        },
+        {
+          "signature_id": "ea27de74-d97f-49e4-88bc-386c72c65515",
+          "signer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+          "signer_type": "buyer",
+          "document_type": "final_purchase_contract",
+          "signature_hash": "ee9cc6299d6d91970f4037f3abee352d025d7d61eb8eae756190a68954840994",
+          "timestamp": "2025-05-28T14:40:39.359838",
+          "metadata": {}
+        },
+        {
+          "signature_id": "86bbf4aa-b526-49a1-ad77-ab8099ff9d67",
+          "signer_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+          "signer_type": "agent",
+          "document_type": "final_purchase_contract",
+          "signature_hash": "44084853d1281ff2c7bc3426409c3db8bf9ff9bf3d32449d947e4186ebfd241e",
+          "timestamp": "2025-05-28T14:40:43.338706",
+          "metadata": {}
+        }
+      ],
+      "notary_validation_certificate": [
+        {
+          "signature_id": "436ca3a4-de12-4336-ac57-a509ce9753d7",
+          "signer_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "signer_type": "notary",
+          "document_type": "notary_validation_certificate",
+          "signature_hash": "18701bc28e2a20c10c42c80d2cb7b194eba92027b731e85035b7381562a4a6b0",
+          "timestamp": "2025-05-28T14:41:45.852561",
           "metadata": {}
         }
       ]
     },
-    "current_phase": "preliminary_contract",
+    "current_phase": "completed",
     "phase_history": [
       {
         "from_phase": "reservation",
         "to_phase": "financial_verification",
         "advanced_by": "system",
-        "timestamp": "2025-05-28T13:14:10.004833",
+        "timestamp": "2025-05-28T14:38:24.124332",
         "automatic": true
       },
       {
         "from_phase": "financial_verification",
         "to_phase": "preliminary_contract",
         "advanced_by": "system",
-        "timestamp": "2025-05-28T13:14:10.117988",
+        "timestamp": "2025-05-28T14:38:24.231704",
+        "automatic": true
+      },
+      {
+        "from_phase": "preliminary_contract",
+        "to_phase": "due_diligence",
+        "advanced_by": "system",
+        "timestamp": "2025-05-28T14:39:32.557445",
+        "automatic": true
+      },
+      {
+        "from_phase": "due_diligence",
+        "to_phase": "final_contract",
+        "advanced_by": "system",
+        "timestamp": "2025-05-28T14:40:06.969778",
+        "automatic": true
+      },
+      {
+        "from_phase": "final_contract",
+        "to_phase": "final_payment",
+        "advanced_by": "system",
+        "timestamp": "2025-05-28T14:40:43.338747",
+        "automatic": true
+      },
+      {
+        "from_phase": "final_payment",
+        "to_phase": "completed",
+        "advanced_by": "system",
+        "timestamp": "2025-05-28T14:41:45.852595",
         "automatic": true
       }
     ],
     "audit_trail": [
       {
-        "audit_id": "5554ea37-e98b-47b7-adb8-1e080e86baa4",
-        "timestamp": "2025-05-28T13:03:15.666190",
+        "audit_id": "d08ee01d-62d2-41de-b228-9d5ecf024f14",
+        "timestamp": "2025-05-28T14:35:47.646085",
         "action": "document_uploaded",
         "user_id": "system",
         "details": {
           "document_type": "reservation_agreement",
-          "document_id": "d1c50d75-0464-476b-93a6-e93a3f3a3bf4"
+          "document_id": "2ec87fc2-3d79-479c-8f52-715ecb7985b3"
         },
-        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
       },
       {
-        "audit_id": "71308555-083d-41e0-8c42-202db32b7fd1",
-        "timestamp": "2025-05-28T13:04:40.865725",
+        "audit_id": "1a92a6fd-d504-4ff2-822d-4922c249e8f4",
+        "timestamp": "2025-05-28T14:36:24.916360",
         "action": "document_uploaded",
         "user_id": "system",
         "details": {
           "document_type": "proof_of_funds",
-          "document_id": "7a68b6ff-018f-4cbb-810e-948423d9eb63"
+          "document_id": "2512d433-da57-4344-b63c-61edc16fa6c7"
         },
-        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
       },
       {
-        "audit_id": "4185b1ea-f016-4fb2-b3c4-b0e6f531aea7",
-        "timestamp": "2025-05-28T13:04:55.110054",
+        "audit_id": "9ce2395a-321f-4b4c-a65c-114dfc867bd4",
+        "timestamp": "2025-05-28T14:36:39.369539",
         "action": "document_uploaded",
         "user_id": "system",
         "details": {
           "document_type": "mortgage_pre_approval",
-          "document_id": "0aaa08e2-9cd5-4532-9b54-7244cd3103d3"
+          "document_id": "ed69c2d0-6ea8-4d35-88f8-bf00377bba51"
         },
-        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
       },
       {
-        "audit_id": "8762040c-e2ea-4c77-9f5e-872e002e957b",
-        "timestamp": "2025-05-28T13:05:26.470477",
+        "audit_id": "2f3274c5-2c93-4369-ac9b-b684bbc353df",
+        "timestamp": "2025-05-28T14:37:01.768343",
         "action": "document_validated",
-        "user_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
         "details": {
           "document_type": "reservation_agreement",
           "validation_status": true,
-          "validator_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
           "notes": "Document validated by notary"
         },
-        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
       },
       {
-        "audit_id": "ce108ef6-d825-478d-a8e8-3dd5ae688c0a",
-        "timestamp": "2025-05-28T13:05:32.052910",
+        "audit_id": "0eb3e2fe-872a-43b0-ac67-8bc85161ccbc",
+        "timestamp": "2025-05-28T14:37:11.964746",
         "action": "document_validated",
-        "user_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
         "details": {
           "document_type": "proof_of_funds",
           "validation_status": true,
-          "validator_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
           "notes": "Document validated by notary"
         },
-        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
       },
       {
-        "audit_id": "4396b655-33cd-4aea-af39-6b93984073f5",
-        "timestamp": "2025-05-28T13:05:42.893839",
+        "audit_id": "52743356-3cd8-4901-a9cc-ba337d996b1e",
+        "timestamp": "2025-05-28T14:37:16.357395",
         "action": "document_validated",
-        "user_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
         "details": {
           "document_type": "mortgage_pre_approval",
           "validation_status": true,
-          "validator_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
           "notes": "Document validated by notary"
         },
-        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
       },
       {
-        "audit_id": "fd8a375c-12ed-432e-b43c-e0bc67c888c1",
-        "timestamp": "2025-05-28T13:06:54.661448",
+        "audit_id": "217230e9-4263-4cdb-8b3e-28096ebbc593",
+        "timestamp": "2025-05-28T14:37:50.112762",
         "action": "document_uploaded",
         "user_id": "system",
         "details": {
-          "document_type": "deposit_payment_proof",
-          "document_id": "5fce1d78-0736-46f9-a6e7-a22a21f2b043"
+          "document_type": "preliminary_contract",
+          "document_id": "a6fecad4-562f-4244-b40a-0be986702c6b"
         },
-        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
       },
       {
-        "audit_id": "4530160e-0bc8-4b4a-8824-56ad2e8ff86d",
-        "timestamp": "2025-05-28T13:13:15.538773",
+        "audit_id": "61525fe3-72be-4297-9e99-68e768a590cc",
+        "timestamp": "2025-05-28T14:37:57.275522",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "preliminary_contract",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "8835d92a-4b00-4d4e-8279-a171a030a13e",
+        "timestamp": "2025-05-28T14:37:59.676518",
         "action": "document_signed",
-        "user_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "preliminary_contract",
+          "signer_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "signer_type": "notary",
+          "signature_id": "779d3146-f3d7-4dec-83f6-b9813d7af829"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "fe1d2ef4-f501-4f22-aae4-da1f1e240fe1",
+        "timestamp": "2025-05-28T14:38:11.997233",
+        "action": "document_signed",
+        "user_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
         "details": {
           "document_type": "reservation_agreement",
-          "signer_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+          "signer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
           "signer_type": "buyer",
-          "signature_id": "fee09a85-aaf1-45e4-9c0a-b7426b066a7c"
+          "signature_id": "32d59b99-0f65-4166-8569-6ddd3733ab0c"
         },
-        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
       },
       {
-        "audit_id": "56814d7c-bd25-416f-91cd-dd17580d342f",
-        "timestamp": "2025-05-28T13:14:10.004791",
+        "audit_id": "f7c85e8f-af3d-49c5-ac88-9ee3cf2e37d7",
+        "timestamp": "2025-05-28T14:38:24.124298",
         "action": "document_signed",
-        "user_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+        "user_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
         "details": {
           "document_type": "reservation_agreement",
-          "signer_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+          "signer_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
           "signer_type": "agent",
-          "signature_id": "d430143b-aa3e-41bc-becb-2a944902f6f5"
+          "signature_id": "ed298c12-7d63-4e20-8896-342622e309e9"
         },
-        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
       },
       {
-        "audit_id": "1b427c16-cb07-4870-925c-71e8f9ed1510",
-        "timestamp": "2025-05-28T13:14:10.004845",
+        "audit_id": "063a7583-9fb5-4185-b553-6aa6c18dab1d",
+        "timestamp": "2025-05-28T14:38:24.124342",
         "action": "phase_advanced",
         "user_id": "system",
         "details": {
@@ -947,11 +303,11 @@
           "new_phase": "financial_verification",
           "advanced_by": "system"
         },
-        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
       },
       {
-        "audit_id": "91459070-892d-4bbf-8f46-da8ec40463ca",
-        "timestamp": "2025-05-28T13:14:10.118162",
+        "audit_id": "66f083a0-9e02-4e98-afb4-a46952bad550",
+        "timestamp": "2025-05-28T14:38:24.231733",
         "action": "phase_advanced",
         "user_id": "system",
         "details": {
@@ -959,7 +315,253 @@
           "new_phase": "preliminary_contract",
           "advanced_by": "system"
         },
-        "transaction_id": "d8c611cb-e394-4a60-af1c-abc7a0a68665"
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "c0b07c1b-2190-4ee0-947a-3cbfc9170b44",
+        "timestamp": "2025-05-28T14:38:46.565232",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "deposit_payment_proof",
+          "document_id": "da5cebff-8a19-4eda-922e-d2e5f2bce980"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "051b7794-88a7-4f04-ad65-4dabbfe6f3ea",
+        "timestamp": "2025-05-28T14:39:00.280347",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "deposit_payment_proof",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "6dae66eb-ffcb-45ba-8f24-d46aade413ed",
+        "timestamp": "2025-05-28T14:39:27.305920",
+        "action": "document_signed",
+        "user_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "details": {
+          "document_type": "preliminary_contract",
+          "signer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+          "signer_type": "buyer",
+          "signature_id": "e880b287-dd20-4039-ad50-503de31055cc"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "e13bea12-90c4-44f2-9dd1-8be8386d5026",
+        "timestamp": "2025-05-28T14:39:32.557388",
+        "action": "document_signed",
+        "user_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+        "details": {
+          "document_type": "preliminary_contract",
+          "signer_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+          "signer_type": "agent",
+          "signature_id": "b7a41dcc-bb09-4969-bdff-facf3a76faae"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "8169fc1e-8e32-47c3-bba3-4aeeaf9be484",
+        "timestamp": "2025-05-28T14:39:32.557497",
+        "action": "phase_advanced",
+        "user_id": "system",
+        "details": {
+          "old_phase": "preliminary_contract",
+          "new_phase": "due_diligence",
+          "advanced_by": "system"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "aec1e833-4b89-4439-a3f7-2f3461044c10",
+        "timestamp": "2025-05-28T14:39:53.970673",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "due_diligence_documents",
+          "document_id": "9c694ed3-8fd6-4fde-9a21-11a3628f3a69"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "dc67eee0-703b-494d-a85d-026c3c22b2f4",
+        "timestamp": "2025-05-28T14:40:06.969772",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "due_diligence_documents",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "539e6f24-97fb-4ed4-84a8-c6fa6e8f0fb7",
+        "timestamp": "2025-05-28T14:40:06.969789",
+        "action": "phase_advanced",
+        "user_id": "system",
+        "details": {
+          "old_phase": "due_diligence",
+          "new_phase": "final_contract",
+          "advanced_by": "system"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "e75d24fa-60ce-463e-9637-bb0ce1746e2b",
+        "timestamp": "2025-05-28T14:40:26.654630",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "final_purchase_contract",
+          "document_id": "58aca431-e58c-4b3b-9ff3-533e1fc0aa1d"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "65ce8c25-0d65-4d62-9997-edef3e5f2d06",
+        "timestamp": "2025-05-28T14:40:28.843525",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "final_purchase_contract",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "083fa850-d471-48f4-b9b8-63fd4f5e2813",
+        "timestamp": "2025-05-28T14:40:30.301379",
+        "action": "document_signed",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "final_purchase_contract",
+          "signer_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "signer_type": "notary",
+          "signature_id": "49d16462-9b50-4d94-a699-89d89835d981"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "a1fc3bed-d4eb-4004-95f0-bd4a25e3da54",
+        "timestamp": "2025-05-28T14:40:39.359850",
+        "action": "document_signed",
+        "user_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "details": {
+          "document_type": "final_purchase_contract",
+          "signer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+          "signer_type": "buyer",
+          "signature_id": "ea27de74-d97f-49e4-88bc-386c72c65515"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "82830064-c1ac-4c8f-84b7-342a5362f7bc",
+        "timestamp": "2025-05-28T14:40:43.338715",
+        "action": "document_signed",
+        "user_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+        "details": {
+          "document_type": "final_purchase_contract",
+          "signer_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+          "signer_type": "agent",
+          "signature_id": "86bbf4aa-b526-49a1-ad77-ab8099ff9d67"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "9335007f-8532-48a4-aa99-87f5dfec6af1",
+        "timestamp": "2025-05-28T14:40:43.338758",
+        "action": "phase_advanced",
+        "user_id": "system",
+        "details": {
+          "old_phase": "final_contract",
+          "new_phase": "final_payment",
+          "advanced_by": "system"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "1c1923b5-7860-426b-997a-b80c8210b171",
+        "timestamp": "2025-05-28T14:40:59.776148",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "final_payment_proof",
+          "document_id": "fdd46ca4-ac47-4580-80c3-fa54fa17e222"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "20564ba0-1a3e-4814-a08b-2c4269e34009",
+        "timestamp": "2025-05-28T14:41:33.060541",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "final_payment_proof",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "1555bd23-922c-45b9-a6c9-79c1c0b1e9bf",
+        "timestamp": "2025-05-28T14:41:41.294693",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "notary_validation_certificate",
+          "document_id": "234f22cc-ca44-408c-8dad-c0fc676084cb"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "922fb62c-6672-445d-9318-3e84451f901f",
+        "timestamp": "2025-05-28T14:41:44.189509",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "notary_validation_certificate",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "2cc04508-c1e6-4b3d-8fc5-de33c8118b75",
+        "timestamp": "2025-05-28T14:41:45.852568",
+        "action": "document_signed",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "notary_validation_certificate",
+          "signer_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "signer_type": "notary",
+          "signature_id": "436ca3a4-de12-4336-ac57-a509ce9753d7"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
+      },
+      {
+        "audit_id": "6d4e18f5-1453-4b08-bf6b-d76629d8678c",
+        "timestamp": "2025-05-28T14:41:45.852605",
+        "action": "phase_advanced",
+        "user_id": "system",
+        "details": {
+          "old_phase": "final_payment",
+          "new_phase": "completed",
+          "advanced_by": "system"
+        },
+        "transaction_id": "89c06dad-7115-4758-8915-1e4fb883de2b"
       }
     ],
     "transaction_date": null,
@@ -969,241 +571,419 @@
     "additional_docs": {},
     "document_validation_status": {
       "reservation_agreement": {
-        "document_id": "d1c50d75-0464-476b-93a6-e93a3f3a3bf4",
+        "document_id": "2ec87fc2-3d79-479c-8f52-715ecb7985b3",
         "validation_status": true,
         "uploaded_by": null,
-        "upload_date": "2025-05-28T13:03:15.666178",
-        "validated_by": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
-        "validation_date": "2025-05-28T13:05:26.468406",
+        "upload_date": "2025-05-28T14:35:47.646061",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T14:37:01.767561",
         "validation_notes": "Document validated by notary",
         "fully_signed": true,
-        "signing_completed_date": "2025-05-28T13:14:10.004811"
+        "signing_completed_date": "2025-05-28T14:38:24.124313"
       },
       "proof_of_funds": {
-        "document_id": "7a68b6ff-018f-4cbb-810e-948423d9eb63",
+        "document_id": "2512d433-da57-4344-b63c-61edc16fa6c7",
         "validation_status": true,
         "uploaded_by": null,
-        "upload_date": "2025-05-28T13:04:40.865709",
-        "validated_by": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
-        "validation_date": "2025-05-28T13:05:32.052278",
+        "upload_date": "2025-05-28T14:36:24.916346",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T14:37:11.964246",
         "validation_notes": "Document validated by notary",
         "fully_signed": false,
         "signing_completed_date": null
       },
       "mortgage_pre_approval": {
-        "document_id": "0aaa08e2-9cd5-4532-9b54-7244cd3103d3",
+        "document_id": "ed69c2d0-6ea8-4d35-88f8-bf00377bba51",
         "validation_status": true,
         "uploaded_by": null,
-        "upload_date": "2025-05-28T13:04:55.110014",
-        "validated_by": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
-        "validation_date": "2025-05-28T13:05:42.893242",
+        "upload_date": "2025-05-28T14:36:39.369505",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T14:37:16.356994",
         "validation_notes": "Document validated by notary",
         "fully_signed": false,
         "signing_completed_date": null
       },
-      "deposit_payment_proof": {
-        "document_id": "5fce1d78-0736-46f9-a6e7-a22a21f2b043",
-        "validation_status": false,
+      "preliminary_contract": {
+        "document_id": "a6fecad4-562f-4244-b40a-0be986702c6b",
+        "validation_status": true,
         "uploaded_by": null,
-        "upload_date": "2025-05-28T13:06:54.661416",
-        "validated_by": null,
-        "validation_date": null,
-        "validation_notes": "",
+        "upload_date": "2025-05-28T14:37:50.112749",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T14:37:57.274806",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": true,
+        "signing_completed_date": "2025-05-28T14:39:32.557423"
+      },
+      "deposit_payment_proof": {
+        "document_id": "da5cebff-8a19-4eda-922e-d2e5f2bce980",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T14:38:46.565219",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T14:39:00.279005",
+        "validation_notes": "Document validated by notary",
         "fully_signed": false,
         "signing_completed_date": null
+      },
+      "due_diligence_documents": {
+        "document_id": "9c694ed3-8fd6-4fde-9a21-11a3628f3a69",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T14:39:53.970658",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T14:40:06.969336",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": false,
+        "signing_completed_date": null
+      },
+      "final_purchase_contract": {
+        "document_id": "58aca431-e58c-4b3b-9ff3-533e1fc0aa1d",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T14:40:26.654621",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T14:40:28.842844",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": true,
+        "signing_completed_date": "2025-05-28T14:40:43.338733"
+      },
+      "final_payment_proof": {
+        "document_id": "fdd46ca4-ac47-4580-80c3-fa54fa17e222",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T14:40:59.776131",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T14:41:33.059968",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": false,
+        "signing_completed_date": null
+      },
+      "notary_validation_certificate": {
+        "document_id": "234f22cc-ca44-408c-8dad-c0fc676084cb",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T14:41:41.294683",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T14:41:44.188899",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": true,
+        "signing_completed_date": "2025-05-28T14:41:45.852583"
       }
     },
-    "created_date": "2025-05-28T13:03:15.660672",
-    "last_updated": "2025-05-28T13:14:10.118078",
+    "created_date": "2025-05-28T14:35:47.643058",
+    "last_updated": "2025-05-28T14:41:45.852606",
     "transaction_notes": [
       {
-        "note_id": "4148166a-24ab-4194-b3a1-04b71498a820",
-        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: b366a8fc-5888-47e5-842f-92769205e3ae",
-        "author_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+        "note_id": "4e8dfe48-2d41-4d89-99f2-ac283f3a9bc4",
+        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: 2c3a7bf7-59c9-4660-9207-9fc73d2c1700",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
         "note_type": "payment",
-        "timestamp": "2025-05-28T13:03:15.660739",
+        "timestamp": "2025-05-28T14:35:47.643094",
         "visibility": "all"
       },
       {
-        "note_id": "4c5c1b99-a2f2-41a8-a50c-994f4d79827e",
+        "note_id": "6bcc0d29-712c-4553-8599-0ecfa79f77e1",
         "note": "Reservation Agreement automatically generated after successful payment",
         "author_id": "system",
         "note_type": "document_upload",
-        "timestamp": "2025-05-28T13:03:15.666199",
+        "timestamp": "2025-05-28T14:35:47.646101",
         "visibility": "all"
       },
       {
-        "note_id": "a69b33a4-c05b-4d41-b641-53c54d8fc8cc",
+        "note_id": "d8a0fafd-ca45-403e-bca2-35e1ad4708c7",
         "note": "Document uploaded: \ud83d\udcb0 Proof of Funds.",
-        "author_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
         "note_type": "document_upload",
-        "timestamp": "2025-05-28T13:04:40.865739",
+        "timestamp": "2025-05-28T14:36:24.916372",
         "visibility": "all"
       },
       {
-        "note_id": "f797dd6c-3ff9-429c-b34d-cff6bf17c429",
+        "note_id": "7a93652c-1331-41d9-bc12-0380e74a1779",
         "note": "Document uploaded: \ud83c\udfe6 Mortgage Pre-Approval.",
-        "author_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
         "note_type": "document_upload",
-        "timestamp": "2025-05-28T13:04:55.110071",
+        "timestamp": "2025-05-28T14:36:39.369556",
         "visibility": "all"
       },
       {
-        "note_id": "7054c0c2-762a-4644-848f-3594646087e3",
+        "note_id": "7f1af778-f176-4171-a653-15c13bd31210",
         "note": "Document Reservation Agreement approved. Document validated by notary",
-        "author_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
         "note_type": "validation",
-        "timestamp": "2025-05-28T13:05:26.470437",
+        "timestamp": "2025-05-28T14:37:01.768336",
         "visibility": "all"
       },
       {
-        "note_id": "818b1d63-594b-43cc-ba85-9e67df720b9b",
+        "note_id": "c8f82f58-5b73-4e3e-afef-2b70fe9c1c2b",
         "note": "Document Proof Of Funds approved. Document validated by notary",
-        "author_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
         "note_type": "validation",
-        "timestamp": "2025-05-28T13:05:32.052905",
+        "timestamp": "2025-05-28T14:37:11.964738",
         "visibility": "all"
       },
       {
-        "note_id": "53700074-f57f-4fb0-afbf-46adc22afb32",
+        "note_id": "b2dca827-8730-4779-8ccf-0b54190925ba",
         "note": "Document Mortgage Pre Approval approved. Document validated by notary",
-        "author_id": "f18bc416-cfc0-435c-aee6-b2c80755d6fe",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
         "note_type": "validation",
-        "timestamp": "2025-05-28T13:05:42.893833",
+        "timestamp": "2025-05-28T14:37:16.357389",
         "visibility": "all"
       },
       {
-        "note_id": "c8add094-9a34-4f95-b96a-530b6fd506a7",
-        "note": "Document uploaded: \ud83d\udcb3 Deposit Payment Proof.",
-        "author_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+        "note_id": "88d77f89-f9be-40d6-9f3e-9cd3f66d6487",
+        "note": "Document uploaded: \ud83d\udccb Preliminary Contract.",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
         "note_type": "document_upload",
-        "timestamp": "2025-05-28T13:06:54.661469",
+        "timestamp": "2025-05-28T14:37:50.112772",
         "visibility": "all"
       },
       {
-        "note_id": "5b32d3f1-fd81-4ebf-a445-a0e142256f09",
-        "note": "Document signed: \ud83c\udfe0 Reservation Agreement",
-        "author_id": "91f72217-7236-4093-9f1b-cf3d1cb32952",
+        "note_id": "9bee847f-d5f2-4e04-8d25-2ba344002b9a",
+        "note": "Document Preliminary Contract approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T14:37:57.275479",
+        "visibility": "all"
+      },
+      {
+        "note_id": "eb716a16-6e14-4cc9-8f71-fbf7022f4685",
+        "note": "Document signed: \ud83d\udccb Preliminary Contract",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
         "note_type": "signature",
-        "timestamp": "2025-05-28T13:13:15.538784",
+        "timestamp": "2025-05-28T14:37:59.676527",
         "visibility": "all"
       },
       {
-        "note_id": "c18d8f12-67cf-432f-895a-a23eb48f9b7c",
+        "note_id": "081bf9a5-62bb-427e-b305-44a471611e79",
         "note": "Document signed: \ud83c\udfe0 Reservation Agreement",
-        "author_id": "97bddf61-3ef7-4972-8bff-2157ce42e779",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
         "note_type": "signature",
-        "timestamp": "2025-05-28T13:14:10.004805",
+        "timestamp": "2025-05-28T14:38:11.997245",
         "visibility": "all"
       },
       {
-        "note_id": "3b1b4dc3-14ac-4da0-b0ed-a7845657a3f9",
+        "note_id": "fed496c2-b08a-43d1-ae83-e38b0757ac13",
+        "note": "Document signed: \ud83c\udfe0 Reservation Agreement",
+        "author_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T14:38:24.124307",
+        "visibility": "all"
+      },
+      {
+        "note_id": "1cf4d156-d038-4431-a4ca-ae6de7b3ccd0",
         "note": "Document fully signed: \ud83c\udfe0 Reservation Agreement",
         "author_id": "system",
         "note_type": "signature_complete",
-        "timestamp": "2025-05-28T13:14:10.004819",
+        "timestamp": "2025-05-28T14:38:24.124318",
         "visibility": "all"
       },
       {
-        "note_id": "6a963aa0-61b6-4165-a222-51dbd6562732",
+        "note_id": "c8fb3ada-d510-45bf-8935-a8e6464445f6",
         "note": "Phase advanced from \ud83c\udfe0 Property Reservation to \ud83d\udcb0 Financial Verification",
         "author_id": "system",
         "note_type": "phase_complete",
-        "timestamp": "2025-05-28T13:14:10.004841",
+        "timestamp": "2025-05-28T14:38:24.124338",
         "visibility": "all"
       },
       {
-        "note_id": "6cf3823c-e47f-4148-83cd-cbce39613078",
+        "note_id": "30545ec3-8bd6-43d3-a3ff-1911d3e98917",
         "note": "Phase advanced from \ud83d\udcb0 Financial Verification to \ud83d\udccb Preliminary Contract",
         "author_id": "system",
         "note_type": "phase_complete",
-        "timestamp": "2025-05-28T13:14:10.118072",
-        "visibility": "all"
-      }
-    ]
-  },
-  "c2db1cfe-8db1-4a12-8985-bc3da8f5626d": {
-    "buying_id": "c2db1cfe-8db1-4a12-8985-bc3da8f5626d",
-    "agent_id": "41d25ebb-7808-47eb-90ba-c7745654848a",
-    "buyer_id": "adaad08f-fb6a-428f-886c-3abdaf78ccbf",
-    "property_id": "b338592e-14d5-4026-b0f4-33a966f28c61",
-    "buying_documents": {
-      "purchase_contract": null,
-      "payment_proof": null,
-      "loan_approval": null,
-      "inspection_report": null,
-      "insurance_policy": null,
-      "transfer_deed": null,
-      "reservation_agreement": "75c59d01-ebcf-4110-a914-823ce92aaa42",
-      "proof_of_funds": null,
-      "mortgage_pre_approval": null,
-      "preliminary_contract": null,
-      "deposit_payment_proof": null,
-      "due_diligence_documents": null,
-      "final_purchase_contract": null,
-      "final_payment_proof": null,
-      "notary_validation_certificate": null
-    },
-    "document_signatures": {},
-    "current_phase": "reservation",
-    "phase_history": [],
-    "audit_trail": [
-      {
-        "audit_id": "48340362-149a-4be4-bfc6-d76fab3c62cf",
-        "timestamp": "2025-05-28T13:24:02.283495",
-        "action": "document_uploaded",
-        "user_id": "system",
-        "details": {
-          "document_type": "reservation_agreement",
-          "document_id": "75c59d01-ebcf-4110-a914-823ce92aaa42"
-        },
-        "transaction_id": "c2db1cfe-8db1-4a12-8985-bc3da8f5626d"
-      }
-    ],
-    "transaction_date": null,
-    "final_price": 2000.0,
-    "status": "pending",
-    "scheduled_meetings": [],
-    "additional_docs": {},
-    "document_validation_status": {
-      "reservation_agreement": {
-        "document_id": "75c59d01-ebcf-4110-a914-823ce92aaa42",
-        "validation_status": false,
-        "uploaded_by": null,
-        "upload_date": "2025-05-28T13:24:02.283486",
-        "validated_by": null,
-        "validation_date": null,
-        "validation_notes": "",
-        "fully_signed": false,
-        "signing_completed_date": null
-      }
-    },
-    "created_date": "2025-05-28T13:24:02.279220",
-    "last_updated": "2025-05-28T13:24:02.283504",
-    "transaction_notes": [
-      {
-        "note_id": "f30f0a9f-5cbc-4030-9e30-85d8281585cc",
-        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: b15bcef8-2b32-4a52-92cc-ae7ec6312d36",
-        "author_id": "adaad08f-fb6a-428f-886c-3abdaf78ccbf",
-        "note_type": "payment",
-        "timestamp": "2025-05-28T13:24:02.279317",
+        "timestamp": "2025-05-28T14:38:24.231725",
         "visibility": "all"
       },
       {
-        "note_id": "001b8f1f-5732-4bdb-b38b-b027bf0074ed",
-        "note": "Reservation Agreement automatically generated after successful payment",
-        "author_id": "system",
+        "note_id": "a7286b1b-3287-46b4-9f9a-eedd685946d6",
+        "note": "Document uploaded: \ud83d\udcb3 Deposit Payment Proof.",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
         "note_type": "document_upload",
-        "timestamp": "2025-05-28T13:24:02.283504",
+        "timestamp": "2025-05-28T14:38:46.565246",
+        "visibility": "all"
+      },
+      {
+        "note_id": "339556a2-46d0-42f5-93c3-97f0f6edfd98",
+        "note": "Document Deposit Payment Proof approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T14:39:00.280338",
+        "visibility": "all"
+      },
+      {
+        "note_id": "e39d91bd-9267-4723-b8b9-7bc8c38e87d5",
+        "note": "Document signed: \ud83d\udccb Preliminary Contract",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T14:39:27.305933",
+        "visibility": "all"
+      },
+      {
+        "note_id": "c4ec1236-83fa-444a-ac1e-2f19fb370b1c",
+        "note": "Document signed: \ud83d\udccb Preliminary Contract",
+        "author_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T14:39:32.557408",
+        "visibility": "all"
+      },
+      {
+        "note_id": "5abcdae5-d5ee-4f7d-b315-1033d5b36850",
+        "note": "Document fully signed: \ud83d\udccb Preliminary Contract",
+        "author_id": "system",
+        "note_type": "signature_complete",
+        "timestamp": "2025-05-28T14:39:32.557435",
+        "visibility": "all"
+      },
+      {
+        "note_id": "d4b38cf7-19f5-48e7-8061-0c598e048d9f",
+        "note": "Phase advanced from \ud83d\udccb Preliminary Contract to \ud83d\udd0d Due Diligence",
+        "author_id": "system",
+        "note_type": "phase_complete",
+        "timestamp": "2025-05-28T14:39:32.557455",
+        "visibility": "all"
+      },
+      {
+        "note_id": "5681a1fe-f76b-4933-a0bc-908205ffb2b9",
+        "note": "Document uploaded: \ud83d\udd0d Due Diligence Documents.",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T14:39:53.970684",
+        "visibility": "all"
+      },
+      {
+        "note_id": "00be7799-7d47-4bf3-bd9a-6b9e6625a5c0",
+        "note": "Document Due Diligence Documents approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T14:40:06.969766",
+        "visibility": "all"
+      },
+      {
+        "note_id": "a0347fac-685e-4d6f-872b-c3ecd4aea54a",
+        "note": "Phase advanced from \ud83d\udd0d Due Diligence to \u270d\ufe0f Final Contract",
+        "author_id": "system",
+        "note_type": "phase_complete",
+        "timestamp": "2025-05-28T14:40:06.969785",
+        "visibility": "all"
+      },
+      {
+        "note_id": "e13c7619-dac2-46ea-bc6e-bdda40ed36ee",
+        "note": "Document uploaded: \u270d\ufe0f Final Purchase Contract.",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T14:40:26.654640",
+        "visibility": "all"
+      },
+      {
+        "note_id": "6f48e629-115c-4dc9-990a-231d3789ccd9",
+        "note": "Document Final Purchase Contract approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T14:40:28.843472",
+        "visibility": "all"
+      },
+      {
+        "note_id": "3b01ee91-e10e-4423-9f61-a660e16c2706",
+        "note": "Document signed: \u270d\ufe0f Final Purchase Contract",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T14:40:30.301393",
+        "visibility": "all"
+      },
+      {
+        "note_id": "b208b4cf-71f6-421e-b26d-c2147b0a6d79",
+        "note": "Document signed: \u270d\ufe0f Final Purchase Contract",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T14:40:39.359863",
+        "visibility": "all"
+      },
+      {
+        "note_id": "67e00b73-3568-43b2-9fcf-223f891c74bf",
+        "note": "Document signed: \u270d\ufe0f Final Purchase Contract",
+        "author_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T14:40:43.338726",
+        "visibility": "all"
+      },
+      {
+        "note_id": "ecbc0d13-a0fc-4b22-9e02-8cb599872fca",
+        "note": "Document fully signed: \u270d\ufe0f Final Purchase Contract",
+        "author_id": "system",
+        "note_type": "signature_complete",
+        "timestamp": "2025-05-28T14:40:43.338740",
+        "visibility": "all"
+      },
+      {
+        "note_id": "55e45923-41df-4896-a0ca-38a8ac14f3b8",
+        "note": "Phase advanced from \u270d\ufe0f Final Contract to \ud83d\udcb3 Final Payment",
+        "author_id": "system",
+        "note_type": "phase_complete",
+        "timestamp": "2025-05-28T14:40:43.338754",
+        "visibility": "all"
+      },
+      {
+        "note_id": "26b238b7-82cc-4224-9d4a-eed9e4b275e0",
+        "note": "Document uploaded: \ud83d\udcb8 Final Payment Proof.",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T14:40:59.776161",
+        "visibility": "all"
+      },
+      {
+        "note_id": "bd760b00-096b-4c32-a978-75e4b82d0fb7",
+        "note": "Document Final Payment Proof approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T14:41:33.060534",
+        "visibility": "all"
+      },
+      {
+        "note_id": "ae4fd7e5-0ca7-4832-934b-b17e837c73de",
+        "note": "Document uploaded: \u2696\ufe0f Notary Validation Certificate.",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T14:41:41.294703",
+        "visibility": "all"
+      },
+      {
+        "note_id": "44ec3b1d-99a5-4d77-8f77-4efc2d7c6ea9",
+        "note": "Document Notary Validation Certificate approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T14:41:44.189499",
+        "visibility": "all"
+      },
+      {
+        "note_id": "101d860e-c35a-4c80-b0a9-f3a1425d69b3",
+        "note": "Document signed: \u2696\ufe0f Notary Validation Certificate",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T14:41:45.852577",
+        "visibility": "all"
+      },
+      {
+        "note_id": "e247184f-b84e-43d1-b069-e0f4c6043d80",
+        "note": "Document fully signed: \u2696\ufe0f Notary Validation Certificate",
+        "author_id": "system",
+        "note_type": "signature_complete",
+        "timestamp": "2025-05-28T14:41:45.852588",
+        "visibility": "all"
+      },
+      {
+        "note_id": "52816f26-5317-4cd0-8214-250a76b3e4c2",
+        "note": "Phase advanced from \ud83d\udcb3 Final Payment to \ud83d\udd11 Key Handover",
+        "author_id": "system",
+        "note_type": "phase_complete",
+        "timestamp": "2025-05-28T14:41:45.852602",
         "visibility": "all"
       }
     ]
   },
-  "0b328a48-174a-443b-aa2b-9c82dd886197": {
-    "buying_id": "0b328a48-174a-443b-aa2b-9c82dd886197",
-    "agent_id": "41d25ebb-7808-47eb-90ba-c7745654848a",
+  "209ba8d4-f9f4-4e32-acec-e6015a210050": {
+    "buying_id": "209ba8d4-f9f4-4e32-acec-e6015a210050",
+    "agent_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
     "buyer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
-    "property_id": "b338592e-14d5-4026-b0f4-33a966f28c61",
+    "property_id": "22e26cce-2c26-4b74-9bd3-4b68bd4616be",
     "buying_documents": {
       "purchase_contract": null,
       "payment_proof": null,
@@ -1211,67 +991,990 @@
       "inspection_report": null,
       "insurance_policy": null,
       "transfer_deed": null,
-      "reservation_agreement": "28152789-b915-471b-8966-b7d3646fc122",
-      "proof_of_funds": null,
-      "mortgage_pre_approval": null,
-      "preliminary_contract": null,
-      "deposit_payment_proof": null,
-      "due_diligence_documents": null,
-      "final_purchase_contract": null,
-      "final_payment_proof": null,
-      "notary_validation_certificate": null
+      "reservation_agreement": "b6bee3b2-9762-408c-9163-bf11c2c583ce",
+      "proof_of_funds": "898146da-d635-439f-b6d8-1f2f4214c406",
+      "mortgage_pre_approval": "08b5c107-625a-4345-985b-5eff67250fbf",
+      "preliminary_contract": "265f6216-a7b1-4b71-be1d-4f4ddb7996ae",
+      "deposit_payment_proof": "71e60223-4844-4d45-a262-ca7d5c85e80a",
+      "due_diligence_documents": "322e1550-6d0a-4e75-96e8-a4e9631ddd17",
+      "final_purchase_contract": "4c8c73b6-eafa-4c04-8902-bed309660721",
+      "final_payment_proof": "6a9223f5-0566-4942-bfef-a35c8ad0aebb",
+      "notary_validation_certificate": "f8126a4a-963d-4cf8-8f8c-3bfcce4ca118"
     },
-    "document_signatures": {},
-    "current_phase": "reservation",
-    "phase_history": [],
+    "document_signatures": {
+      "reservation_agreement": [
+        {
+          "signature_id": "3399fc33-4e08-4612-80dd-da33b9766b81",
+          "signer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+          "signer_type": "buyer",
+          "document_type": "reservation_agreement",
+          "signature_hash": "28f471093301c18df969cad878a4170b1f5cc553e910200614beaf27e3389678",
+          "timestamp": "2025-05-28T16:21:02.305519",
+          "metadata": {}
+        },
+        {
+          "signature_id": "85c10509-78a5-40b8-b813-25714ad4a891",
+          "signer_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+          "signer_type": "agent",
+          "document_type": "reservation_agreement",
+          "signature_hash": "096f1f98571a3a4e95b371aa7a72252b5f3a7874d6ac13f154520a15abb03fdc",
+          "timestamp": "2025-05-28T16:21:06.434056",
+          "metadata": {}
+        }
+      ],
+      "preliminary_contract": [
+        {
+          "signature_id": "cfd46ba0-4bd9-4b8e-80b5-0c109f555045",
+          "signer_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "signer_type": "notary",
+          "document_type": "preliminary_contract",
+          "signature_hash": "a8a6c8db08733299b822e0ec8817be436c35e8173b8475206966dce6e20f9928",
+          "timestamp": "2025-05-28T16:22:07.692794",
+          "metadata": {}
+        },
+        {
+          "signature_id": "3507e11c-7f6f-4c45-8554-22c63646b5c0",
+          "signer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+          "signer_type": "buyer",
+          "document_type": "preliminary_contract",
+          "signature_hash": "5e377385bd65a334a7aefdb51b7ac75fb5a61b9ce71874fba1bb99dace1a5e56",
+          "timestamp": "2025-05-28T16:22:30.194937",
+          "metadata": {}
+        },
+        {
+          "signature_id": "d58046e3-d0c6-479b-afdf-0bdbfc61c545",
+          "signer_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+          "signer_type": "agent",
+          "document_type": "preliminary_contract",
+          "signature_hash": "74b5b2764cc8c7a3453ccb67f7909187c95e69aee9dfa64267feffc61ea8e5e5",
+          "timestamp": "2025-05-28T16:22:35.291283",
+          "metadata": {}
+        }
+      ],
+      "final_purchase_contract": [
+        {
+          "signature_id": "b110fcd5-ad90-4227-865f-dceaa4d4fc2a",
+          "signer_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "signer_type": "notary",
+          "document_type": "final_purchase_contract",
+          "signature_hash": "1fb394a5b86a0fdf936f1d87213da83926bf3f4d903225fbce9f69177a971d37",
+          "timestamp": "2025-05-28T16:24:43.203557",
+          "metadata": {}
+        },
+        {
+          "signature_id": "c9350622-6b18-41a8-912a-0965d6c9ec6f",
+          "signer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+          "signer_type": "buyer",
+          "document_type": "final_purchase_contract",
+          "signature_hash": "7ae6832cba169bd48c8505f1adc224a01cbf8546f8c48a43532be45be38bd41b",
+          "timestamp": "2025-05-28T16:25:01.925200",
+          "metadata": {}
+        },
+        {
+          "signature_id": "6f6258c6-1989-48f1-afa1-4ba41c965298",
+          "signer_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+          "signer_type": "agent",
+          "document_type": "final_purchase_contract",
+          "signature_hash": "48390174591eb45b23f7e6665c19005effdbec025dbc8051f926d46ee3ada26d",
+          "timestamp": "2025-05-28T16:25:06.802669",
+          "metadata": {}
+        }
+      ],
+      "notary_validation_certificate": [
+        {
+          "signature_id": "e678723c-e150-4453-bacb-ccc423f2d846",
+          "signer_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "signer_type": "notary",
+          "document_type": "notary_validation_certificate",
+          "signature_hash": "9e8fe41efe58c85eadbae716c0917e78499f84724181c08103d92dbb35a67b1c",
+          "timestamp": "2025-05-28T16:26:06.841297",
+          "metadata": {}
+        }
+      ]
+    },
+    "current_phase": "completed",
+    "phase_history": [
+      {
+        "from_phase": "reservation",
+        "to_phase": "financial_verification",
+        "advanced_by": "system",
+        "timestamp": "2025-05-28T16:21:06.434103",
+        "automatic": true
+      },
+      {
+        "from_phase": "financial_verification",
+        "to_phase": "preliminary_contract",
+        "advanced_by": "system",
+        "timestamp": "2025-05-28T16:21:06.551803",
+        "automatic": true
+      },
+      {
+        "from_phase": "preliminary_contract",
+        "to_phase": "due_diligence",
+        "advanced_by": "system",
+        "timestamp": "2025-05-28T16:23:17.472305",
+        "automatic": true
+      },
+      {
+        "from_phase": "due_diligence",
+        "to_phase": "final_contract",
+        "advanced_by": "system",
+        "timestamp": "2025-05-28T16:24:19.641997",
+        "automatic": true
+      },
+      {
+        "from_phase": "final_contract",
+        "to_phase": "final_payment",
+        "advanced_by": "system",
+        "timestamp": "2025-05-28T16:25:06.802708",
+        "automatic": true
+      },
+      {
+        "from_phase": "final_payment",
+        "to_phase": "completed",
+        "advanced_by": "system",
+        "timestamp": "2025-05-28T16:26:06.841338",
+        "automatic": true
+      }
+    ],
     "audit_trail": [
       {
-        "audit_id": "173d6c47-ab09-42d3-b057-c9920b5b5b72",
-        "timestamp": "2025-05-28T13:37:34.527920",
+        "audit_id": "6dddc07e-a67d-4e8f-a2df-b22934c8f6b0",
+        "timestamp": "2025-05-28T16:17:57.858191",
         "action": "document_uploaded",
         "user_id": "system",
         "details": {
           "document_type": "reservation_agreement",
-          "document_id": "28152789-b915-471b-8966-b7d3646fc122"
+          "document_id": "b6bee3b2-9762-408c-9163-bf11c2c583ce"
         },
-        "transaction_id": "0b328a48-174a-443b-aa2b-9c82dd886197"
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "6b10b155-5503-40f7-b9bb-ab3fc91d5038",
+        "timestamp": "2025-05-28T16:18:43.603179",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "proof_of_funds",
+          "document_id": "898146da-d635-439f-b6d8-1f2f4214c406"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "72906302-eed8-442c-84b3-1260715be5a8",
+        "timestamp": "2025-05-28T16:18:55.134399",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "mortgage_pre_approval",
+          "document_id": "08b5c107-625a-4345-985b-5eff67250fbf"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "65cb860f-ba7d-42cf-91f5-6c78ec49e14c",
+        "timestamp": "2025-05-28T16:19:19.414198",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "reservation_agreement",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "9e8e7667-7031-43a5-a10c-91a7d0ab155a",
+        "timestamp": "2025-05-28T16:19:48.034489",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "mortgage_pre_approval",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "12505798-703e-4cfc-9a8c-1845aecfd979",
+        "timestamp": "2025-05-28T16:19:52.487439",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "proof_of_funds",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "2f3b80ec-520b-4d3e-b15a-942f8f1055a7",
+        "timestamp": "2025-05-28T16:21:02.305526",
+        "action": "document_signed",
+        "user_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "details": {
+          "document_type": "reservation_agreement",
+          "signer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+          "signer_type": "buyer",
+          "signature_id": "3399fc33-4e08-4612-80dd-da33b9766b81"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "6cac5f86-6993-4ccc-a962-5c6681b54c01",
+        "timestamp": "2025-05-28T16:21:06.434064",
+        "action": "document_signed",
+        "user_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+        "details": {
+          "document_type": "reservation_agreement",
+          "signer_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+          "signer_type": "agent",
+          "signature_id": "85c10509-78a5-40b8-b813-25714ad4a891"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "b038c90f-0f5b-4de0-b3ad-b659928f7505",
+        "timestamp": "2025-05-28T16:21:06.434131",
+        "action": "phase_advanced",
+        "user_id": "system",
+        "details": {
+          "old_phase": "reservation",
+          "new_phase": "financial_verification",
+          "advanced_by": "system"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "88fbebbc-5183-42e7-8835-4934b5cca909",
+        "timestamp": "2025-05-28T16:21:06.552063",
+        "action": "phase_advanced",
+        "user_id": "system",
+        "details": {
+          "old_phase": "financial_verification",
+          "new_phase": "preliminary_contract",
+          "advanced_by": "system"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "d143de13-aa41-40d5-bfb4-4d885d07e6a4",
+        "timestamp": "2025-05-28T16:21:56.064803",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "preliminary_contract",
+          "document_id": "265f6216-a7b1-4b71-be1d-4f4ddb7996ae"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "292f0484-6a1d-4f9b-8757-8ec70bde2824",
+        "timestamp": "2025-05-28T16:22:05.845705",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "preliminary_contract",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "aac9369e-8db9-494d-bbfb-6abac90e36d2",
+        "timestamp": "2025-05-28T16:22:07.692818",
+        "action": "document_signed",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "preliminary_contract",
+          "signer_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "signer_type": "notary",
+          "signature_id": "cfd46ba0-4bd9-4b8e-80b5-0c109f555045"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "ac3ea68d-1902-49b4-bb86-181ebf3ad67c",
+        "timestamp": "2025-05-28T16:22:30.194944",
+        "action": "document_signed",
+        "user_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "details": {
+          "document_type": "preliminary_contract",
+          "signer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+          "signer_type": "buyer",
+          "signature_id": "3507e11c-7f6f-4c45-8554-22c63646b5c0"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "db14f0c4-c193-427a-b516-5aec74190429",
+        "timestamp": "2025-05-28T16:22:35.291290",
+        "action": "document_signed",
+        "user_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+        "details": {
+          "document_type": "preliminary_contract",
+          "signer_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+          "signer_type": "agent",
+          "signature_id": "d58046e3-d0c6-479b-afdf-0bdbfc61c545"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "1116b27a-002c-47ed-b9f0-590465484d23",
+        "timestamp": "2025-05-28T16:23:06.429437",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "deposit_payment_proof",
+          "document_id": "71e60223-4844-4d45-a262-ca7d5c85e80a"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "d4d4788d-74f5-4623-b4af-a974434b1b23",
+        "timestamp": "2025-05-28T16:23:17.472295",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "deposit_payment_proof",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "04f6531a-1dd9-4931-8ab5-b85dde03db7b",
+        "timestamp": "2025-05-28T16:23:17.472341",
+        "action": "phase_advanced",
+        "user_id": "system",
+        "details": {
+          "old_phase": "preliminary_contract",
+          "new_phase": "due_diligence",
+          "advanced_by": "system"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "9f0e3148-be8f-44f5-8db5-e07982ec02ff",
+        "timestamp": "2025-05-28T16:23:54.379168",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "due_diligence_documents",
+          "document_id": "322e1550-6d0a-4e75-96e8-a4e9631ddd17"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "f91c43ba-d814-4148-8ee0-ef7bbc446978",
+        "timestamp": "2025-05-28T16:24:19.641990",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "due_diligence_documents",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "8f6d1dcd-2523-4b77-b4ac-348e8e164c1d",
+        "timestamp": "2025-05-28T16:24:19.642011",
+        "action": "phase_advanced",
+        "user_id": "system",
+        "details": {
+          "old_phase": "due_diligence",
+          "new_phase": "final_contract",
+          "advanced_by": "system"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "ce2ebdf6-4a4d-415f-82b7-10700fb4cb30",
+        "timestamp": "2025-05-28T16:24:39.475936",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "final_purchase_contract",
+          "document_id": "4c8c73b6-eafa-4c04-8902-bed309660721"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "6713de14-f0b6-45ee-94b7-cb42e6b96e50",
+        "timestamp": "2025-05-28T16:24:41.754356",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "final_purchase_contract",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "11a3a959-34d5-48e6-85bd-4d2caa9d4e1b",
+        "timestamp": "2025-05-28T16:24:43.203565",
+        "action": "document_signed",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "final_purchase_contract",
+          "signer_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "signer_type": "notary",
+          "signature_id": "b110fcd5-ad90-4227-865f-dceaa4d4fc2a"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "fe7b6643-839d-4e91-b7cd-52193f4e5796",
+        "timestamp": "2025-05-28T16:25:01.925206",
+        "action": "document_signed",
+        "user_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "details": {
+          "document_type": "final_purchase_contract",
+          "signer_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+          "signer_type": "buyer",
+          "signature_id": "c9350622-6b18-41a8-912a-0965d6c9ec6f"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "6f6c0336-2118-4a3c-bff1-cca877690483",
+        "timestamp": "2025-05-28T16:25:06.802676",
+        "action": "document_signed",
+        "user_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+        "details": {
+          "document_type": "final_purchase_contract",
+          "signer_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+          "signer_type": "agent",
+          "signature_id": "6f6258c6-1989-48f1-afa1-4ba41c965298"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "487fe04c-d901-4715-8cd7-2cb3fe0204e6",
+        "timestamp": "2025-05-28T16:25:06.802717",
+        "action": "phase_advanced",
+        "user_id": "system",
+        "details": {
+          "old_phase": "final_contract",
+          "new_phase": "final_payment",
+          "advanced_by": "system"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "ec55d1ad-92ab-4bab-ae8c-0e900652e166",
+        "timestamp": "2025-05-28T16:25:35.312905",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "final_payment_proof",
+          "document_id": "6a9223f5-0566-4942-bfef-a35c8ad0aebb"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "c2d8c540-78dd-432f-8124-9f848779153c",
+        "timestamp": "2025-05-28T16:25:59.728934",
+        "action": "document_uploaded",
+        "user_id": "system",
+        "details": {
+          "document_type": "notary_validation_certificate",
+          "document_id": "f8126a4a-963d-4cf8-8f8c-3bfcce4ca118"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "9ba35826-2371-4c15-a651-bea9b84b0327",
+        "timestamp": "2025-05-28T16:26:02.166402",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "notary_validation_certificate",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "89e90561-d622-4e33-ae64-ffa51debca6f",
+        "timestamp": "2025-05-28T16:26:04.580673",
+        "action": "document_validated",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "final_payment_proof",
+          "validation_status": true,
+          "validator_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "notes": "Document validated by notary"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "77d4d5fd-47f9-4ade-9bf2-dc56dd483509",
+        "timestamp": "2025-05-28T16:26:06.841310",
+        "action": "document_signed",
+        "user_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "details": {
+          "document_type": "notary_validation_certificate",
+          "signer_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+          "signer_type": "notary",
+          "signature_id": "e678723c-e150-4453-bacb-ccc423f2d846"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "450f4e44-e180-4668-9cc1-bb25fdb6b0ba",
+        "timestamp": "2025-05-28T16:26:06.841348",
+        "action": "phase_advanced",
+        "user_id": "system",
+        "details": {
+          "old_phase": "final_payment",
+          "new_phase": "completed",
+          "advanced_by": "system"
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
+      },
+      {
+        "audit_id": "58dbb6b3-ceee-4ead-bb4a-3fb7b28b0a7d",
+        "timestamp": "2025-05-28T16:27:09.041426",
+        "action": "status_changed",
+        "user_id": "system",
+        "details": {
+          "old_status": "pending",
+          "new_status": "approved",
+          "notes": ""
+        },
+        "transaction_id": "209ba8d4-f9f4-4e32-acec-e6015a210050"
       }
     ],
     "transaction_date": null,
-    "final_price": 2000.0,
-    "status": "pending",
+    "final_price": 70000.0,
+    "status": "approved",
     "scheduled_meetings": [],
     "additional_docs": {},
     "document_validation_status": {
       "reservation_agreement": {
-        "document_id": "28152789-b915-471b-8966-b7d3646fc122",
-        "validation_status": false,
+        "document_id": "b6bee3b2-9762-408c-9163-bf11c2c583ce",
+        "validation_status": true,
         "uploaded_by": null,
-        "upload_date": "2025-05-28T13:37:34.527911",
-        "validated_by": null,
-        "validation_date": null,
-        "validation_notes": "",
+        "upload_date": "2025-05-28T16:17:57.858164",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T16:19:19.413340",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": true,
+        "signing_completed_date": "2025-05-28T16:21:06.434081"
+      },
+      "proof_of_funds": {
+        "document_id": "898146da-d635-439f-b6d8-1f2f4214c406",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T16:18:43.603159",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T16:19:52.486776",
+        "validation_notes": "Document validated by notary",
         "fully_signed": false,
         "signing_completed_date": null
+      },
+      "mortgage_pre_approval": {
+        "document_id": "08b5c107-625a-4345-985b-5eff67250fbf",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T16:18:55.134388",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T16:19:48.033710",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": false,
+        "signing_completed_date": null
+      },
+      "preliminary_contract": {
+        "document_id": "265f6216-a7b1-4b71-be1d-4f4ddb7996ae",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T16:21:56.064790",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T16:22:05.844945",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": true,
+        "signing_completed_date": "2025-05-28T16:22:35.291305"
+      },
+      "deposit_payment_proof": {
+        "document_id": "71e60223-4844-4d45-a262-ca7d5c85e80a",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T16:23:06.429389",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T16:23:17.471555",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": false,
+        "signing_completed_date": null
+      },
+      "due_diligence_documents": {
+        "document_id": "322e1550-6d0a-4e75-96e8-a4e9631ddd17",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T16:23:54.379141",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T16:24:19.641256",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": false,
+        "signing_completed_date": null
+      },
+      "final_purchase_contract": {
+        "document_id": "4c8c73b6-eafa-4c04-8902-bed309660721",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T16:24:39.475893",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T16:24:41.753674",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": true,
+        "signing_completed_date": "2025-05-28T16:25:06.802698"
+      },
+      "final_payment_proof": {
+        "document_id": "6a9223f5-0566-4942-bfef-a35c8ad0aebb",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T16:25:35.312883",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T16:26:04.580095",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": false,
+        "signing_completed_date": null
+      },
+      "notary_validation_certificate": {
+        "document_id": "f8126a4a-963d-4cf8-8f8c-3bfcce4ca118",
+        "validation_status": true,
+        "uploaded_by": null,
+        "upload_date": "2025-05-28T16:25:59.728923",
+        "validated_by": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "validation_date": "2025-05-28T16:26:02.165789",
+        "validation_notes": "Document validated by notary",
+        "fully_signed": true,
+        "signing_completed_date": "2025-05-28T16:26:06.841326"
       }
     },
-    "created_date": "2025-05-28T13:37:34.523822",
-    "last_updated": "2025-05-28T13:37:34.527928",
+    "created_date": "2025-05-28T16:17:57.850419",
+    "last_updated": "2025-05-28T16:27:09.041416",
     "transaction_notes": [
       {
-        "note_id": "4c7bbe2a-c9bb-4598-8e3b-39e3a6011867",
-        "note": "Reservation payment processed successfully. Amount: \u20ac100.00, Transaction ID: 7c890dd3-80a5-42a9-b399-8b682348d37f",
+        "note_id": "a5980d43-b50a-4f47-82cf-fae80791dce6",
+        "note": "Reservation payment processed successfully. Amount: \u20ac3,500.00, Transaction ID: bc7ccfbb-1f2d-46a9-9d99-c58eb1f2d400",
         "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
         "note_type": "payment",
-        "timestamp": "2025-05-28T13:37:34.523920",
+        "timestamp": "2025-05-28T16:17:57.850650",
         "visibility": "all"
       },
       {
-        "note_id": "b109efed-6963-41f4-a84b-4bafb1485a72",
+        "note_id": "f96ad4de-de40-4da0-972d-94606d011731",
         "note": "Reservation Agreement automatically generated after successful payment",
         "author_id": "system",
         "note_type": "document_upload",
-        "timestamp": "2025-05-28T13:37:34.527928",
+        "timestamp": "2025-05-28T16:17:57.858201",
+        "visibility": "all"
+      },
+      {
+        "note_id": "f1265fb3-067b-4285-84b0-864f3f2adb14",
+        "note": "Document uploaded: \ud83d\udcb0 Proof of Funds.",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T16:18:43.603211",
+        "visibility": "all"
+      },
+      {
+        "note_id": "4042e8ba-ddb1-4a56-8ac1-019d51813982",
+        "note": "Document uploaded: \ud83c\udfe6 Mortgage Pre-Approval.",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T16:18:55.134410",
+        "visibility": "all"
+      },
+      {
+        "note_id": "2c42c323-28bc-4d2d-bea4-57b9489c9bd0",
+        "note": "Document Reservation Agreement approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T16:19:19.414135",
+        "visibility": "all"
+      },
+      {
+        "note_id": "571dfb0f-ce02-4f42-87c2-bfb680c4b724",
+        "note": "Document Mortgage Pre Approval approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T16:19:48.034456",
+        "visibility": "all"
+      },
+      {
+        "note_id": "404086ed-acc1-48a0-9553-f9d739ba531d",
+        "note": "Document Proof Of Funds approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T16:19:52.487420",
+        "visibility": "all"
+      },
+      {
+        "note_id": "d2acfaa2-05fc-4cae-8ba6-3b484a2e7381",
+        "note": "Document signed: \ud83c\udfe0 Reservation Agreement",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T16:21:02.305535",
+        "visibility": "all"
+      },
+      {
+        "note_id": "5570efd3-de01-4ad6-9bd8-a0813cb2a745",
+        "note": "Document signed: \ud83c\udfe0 Reservation Agreement",
+        "author_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T16:21:06.434074",
+        "visibility": "all"
+      },
+      {
+        "note_id": "b2b47273-3db5-4189-be7d-c2dde8150e3b",
+        "note": "Document fully signed: \ud83c\udfe0 Reservation Agreement",
+        "author_id": "system",
+        "note_type": "signature_complete",
+        "timestamp": "2025-05-28T16:21:06.434087",
+        "visibility": "all"
+      },
+      {
+        "note_id": "20fa4ca9-3f2a-477f-b429-70edd71d1bad",
+        "note": "Phase advanced from \ud83c\udfe0 Property Reservation to \ud83d\udcb0 Financial Verification",
+        "author_id": "system",
+        "note_type": "phase_complete",
+        "timestamp": "2025-05-28T16:21:06.434117",
+        "visibility": "all"
+      },
+      {
+        "note_id": "4bdcf482-0359-49c3-b30f-46418420aac7",
+        "note": "Phase advanced from \ud83d\udcb0 Financial Verification to \ud83d\udccb Preliminary Contract",
+        "author_id": "system",
+        "note_type": "phase_complete",
+        "timestamp": "2025-05-28T16:21:06.552055",
+        "visibility": "all"
+      },
+      {
+        "note_id": "972f1aea-6817-45be-91d2-3781e3ae078e",
+        "note": "Document uploaded: \ud83d\udccb Preliminary Contract.",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T16:21:56.064813",
+        "visibility": "all"
+      },
+      {
+        "note_id": "d0f2aea2-1752-48e5-9e77-665d1254e348",
+        "note": "Document Preliminary Contract approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T16:22:05.845693",
+        "visibility": "all"
+      },
+      {
+        "note_id": "80c734d6-2dfd-4ae3-958d-e9ca7d9b92f1",
+        "note": "Document signed: \ud83d\udccb Preliminary Contract",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T16:22:07.692844",
+        "visibility": "all"
+      },
+      {
+        "note_id": "198b32f4-d0b5-4d82-a8f5-f9aa5b7aee71",
+        "note": "Document signed: \ud83d\udccb Preliminary Contract",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T16:22:30.194953",
+        "visibility": "all"
+      },
+      {
+        "note_id": "fbecdb35-4b2d-4e0d-bacf-111c361efcf2",
+        "note": "Document signed: \ud83d\udccb Preliminary Contract",
+        "author_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T16:22:35.291298",
+        "visibility": "all"
+      },
+      {
+        "note_id": "536681b7-2841-4877-bc49-cff40b289dff",
+        "note": "Document fully signed: \ud83d\udccb Preliminary Contract",
+        "author_id": "system",
+        "note_type": "signature_complete",
+        "timestamp": "2025-05-28T16:22:35.291310",
+        "visibility": "all"
+      },
+      {
+        "note_id": "0e2cefc5-0fb9-426b-9837-c5ecfb6ff1d9",
+        "note": "Document uploaded: \ud83d\udcb3 Deposit Payment Proof.",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T16:23:06.429451",
+        "visibility": "all"
+      },
+      {
+        "note_id": "bf0bd2a6-771b-44c9-af0c-13090ac4272a",
+        "note": "Document Deposit Payment Proof approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T16:23:17.472287",
+        "visibility": "all"
+      },
+      {
+        "note_id": "0a14cbf9-4684-49b5-972a-d52a540c8e47",
+        "note": "Phase advanced from \ud83d\udccb Preliminary Contract to \ud83d\udd0d Due Diligence",
+        "author_id": "system",
+        "note_type": "phase_complete",
+        "timestamp": "2025-05-28T16:23:17.472332",
+        "visibility": "all"
+      },
+      {
+        "note_id": "f29552cd-f54b-4a9f-b464-ce68db391cc2",
+        "note": "Document uploaded: \ud83d\udd0d Due Diligence Documents.",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T16:23:54.379181",
+        "visibility": "all"
+      },
+      {
+        "note_id": "3a77ade2-b046-497b-81e6-e57e3821f14a",
+        "note": "Document Due Diligence Documents approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T16:24:19.641939",
+        "visibility": "all"
+      },
+      {
+        "note_id": "d89942a4-c8d9-4a43-a1eb-80f77a7dc64a",
+        "note": "Phase advanced from \ud83d\udd0d Due Diligence to \u270d\ufe0f Final Contract",
+        "author_id": "system",
+        "note_type": "phase_complete",
+        "timestamp": "2025-05-28T16:24:19.642006",
+        "visibility": "all"
+      },
+      {
+        "note_id": "86ab8802-6d87-4798-971f-54ee1be5cc9e",
+        "note": "Document uploaded: \u270d\ufe0f Final Purchase Contract.",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T16:24:39.475990",
+        "visibility": "all"
+      },
+      {
+        "note_id": "355334c5-871e-4ad3-b56b-0b1f09184616",
+        "note": "Document Final Purchase Contract approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T16:24:41.754350",
+        "visibility": "all"
+      },
+      {
+        "note_id": "1fcc19bb-2f78-45b7-9820-46452b32c099",
+        "note": "Document signed: \u270d\ufe0f Final Purchase Contract",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T16:24:43.203573",
+        "visibility": "all"
+      },
+      {
+        "note_id": "beb72bd9-8ea5-4c84-9687-6d39f67e0b95",
+        "note": "Document signed: \u270d\ufe0f Final Purchase Contract",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T16:25:01.925215",
+        "visibility": "all"
+      },
+      {
+        "note_id": "84859916-56fb-4b59-8b35-2195fc5fdc82",
+        "note": "Document signed: \u270d\ufe0f Final Purchase Contract",
+        "author_id": "40f4cbbb-2936-4413-aca1-57c9cb816baf",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T16:25:06.802687",
+        "visibility": "all"
+      },
+      {
+        "note_id": "bb462be7-b4d0-4fe8-acac-46dbbe002053",
+        "note": "Document fully signed: \u270d\ufe0f Final Purchase Contract",
+        "author_id": "system",
+        "note_type": "signature_complete",
+        "timestamp": "2025-05-28T16:25:06.802702",
+        "visibility": "all"
+      },
+      {
+        "note_id": "6d6bc22c-8d55-4f1f-9930-6aa9243caa1a",
+        "note": "Phase advanced from \u270d\ufe0f Final Contract to \ud83d\udcb3 Final Payment",
+        "author_id": "system",
+        "note_type": "phase_complete",
+        "timestamp": "2025-05-28T16:25:06.802713",
+        "visibility": "all"
+      },
+      {
+        "note_id": "66aa3a15-193e-4d2e-abc7-a66c92836a48",
+        "note": "Document uploaded: \ud83d\udcb8 Final Payment Proof.",
+        "author_id": "1aaf589c-3a54-4ef9-9dcc-3350dc3173f1",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T16:25:35.312923",
+        "visibility": "all"
+      },
+      {
+        "note_id": "7d247856-aefc-45f6-a167-87b33fec8662",
+        "note": "Document uploaded: \u2696\ufe0f Notary Validation Certificate.",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "document_upload",
+        "timestamp": "2025-05-28T16:25:59.728943",
+        "visibility": "all"
+      },
+      {
+        "note_id": "28db6155-9f25-478e-88d6-9eaf45323f95",
+        "note": "Document Notary Validation Certificate approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T16:26:02.166395",
+        "visibility": "all"
+      },
+      {
+        "note_id": "c73e70b4-f47c-4856-b85f-dee1349c78aa",
+        "note": "Document Final Payment Proof approved. Document validated by notary",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "validation",
+        "timestamp": "2025-05-28T16:26:04.580668",
+        "visibility": "all"
+      },
+      {
+        "note_id": "4e187817-466c-4458-a431-cd269ad0588c",
+        "note": "Document signed: \u2696\ufe0f Notary Validation Certificate",
+        "author_id": "ed09a8e3-05af-4883-87e9-9163a36bdfac",
+        "note_type": "signature",
+        "timestamp": "2025-05-28T16:26:06.841320",
+        "visibility": "all"
+      },
+      {
+        "note_id": "8d888c63-9345-4ced-a83c-db8068161849",
+        "note": "Document fully signed: \u2696\ufe0f Notary Validation Certificate",
+        "author_id": "system",
+        "note_type": "signature_complete",
+        "timestamp": "2025-05-28T16:26:06.841332",
+        "visibility": "all"
+      },
+      {
+        "note_id": "bc2b434a-dfed-4a74-ac91-d2699c2f446c",
+        "note": "Phase advanced from \ud83d\udcb3 Final Payment to \ud83d\udd11 Key Handover",
+        "author_id": "system",
+        "note_type": "phase_complete",
+        "timestamp": "2025-05-28T16:26:06.841344",
+        "visibility": "all"
+      },
+      {
+        "note_id": "0ad71a87-418c-4be1-b580-9e22f0b0a8c5",
+        "note": "Status changed from pending to approved.",
+        "author_id": "system",
+        "note_type": "general",
+        "timestamp": "2025-05-28T16:27:09.041415",
         "visibility": "all"
       }
     ]
