@@ -2,6 +2,9 @@
 Updated App.py - Integrated with Enhanced Buying System
 Includes payment processing, document management, and chat system
 """
+import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import streamlit as st
 from gpp.interface.config.constants import APP_CONFIG
@@ -11,7 +14,6 @@ from gpp.interface.dashboards.agent_dashboard import agent_dashboard
 from gpp.interface.dashboards.notary_dashboard import notary_dashboard
 from gpp.interface.dashboards.buyer_dashboard import buyer_dashboard
 from gpp.interface.utils.user_management import get_or_create_user
-import os
 
 # Import enhanced buying system components
 from gpp.interface.components.shared.buying_components import (
